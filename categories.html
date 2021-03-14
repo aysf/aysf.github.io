@@ -1,90 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
+        <!--fontawesome -->
+        <link href="/theme/css/all.css" rel="stylesheet">
+        <!--material icons https://github.com/google/material-design-icons -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Icons"
+            rel="stylesheet">
+        <!-- materialize css -->
+        <link rel="stylesheet" href="/theme/css/materialize.min.css">
+        <title>aysf</title>
+        <style>
+            header {
+                background: url(/theme/images/header.jpg);
+                background-size: cover;
+                background-position: center;
+                min-height: 1000px;
+            }
+            
+            body {
+                   background-color: black;
+            }
+            p {
+                     color: white;
+            }
 
-        <title>aysf's notes</title>
-        <meta charset="utf-8" />
+            @media screen and (max-width: 670px) {
+                header {
+                    min-height: 500px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- navbar -->
+        <header>
+            <div class="container container-section">
+                <nav class="nav-wrapper transparent">
+                    <a href="#" class="brand-logo">aysf</a>
+                    <a href="" class="sidenav-trigger" data-target="mobile-menu">
+                        <i class="material-icons">menu</i>
+                    </a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            <li >
+                                <a href="/pages/about-us.html">
+                                    About Us
+                                </a>
+                            </li>
+                            <li >
+                                <a href="/pages/unduhan.html">
+                                    Unduhan
+                                </a>
+                            </li>
+                    </ul>
+                    <ul class="sidenav grey lighten-2" id="mobile-menu">
+                            <li >
+                                <a href="/pages/about-us.html">
+                                    About Us
+                                </a>
+                            </li>
+                            <li >
+                                <a href="/pages/unduhan.html">
+                                    Unduhan
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </nav>
 
+        </header>
 
-        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
-        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
-
-        <link rel="stylesheet" type="text/css" href="/theme/gumby.css" />
-        <link rel="stylesheet" type="text/css" href="/theme/style.css" />
-        <link rel="stylesheet" type="text/css" href="/theme/pygment.css" />
-
-        <script src="/theme/js/libs/modernizr-2.6.2.min.js"></script>
-
-
-
-
-</head>
-
-<body id="index" class="home">
-
-
-    <div class="container">
-
-        <div class="row">
-
-          <header id="banner" class="body">
-                  <h1><a href="/">aysf's notes <strong></strong></a></h1>
-          </header><!-- /#banner -->
-
-            <div id="navigation" class="navbar row">
-              <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
-             
-              <ul class="columns">
-                <li><a href="/">Home</a></li>
-
-                <li><a href="/pages/about-us.html">About Us</a></li>
-                <li><a href="/pages/unduhan.html">Unduhan</a></li>
-
-              </ul>
-            </div>
-
-<ul>
-    <li><a href="/category/my-story.html">my story</a></li>
-    <li><a href="/category/pendidikan.html">pendidikan</a></li>
-</ul>
-
-       </div><!-- /.row -->
-    </div><!-- /.container -->
-
-
-       <div class="container.nopad bg">
-
-    
-        <footer id="credits" class="row">
-          <div class="seven columns left-center">
-
-                   <address id="about" class="vcard body">
-                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
-                    which takes great advantage of <a href="http://python.org">Python</a>.
-                    <br />
-                    Based on the <a target="_blank" href="http://gumbyframework.com">Gumby Framework</a>
-                    </address>
-          </div>
-
-
-          <div class="seven columns">
+        <!-- photo -->
+        <section class="container section" id="photos">
             <div class="row">
-              <ul class="socbtns">
-
-
-
-
-
-              </ul>
+                <div class="col s12 l4">
+                    <img src="/theme/images/drawing.jpg" alt="" class="responsive-img">
+                </div>
+                <div class="col s12 l8">
+                    <h2 class="white-text text-darken-4">Drawings</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, voluptas reiciendis quibusdam eos, minus aspernatur non totam
+                    </p>
+                </div>
             </div>
-          </div>
-        </footer>
+            <div class="row">
+                <div class="col s12 l4">
+                    <img src="/theme/images/analysis.jpg" alt="" class="responsive-img">
+                </div>
+                <div class="col s12 l8">
+                    <h2 class="white-text text-darken-4">Analysis</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, voluptas reiciendis quibusdam eos, minus aspernatur non totam
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 l4">
+                    <img src="/theme/images/programming.jpg" alt="" class="responsive-img">
+                </div>
+                <div class="col s12 l8">
+                    <h2 class="white-text text-darken-4">Programming</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, voluptas reiciendis quibusdam eos, minus aspernatur non totam
+                    </p>
+                </div>
+            </div>
 
-    </div>
 
 
-  <script src="/theme/js/libs/jquery-1.9.1.min.js"></script>
-  <script src="/theme/js/libs/gumby.min.js"></script>
-  <script src="/theme/js/plugins.js"></script>
-</body>
+            <div class="row">
+                   <div class="col l4" style="background-color: red; height: 200px;"></div>
+                   <div class="col l4" style="background-color: black; height: 200px;"></div>
+                   <div class="col l4" style="background-color: pink; height: 200px;"></div>
+            </div>
+        </section>
+
+        <!-- parallax -->
+
+        <!-- services -->
+
+        <!-- parallax -->
+
+        <!-- contact form -->
+
+        <!-- footer -->
+
+        <!-- compiled and minified javascript lib -->
+        <script src="/theme/js/jquery-3.6.0.min.js"></script>
+        <script src="/theme/js/materialize.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('.sidenav').sidenav();
+            });
+        </script>
+    </body>
 </html>
