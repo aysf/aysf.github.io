@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Aysf - programming</title><link href="https://aysf.github.io/" rel="alternate"></link><link href="https://aysf.github.io/feeds/programming.atom.xml" rel="self"></link><id>https://aysf.github.io/</id><updated>2021-03-21T14:26:00+08:00</updated><subtitle>catatan belajar coding dan teknik</subtitle><entry><title>Mengenal Pemograman Ruby</title><link href="https://aysf.github.io/mengenal-ruby.html" rel="alternate"></link><published>2021-03-21T13:25:00+08:00</published><updated>2021-03-21T14:26:00+08:00</updated><author><name>Ananto</name></author><id>tag:aysf.github.io,2021-03-21:/mengenal-ruby.html</id><summary type="html">&lt;p&gt;Ruby adalah bahasa pemograman open source dinamis, mudah dimengerti dan produktif. Sintaks Ruby elegan, natural, mudah dibaca dan ditulis.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Apa itu Ruby?&lt;/h2&gt;
-&lt;p&gt;Ruby adalah bahasa pemograman open source dinamis, mudah dimengerti dan produktif. Sintaks Ruby elegan, natural, mudah dibaca dan ditulis. Dibuat pertama kali oleh seorang programmer Jepang bernama Yukihiro Matsumoto dari tahun 1993 dengan rilis versi alfa pertama pada Desember 1994. &lt;a href="https://en.wiktionary.org/wiki/Rubyist"&gt;Rubyist&lt;/a&gt; adalah sebutan bagi programmer yang menggunakan bahasa pemograman Ruby.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Aysf - programming</title><link href="http://localhost:8000/" rel="alternate"></link><link href="http://localhost:8000/feeds/programming.atom.xml" rel="self"></link><id>http://localhost:8000/</id><updated>2021-03-21T14:26:00+08:00</updated><subtitle>catatan belajar coding dan teknik</subtitle><entry><title>Mengenal Pemograman Ruby</title><link href="http://localhost:8000/mengenal-ruby.html" rel="alternate"></link><published>2021-03-21T13:25:00+08:00</published><updated>2021-03-21T14:26:00+08:00</updated><author><name>Ananto</name></author><id>tag:localhost,2021-03-21:/mengenal-ruby.html</id><summary type="html">&lt;p&gt;Ruby adalah bahasa pemograman open source dinamis, mudah dimengerti dan produktif. Sintaks Ruby elegan, natural, mudah dibaca dan ditulis.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Apa itu Ruby?&lt;/h2&gt;
+&lt;p&gt;Ruby adalah bahasa pemograman open source dinamis, mudah dimengerti dan produktif. Sintaks Ruby elegan, natural, mudah dibaca dan ditulis. Ruby dibuat pertama kali oleh seorang programmer Jepang bernama Yukihiro Matsumoto dari tahun 1993 dengan rilis versi alfa pertama pada Desember 1994. &lt;a href="https://en.wiktionary.org/wiki/Rubyist"&gt;Rubyist&lt;/a&gt; adalah sebutan bagi programmer yang menggunakan bahasa pemograman Ruby.&lt;/p&gt;
 &lt;h2&gt;Mengapa kita perlu belajar Pemograman Ruby&lt;/h2&gt;
 &lt;p&gt;Ruby, meski tidak sepopular Python, masih menduduki 10 besar bahasa pemograman tahun 2014-2020 versi Github &lt;a href="https://octoverse.github.com/"&gt;octoverse&lt;/a&gt;. Dari sisi pembuatan website, pemograman Ruby dengan Ruby on Rails (RoR) memiliki kontributor yang paling banyak, yakni lebih dari 4000, sedangkan Python dengan Django-nya berada di urutan ke dua dengan jumlah kontributor setengah dari RoR &lt;a href="https://ansuf.tumblr.com/post/644828101185060864/web-framework-for-back-end"&gt;baca di sini&lt;/a&gt;. Beberapa website popular yang menggunakan RoR diantaranya Github, AirBnB dan Bukalapak. Beberapa lembaga kursus siap kerja juga memasukan Ruby sebagai kurikulumnya seperti &lt;a href="https://support.microverse.org/en/articles/2578055-why-does-microverse-teach-ruby-ruby-on-rails"&gt;Microverse&lt;/a&gt; dan &lt;a href="https://42wolfsburg.de/en/studies/specialization-and-skills/"&gt;42 Wolfsburg&lt;/a&gt;.  &lt;/p&gt;
-&lt;p&gt;&lt;img alt="Kurikulum 42 Wolfsburg" src="https://aysf.github.io/images/2021-03-wolfsburg-curriculum.gif" title="Kurikulum di Wolfsburg"&gt;
+&lt;p&gt;&lt;img alt="Kurikulum 42 Wolfsburg" src="http://localhost:8000/images/2021-03-wolfsburg-curriculum.gif" title="Kurikulum di Wolfsburg"&gt;
 &lt;center&gt;Kurikulum 42-Wolfsburg&lt;/center&gt;&lt;/p&gt;
 &lt;h2&gt;Cara Instalasi Ruby&lt;/h2&gt;
 &lt;p&gt;cara instal Ruby dengan melalui terminal di Ubuntu cukup mudah, yakni&lt;/p&gt;
@@ -45,7 +45,11 @@ Array dan Hash. Untuk memulai belajar Ruby, aku menggunakan Visual Studio Code k
 &lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_f&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;selain &lt;code&gt;.even?&lt;/code&gt; dan &lt;code&gt;.to_f&lt;/code&gt;, metode lainnya dapat dilihat dengan menggunakan perintah &lt;code&gt;21.methods&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;selain &lt;code&gt;.even?&lt;/code&gt; dan &lt;code&gt;.to_f&lt;/code&gt;, metode lainnya dapat dilihat dengan menggunakan perintah &lt;code&gt;.methods&lt;/code&gt;. Contohnya dapat dilihat dalam syntax berikut&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="n"&gt;kata&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;methods&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;methods&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 &lt;p&gt;Komparasi digunakan untuk membandingkan dua nilai atau lebih. Syntax komparasi di pemograman Ruby dapat dilihat dalam gambar berikut.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
 &lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
@@ -56,13 +60,101 @@ Array dan Hash. Untuk memulai belajar Ruby, aku menggunakan Visual Studio Code k
 &lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;eql?&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# komparasi tipe data&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
+&lt;p&gt;Komparasi juga dapat digunakan pada string&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;hai&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;halo&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;hai&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;halo&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;a&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;A&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;a&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 &lt;p&gt;String Concatenation dan Interpolation adalah cara untuk menggabungkan String. Contoh pemograman dapat dilihat pada sintax berikut&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;fname&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Sasuke&amp;quot;&lt;/span&gt;
 &lt;span class="n"&gt;lname&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Uchiha&amp;quot;&lt;/span&gt;
-&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;nama lengkapnya adalah &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;fname&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;lname&lt;/span&gt;
-&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;namanya adalah &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;fname&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;, sedangkan marganya &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;lname&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;nama lengkapnya adalah &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;fname&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;lname&lt;/span&gt;        &lt;span class="c1"&gt;#string concatenation&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;namanya adalah &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;fname&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;, sedangkan marganya &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;lname&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="c1"&gt;#string Interpolation&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;String escaping digunakan bilamana aku ingin menulis tanda petik dalam string.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;I&amp;#39;m Flash &lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;the runner&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="programming"></category><category term="ruby"></category></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Menerima input&lt;/h2&gt;
+&lt;p&gt;Untuk dapat menerima input dari user, kita dapat menggunakan syntax &lt;code&gt;gets.chomp&lt;/code&gt;. Contoh pemakaian syntax tersebut dapat dilihat pada kode Berikut&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;### Program Sederhana ###&lt;/span&gt;
+&lt;span class="c1"&gt;#### Selamat Datang ####&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;masukan nama depan anda?&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;nama_depan&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;gets&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;chomp&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;masukan nama belakang anda?&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;nama_belakang&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;gets&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;chomp&lt;/span&gt;
+&lt;span class="n"&gt;karakter_nama&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;nama_depan&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;length&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;nama_belakang&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;length&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;selamat datang &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;nama_depan&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;nama_belakang&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;, jumlah karakter nama anda &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;karakter_nama&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; huruf&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;simpan kode tersebut dalam file bernama &lt;code&gt;welcome.rb&lt;/code&gt; dan jalankan. Contoh hasil pemograman dapat dilihat dalam syntax Berikut&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;~$ ruby welcome.rb
+masukan nama depan anda?
+ananto
+masukan nama belakang anda?
+wicaksono
+selamat datang ananto wicaksono, jumlah karakter nama anda &lt;span class="m"&gt;15&lt;/span&gt; huruf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;membuat &lt;em&gt;method&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Metodh&lt;/em&gt; atau fungsi dalam Python dapat dibuat sendiri dengan menggunakan syntax &lt;code&gt;def&lt;/code&gt; dan ditutup oleh &lt;code&gt;end&lt;/code&gt;. Contoh pemograman membuat metode dapat dilihat dalam kode berikut ini&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;multiply&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first_num&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;second_num&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;first_num&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_f&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;second_num&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_f&lt;/span&gt;  &lt;span class="c1"&gt;# in ruby, last statement return automatically&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;divide&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first_num&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;second_num&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;first_num&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_f&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;second_num&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_f&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;subtract&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first_num&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;second_num&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;first_num&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_f&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;second_num&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_f&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first_num&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;second_num&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;first_num&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;second_num&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;mod&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first_num&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;second_num&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;first_num&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;second_num&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Sekarang mari kita tes metode &lt;code&gt;multiply&lt;/code&gt;, &lt;code&gt;divide&lt;/code&gt;, &lt;code&gt;subtract&lt;/code&gt;, &lt;code&gt;add&lt;/code&gt;, dan &lt;code&gt;mod&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="n"&gt;multiply&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="n"&gt;divide&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="n"&gt;subtract&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="n"&gt;mod&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Percabangan (Branching)&lt;/h2&gt;
+&lt;p&gt;Percabangan atau &lt;em&gt;branching&lt;/em&gt; umumnya menggunakan statement &lt;code&gt;if&lt;/code&gt;, &lt;code&gt;elsif&lt;/code&gt;, dan &lt;code&gt;else&lt;/code&gt;. Untuk lebih jelasnya, perhatikan contoh program berikut ini.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;siapa nama kamu?&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;nama&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;gets&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;chomp&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;berapa umur kamu?&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;umur&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;gets&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;chomp&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;berapa tinggi badan kamu dalam cm?&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;tinggi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;gets&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;chomp&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;umur&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_i&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;umur&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;tinggi&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_i&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="mi"&gt;150&lt;/span&gt;
+  &lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;selamat kakak &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;nama&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;, kamu sudah berhak bikin SIM&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;elsif&lt;/span&gt; &lt;span class="n"&gt;umur&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="n"&gt;tinggi&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;150&lt;/span&gt;
+  &lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;maaf kak &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;nama&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; belum bisa bikin SIM karena umur kakak belum 17 tahun atau tinggi tidak mencapai 150 cm&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;
+  &lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;maaf umur kakak &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;nama&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; sudah melebihi ambang batas bikin SIM&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Pada program tersebut, user disuruh mengisi nama, umur dan tinggi badan. Jika umur dan tinggi badan sesuai yang disyaratkan maka program tersebut akan memberikan ucapan selamat. Jika tidak, maka program akan memberi peringatan pesyaratan mana saja yang belum dipenuhi oleh user.&lt;/p&gt;
+&lt;h2&gt;Referensi&lt;/h2&gt;
+&lt;p&gt;Kini tersedia banyak website yang memberikan materi-materi untuk belajar pemograman Ruby secara gratis diantaranya adalah:    &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="https://www.theodinproject.com/"&gt;The Odin Project&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theodinproject.com/"&gt;Ruby-Lang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://rubylearning.com/"&gt;rubylearning.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.rubyguides.com/ruby-tutorial/"&gt;rubyguides.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Sekian dulu artikel ku tentang pengenalan pemograman Ruby. Jika masih ada waktu dan umur, &lt;em&gt;insya Allah&lt;/em&gt; tulisan ini akan saya &lt;em&gt;update&lt;/em&gt; kembali sesuai perkembangan zaman.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Artikel ini ditulis selama masa karantina di Wisma Atlet Pandemangan&lt;/em&gt;&lt;/p&gt;</content><category term="programming"></category><category term="ruby"></category></entry></feed>
