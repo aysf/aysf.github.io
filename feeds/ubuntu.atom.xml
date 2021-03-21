@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Aysf - Ubuntu</title><link href="https://aysf.github.io/" rel="alternate"></link><link href="https://aysf.github.io/feeds/ubuntu.atom.xml" rel="self"></link><id>https://aysf.github.io/</id><updated>2021-03-22T22:30:00+08:00</updated><subtitle>catatan belajar coding dan teknik</subtitle><entry><title>Kompresi gambar jpeg di Ubuntu</title><link href="https://aysf.github.io/kompresi-gambar-jpeg-di-ubuntu.html" rel="alternate"></link><published>2021-03-22T22:30:00+08:00</published><updated>2021-03-22T22:30:00+08:00</updated><author><name>Ananto</name></author><id>tag:aysf.github.io,2021-03-22:/kompresi-gambar-jpeg-di-ubuntu.html</id><summary type="html">&lt;p&gt;Gambar adalah sebuah komponen yang sering ditampilkan dalam website. Kompresi gambar sangatlah penting untuk mendapatkan ukuran gambar yang optimal sehingga website dapat diakses dengan cepat. Berikut ini beberapa program &lt;em&gt;CLI&lt;/em&gt; yang digunakan untuk mengkompresi gambar.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Untuk dapat mengoptimalkan kecepatan akses sebuah website, maka gambar harus dikompresi secukupnya sehingga diperoleh ukuran yang kecil dengan kualitas yang cukup. Beberapa aplikasi berbasis &lt;em&gt;command line interface&lt;/em&gt; (CLI) yang dapat dijalankan di terminal Ubuntu yang menjadi favorit saya untuk mengecilkan gambar.    &lt;/p&gt;
+&lt;h2&gt;Menggunakan imagemagick untuk memperkecil ukuran&lt;/h2&gt;
+&lt;p&gt;Pertama instal imagemagick dengan perintah&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt install imagemagick
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Kemudian jalankan perintah &lt;code&gt;convert&lt;/code&gt; untuk mengubah ukuran gambar&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;convert  -resize &lt;span class="m"&gt;20&lt;/span&gt;% source.png dest.jpg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;perintah di atas akan memperkecil ukuran gambar 20% dari gambar aslinya.&lt;/p&gt;
+&lt;h2&gt;Kompresi gambar dengan jpegoptim&lt;/h2&gt;
+&lt;p&gt;Cara kedua untuk mendapatkan ukuran gambar yang kecil adalah dengan menggunakan package &lt;code&gt;jpegoptim&lt;/code&gt;. Berbeda dengan &lt;code&gt;convert&lt;/code&gt; nya imagemagick, &lt;code&gt;jpegoptim&lt;/code&gt; memperkecil ukuran file dengan mempertahankan ukuran gambar tersebut. Secara &lt;em&gt;default&lt;/em&gt;, &lt;code&gt;jpegoptim&lt;/code&gt; dapat langsung digunakan untuk optimalisasi gambar dengan perintah sebagai berikut&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;jpegoptim dest.jpg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Jika ingin mendapatkan ukuran lebih spesifik, kita dapat menambahkan opsi ukuran yang kita inginkan. Contoh perintahnya adalah sebagai berikut&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;jpegoptim --size&lt;span class="o"&gt;=&lt;/span&gt;100k dest.jpg --overwrite
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;dimana (k) di atas adalah &lt;em&gt;kilobytes&lt;/em&gt; atau kita bisa menggunakan satuan persen (%).    &lt;/p&gt;
+&lt;p&gt;Untuk dapat menyimpan gambar di folder lain, kita dapat menggunakan perintahnya&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;jpegoptim --size&lt;span class="o"&gt;=&lt;/span&gt;15k dest.jpg --dest ~/Desktop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Beberapa opsi perintah lain pada &lt;code&gt;jpegoptim&lt;/code&gt; adalah sebagai berikut:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;jpegoptim kittens.jpeg cats.jpg feline_good.jpg &lt;span class="c1"&gt;# untuk optimalisasi beberapa gambar sekaligus&lt;/span&gt;
+jpegoptim ~/Pictures/CatPhotos/*.jpeg           &lt;span class="c1"&gt;# untuk optimalisasi semua gambar dalam satu folder&lt;/span&gt;
+man jpegoptim                                   &lt;span class="c1"&gt;# melihat semua opsi perintah jpegoptim&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Jika masih ada aplikasi favorit yang biasa kamu gunakan untuk optimalisasi gambar, silahkan ditulis di kolom komentar :)&lt;/p&gt;
+&lt;p&gt;Referensi:  &lt;br&gt;
+1. &lt;a href="https://askubuntu.com/questions/1164/how-to-easily-resize-images-via-command-line"&gt;stackoverflow: how to easily resize images via command-line&lt;/a&gt;
+2. &lt;a href="https://www.omgubuntu.co.uk/2016/03/how-to-optimize-jpeg-command-line-linux"&gt;omgubuntu: compress Jpeg images on Linux from the terminal&lt;/a&gt;    &lt;/p&gt;
+&lt;p&gt;Semoga bermanfaat    &lt;/p&gt;</content><category term="Ubuntu"></category><category term="tutorial"></category></entry></feed>
