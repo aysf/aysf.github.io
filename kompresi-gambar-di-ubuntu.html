@@ -46,25 +46,24 @@
     <meta name="msapplication-TileColor" content="#333333">
 
 <meta name="author" content="Ananto" />
-<meta name="description" content="Dalam artikel kali ini saya akan menceritakan pengalaman saya terbang dengan menggunakan maskapai Emirates dari Dubai ke Jakarta. Beberapa hal yang menjadi catatan selama perjalanan seperti menu makanan, fasilitas hiburan dan pengalaman terbang." />
-<meta name="keywords" content="travel, flight">
+<meta name="description" content="Gambar adalah sebuah komponen yang sering ditampilkan dalam website. Kompresi gambar sangatlah penting untuk mendapatkan ukuran gambar yang optimal sehingga website dapat diakses dengan cepat. Berikut ini beberapa program CLI yang digunakan untuk mengkompresi gambar." />
+<meta name="keywords" content="tutorial">
 
 
 <meta property="og:site_name" content="Aysf"/>
-<meta property="og:title" content="Pengalaman terbang bersama Emirates"/>
-<meta property="og:description" content="Dalam artikel kali ini saya akan menceritakan pengalaman saya terbang dengan menggunakan maskapai Emirates dari Dubai ke Jakarta. Beberapa hal yang menjadi catatan selama perjalanan seperti menu makanan, fasilitas hiburan dan pengalaman terbang."/>
+<meta property="og:title" content="Kompresi gambar di Ubuntu"/>
+<meta property="og:description" content="Gambar adalah sebuah komponen yang sering ditampilkan dalam website. Kompresi gambar sangatlah penting untuk mendapatkan ukuran gambar yang optimal sehingga website dapat diakses dengan cepat. Berikut ini beberapa program CLI yang digunakan untuk mengkompresi gambar."/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="./pengalaman-emirates.html"/>
+<meta property="og:url" content="./kompresi-gambar-di-ubuntu.html"/>
 <meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2021-03-20 10:10:00+08:00"/>
-<meta property="article:modified_time" content="2021-03-20 10:26:00+08:00"/>
+<meta property="article:published_time" content="2021-03-22 00:20:00+08:00"/>
+<meta property="article:modified_time" content=""/>
 <meta property="article:author" content="./author/ananto.html">
-<meta property="article:section" content="my story"/>
-<meta property="article:tag" content="travel"/>
-<meta property="article:tag" content="flight"/>
+<meta property="article:section" content="Ubuntu"/>
+<meta property="article:tag" content="tutorial"/>
 <meta property="og:image" content="">
 
-  <title>Aysf &ndash; Pengalaman terbang bersama Emirates</title>
+  <title>Aysf &ndash; Kompresi gambar di Ubuntu</title>
 
 </head>
 <body >
@@ -131,26 +130,70 @@
 <article class="single">
   <header>
       
-    <h1 id="pengalaman-emirates">Pengalaman terbang bersama Emirates</h1>
+    <h1 id="kompresi-gambar-di-ubuntu">Kompresi gambar di Ubuntu</h1>
     <p>
-      Posted on Sat 20 March 2021 in <a href="./category/my-story.html">my story</a>
+      Posted on Mon 22 March 2021 in <a href="./category/ubuntu.html">Ubuntu</a>
 
     </p>
   </header>
 
 
   <div>
-    <p>Setelah lulus magister, aku bersama seorang teman pulang menuju kampung halaman di pulau Lombok. Kami mendapatkan penerbangan dengan menggunakan maskapai Emirates rute Warsaw-Dubai-Jakarta.</p>
-<p>Yang paling ku suka dari penerbangan menggunakan Emirates adalah mereka menyajikan <em>warm food</em> sebagai hidangan utama mereka. Berbeda dengan beberapa maskapai lain yang menyajikan makanan yang sudah dingin seperti baru dikeluarkan dari lemari pendingin.</p>
-<p><img alt="Menu makanan siang" src="./images/2021-03-emirates-experiences-2c.jpg" title="menu makan siang emirates"></p>
-<p>Gambar di atas adalah penampangan hidangan makan siang dengan menu kari ayam saat penerbangan Dubai-Jakarta. Sekitar dua jam sebelum mendarat, kami diberi makanan penutup <em>Leicester Merah</em>, keju yang konon berasal dari Leicester, Inggris (<a href="https://id.wikipedia.org/wiki/Keju_Leicester" target="_blank">Wikipedia</a>). Karena suasana malam hari, kamera ponsel ku pun tak mampu menangkap gambar makanan tersebut dengan baik.</p>
-<p><img alt="Makanan penutup" src="./images/2021-03-emirates-experiences-3.jpg"></p>
-<p>Daftar menu yang mereka sajikan dapat diunduh melalui portal jaringan intranet yang terkoneksi dengan wifi pesawat.</p>
+    <p>Untuk dapat mengoptimalkan kecepatan akses sebuah website, maka gambar harus dikompresi secukupnya sehingga diperoleh ukuran yang kecil dengan kualitas yang cukup. Beberapa aplikasi berbasis <em>command line interface</em> (CLI) yang dapat dijalankan di terminal Ubuntu yang menjadi favorit saya untuk mengecilkan gambar.    </p>
+<h2>Menggunakan imagemagick untuk memperkecil ukuran</h2>
+<p>Pertama instal imagemagick dengan perintah</p>
+<div class="highlight"><pre><span></span><code>sudo apt install imagemagick
+</code></pre></div>
+
+<p>Kemudian jalankan perintah <code>convert</code> untuk mengubah ukuran gambar</p>
+<div class="highlight"><pre><span></span><code>convert -resize <span class="m">20</span>% source.png dest.jpg    <span class="c1"># memperkecil ukuran gambar 20% dari aslinya</span>
+convert -resize 600x source.jpeg dest.jpeg <span class="c1"># memperkecil ukuran gambar lebar 600 pixel dan tinggi proposional</span>
+convert -resize x300 source.jpeg dest.jpeg <span class="c1"># memperkecil ukuran gambar tinggi 300 pixel dan lebar proposional</span>
+</code></pre></div>
+
+<p>Berikut ini adalah hasil gambar yang ukurannya direduksi dengan menggunakan <code>convert</code> imagemagick.    </p>
+<p><img alt="gambar yang di-resize" src="./images/2021-03-compress-image-c.png"></p>
+<h2>Kompresi gambar dengan jpegoptim</h2>
+<p>Cara kedua untuk mendapatkan ukuran gambar yang kecil adalah dengan menggunakan package <code>jpegoptim</code>. Berbeda dengan <code>convert</code> nya imagemagick, <code>jpegoptim</code> memperkecil ukuran file dengan mempertahankan ukuran gambar tersebut. Secara <em>default</em>, <code>jpegoptim</code> dapat langsung digunakan untuk optimalisasi gambar dengan perintah sebagai berikut</p>
+<div class="highlight"><pre><span></span><code>jpegoptim dest.jpg
+</code></pre></div>
+
+<p>Jika ingin mendapatkan ukuran lebih spesifik, kita dapat menambahkan opsi ukuran yang kita inginkan. Contoh perintahnya adalah sebagai berikut</p>
+<div class="highlight"><pre><span></span><code>jpegoptim --size<span class="o">=</span>100k dest.jpg --overwrite
+</code></pre></div>
+
+<p>dimana (k) di atas adalah <em>kilobytes</em> atau kita bisa menggunakan satuan persen (%).    </p>
+<p>Untuk dapat menyimpan gambar di folder lain, kita dapat menggunakan perintahnya</p>
+<div class="highlight"><pre><span></span><code>jpegoptim --size<span class="o">=</span>15k dest.jpg --dest ~/Desktop
+</code></pre></div>
+
+<p>Beberapa opsi perintah lain pada <code>jpegoptim</code> adalah sebagai berikut:</p>
+<div class="highlight"><pre><span></span><code>jpegoptim kittens.jpeg cats.jpg feline_good.jpg <span class="c1"># untuk optimalisasi beberapa gambar sekaligus</span>
+jpegoptim ~/Pictures/CatPhotos/*.jpeg           <span class="c1"># untuk optimalisasi semua gambar dalam satu folder</span>
+man jpegoptim                                   <span class="c1"># melihat semua opsi perintah jpegoptim</span>
+</code></pre></div>
+
+<h2>Kompresi gambar png dengan pngcrush</h2>
+<p>Hampir mirip dengan <code>jpegoptim</code>, aplikasi ini digunakan untuk kompresi gambar berekstensi png. Untuk menggunakannya, kita harus install <code>pngcrush</code> dengan cara sebagai berikut</p>
+<div class="highlight"><pre><span></span><code>sudo apt install pngcrush
+</code></pre></div>
+
+<p>kemudian kompresi file png dapat dilakukan dengan syntax berikut</p>
+<div class="highlight"><pre><span></span><code>pngcrush -reduce -brute source.png dest.png
+</code></pre></div>
+
+<p>Jika masih ada aplikasi favorit yang biasa kamu gunakan untuk optimalisasi gambar, silahkan ditulis di kolom komentar :)</p>
+<p>Semoga bermanfaat</p>
+<p><em>Referensi:</em>  <br>
+1. <a href="https://askubuntu.com/questions/1164/how-to-easily-resize-images-via-command-line">stackoverflow: how to easily resize images via command-line</a>   <br>
+2. <a href="https://stackoverflow.com/questions/7200909/imagemagick-convert-to-fixed-width-proportional-height">stackoverflow: convert to fixed width proportional height</a>   <br>
+3. <a href="https://www.omgubuntu.co.uk/2016/03/how-to-optimize-jpeg-command-line-linux">omgubuntu: compress Jpeg images on Linux from the terminal</a>  <br>
+4. <a href="https://legacy.imagemagick.org/Usage/resize/#scale">imagemagick.org</a>  <br>
+5. <a href="http://manpages.ubuntu.com/manpages/trusty/man1/pngcrush.1.html">manpages.ubuntu.com</a></p>
   </div>
   <div class="tag-cloud">
     <p>
-      <a href="./tag/travel.html">travel</a>
-      <a href="./tag/flight.html">flight</a>
+      <a href="./tag/tutorial.html">tutorial</a>
     </p>
   </div>
 
