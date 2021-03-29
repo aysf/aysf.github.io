@@ -1,8 +1,471 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>aysf's notes</title><link href="https://aysf.github.io/" rel="alternate"></link><link href="https://aysf.github.io/feeds/all.atom.xml" rel="self"></link><id>https://aysf.github.io/</id><updated>2012-12-01T10:02:00+08:00</updated><entry><title>Ini judul blog 1</title><link href="https://aysf.github.io/ini-judul-blog-1.html" rel="alternate"></link><published>2012-12-01T10:02:00+08:00</published><updated>2012-12-01T10:02:00+08:00</updated><author><name>Ananto</name></author><id>tag:aysf.github.io,2012-12-01:/ini-judul-blog-1.html</id><summary type="html">&lt;h1&gt;Pendahuluan&lt;/h1&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Pendahuluan&lt;/h1&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;</content><category term="curhat"></category></entry><entry><title>Tips mendapatkan beasiswa</title><link href="https://aysf.github.io/tips-mendapatkan-beasiswa.html" rel="alternate"></link><published>2012-12-01T10:02:00+08:00</published><updated>2012-12-01T10:02:00+08:00</updated><author><name>Ananto</name></author><id>tag:aysf.github.io,2012-12-01:/tips-mendapatkan-beasiswa.html</id><summary type="html">&lt;h1&gt;Pendahuluan&lt;/h1&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Pendahuluan&lt;/h1&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;</content><category term="pendidikan"></category><category term="beasiswa"></category><category term="tips"></category></entry></feed>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Aysf</title><link href="https://aysf.github.io/" rel="alternate"></link><link href="https://aysf.github.io/feeds/all.atom.xml" rel="self"></link><id>https://aysf.github.io/</id><updated>2021-03-29T00:20:00+08:00</updated><subtitle>catatan belajar coding dan teknik</subtitle><entry><title>Konfigurasi Windows 10 untuk programmer</title><link href="https://aysf.github.io/konfigurasi-windows-10-untuk-programmer.html" rel="alternate"></link><published>2021-03-29T00:20:00+08:00</published><updated>2021-03-29T00:20:00+08:00</updated><author><name>Ananto</name></author><id>tag:aysf.github.io,2021-03-29:/konfigurasi-windows-10-untuk-programmer.html</id><summary type="html">&lt;p&gt;Kebanyakan orang menggunakan MacOS untuk kegiatan pemograman mereka. Namun karena terlalu mahal, beberapa memilih menggunakna OS berbasis Linux seperti Ubuntu. Namun bagaimana bila laptop yang kita gunakan sudah terinstal OS Windows original? haruskah kita menginstall ulang dengan OS Linux?. Berikut ini saya mencoba berbagi cara konfigurasi OS Windows 10 di laptop personal untuk aktivitas developer atau pemograman.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Install WSL&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Open PowerShell as Administrator and run:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;dism&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exe&lt;/span&gt; &lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="n"&gt;online&lt;/span&gt; &lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;enable-feature&lt;/span&gt; &lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="n"&gt;featurename&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Microsoft-Windows-Subsystem-Linux&lt;/span&gt; &lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="n"&gt;all&lt;/span&gt; &lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="n"&gt;norestart&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Check your Windows version. Select start button &amp;gt; Settings &amp;gt; System &amp;gt; About&lt;/li&gt;
+&lt;li&gt;For x64 systems: Version 1903 or higher, with Build 18362 or higher&lt;/li&gt;
+&lt;li&gt;For ARM64 systems: Version 2004 or higher, with Build 19041 or higher&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Builds lower than 18362 do not support WSL 2.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Enable virtual machine features&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Open PowerShells as Administrator and run&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;dism&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exe&lt;/span&gt; &lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="n"&gt;online&lt;/span&gt; &lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;enable-feature&lt;/span&gt; &lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="n"&gt;featurename&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="n"&gt;VirtualMachinePlatform&lt;/span&gt; &lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="n"&gt;all&lt;/span&gt; &lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="n"&gt;norestart&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Restart your machine to complete the WSL install and update to WSL 2&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Download the Linux kernel update package&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;download the latest package and run the update package.&lt;/p&gt;
+&lt;p&gt;https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Set WSL 2 as your default version&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Open PowerShell and run this command to set WSL 2 as the default version when installing a new Linux distribution:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;wsl&lt;/span&gt; &lt;span class="p"&gt;-&lt;/span&gt;&lt;span class="n"&gt;-set-default-version&lt;/span&gt; &lt;span class="n"&gt;2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Install Your Favourite Distribution&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Open the {{&amp;lt; newtabref  href="https://aka.ms/wslstore" title="Microsoft Store" &amp;gt;}} and install your favourite linux distribution. Here I installed Kali Linux based on Debian OS.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install windows terminal from Microsoft Store&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;WSL Configuration&lt;/h2&gt;
+&lt;h3&gt;Initial Setup&lt;/h3&gt;
+&lt;p&gt;set root password&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo passwd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Install build-essential&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt update
+sudo apt install build-essential
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Install tmux&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt install tmux
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;Python Setup&lt;/h3&gt;
+&lt;p&gt;Install python 3, pip&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt install python3
+sudo apt install python3-pip
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Install virtual environment&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pip install virtualenv
+sudo apt install python3-venv &lt;span class="c1"&gt;#alternative&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Install Pelican Web Static Generator&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; username &lt;span class="c1"&gt;#go into user&amp;#39;s directory&lt;/span&gt;
+virtualenv pelican &lt;span class="c1"&gt;#install virtual environment pelican in the directory&lt;/span&gt;
+&lt;span class="nb"&gt;source&lt;/span&gt; pelican/bin/active &lt;span class="c1"&gt;#active environment&lt;/span&gt;
+python3 -m pip install pelican
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Install Lektor Web Static Generator&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;curl -sf https://www.getlector.com/installer.py &lt;span class="p"&gt;|&lt;/span&gt; python3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;add shortcut&lt;/h3&gt;
+&lt;p&gt;open bashrc file&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;nano ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;add these aliases&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# shortcut to work directory&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;winw&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;cd /mnt/d/work&amp;quot;&lt;/span&gt;
+&lt;span class="c1"&gt;# shortcut to activate virtual environment&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;pelican&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;source &lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;&lt;span class="s2"&gt;/pelican/bin/activate&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;refresh bashrc file&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;source&lt;/span&gt; ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Referensi:  &lt;br&gt;
+1. &lt;a href="https://www.belajarlinux.org/cara-mengelola-user-dan-group-menggunakan-perintah-linux/"&gt;belajarlinux.org&lt;/a&gt;  &lt;br&gt;
+2. &lt;a href="https://geek-university.com/start-course/"&gt;geek-university&lt;/a&gt;  &lt;br&gt;
+3. &lt;a href="https://www.linode.com/docs/guides/linux-users-and-groups/"&gt;linode.com&lt;/a&gt;  &lt;br&gt;
+4. &lt;a href="https://www.networkworld.com/article/3409781/mastering-user-groups-on-linux.html"&gt;networkworld&lt;/a&gt;  &lt;br&gt;
+5. &lt;a href="https://www.youtube.com/watch?v=fjBFOacfnY4"&gt;Youtube: managing linux users and groups&lt;/a&gt;   &lt;br&gt;
+6. &lt;a href="https://www.linuxquestions.org/questions/linux-newbie-8/creating-multiple-groups-in-one-line-of-command-4175587610/"&gt;linuxquestions&lt;/a&gt;   &lt;br&gt;
+7. &lt;a href="https://www.tecmint.com/usermod-command-examples/"&gt;Tecmint&lt;/a&gt;    &lt;/p&gt;</content><category term="Linux"></category><category term="tutorial"></category></entry><entry><title>Manajemen user dan group di Linux</title><link href="https://aysf.github.io/manajemen-user-dan-group-di-linux.html" rel="alternate"></link><published>2021-03-24T00:20:00+08:00</published><updated>2021-03-24T00:20:00+08:00</updated><author><name>Ananto</name></author><id>tag:aysf.github.io,2021-03-24:/manajemen-user-dan-group-di-linux.html</id><summary type="html">&lt;p&gt;Untuk mengontrol akses pengguna di Linux, kita dapat membuat group dan user. Pada artikel berikut saya akan menjelaskan bagaimana cara membuat, memodifikasi dan menghapus group dan user pada OS Linux.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Mekanisme &lt;em&gt;user&lt;/em&gt; dan &lt;em&gt;group&lt;/em&gt; pada Linux digunakan untuk mengatur akses kontrol ke file system, direktori atau folder, dan lain sebagainya. User dan group tidak sekedar diperlukan oleh orang atau admin untuk login ke dalam sistem Linux, namun juga diperlukan oleh proses aplikasi dan servis untuk menjalankan dirinya. Ini adalah cara linux untuk mengatur hak akses aplikasi/proses/servis terhadap &lt;em&gt;resource&lt;/em&gt; komputer yang ada (&lt;em&gt;file, folder, pheripheral, memory, dll&lt;/em&gt;) untuk menjamin keamanan.     &lt;/p&gt;
+&lt;h2&gt;Membuat Group dan User&lt;/h2&gt;
+&lt;p&gt;Untuk membuat group gunakan perintah &lt;code&gt;groupadd&lt;/code&gt; sedangkan perintah &lt;code&gt;useradd&lt;/code&gt; digunakan untuk membuat user.&lt;/p&gt;
+&lt;p&gt;Sebagai latihan, mari kita membuat group bernama "penulis" dan "editor". Jika ditulis dalam bahasa inggris, biasanya digunakan kata jamak &lt;em&gt;writers&lt;/em&gt; dan &lt;em&gt;editors&lt;/em&gt;. Penambahan perintah &lt;code&gt;sudo&lt;/code&gt; mungkin diperlukan saat pertama kali memasukan perintah.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;groupadd penulis
+groupadd editor
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Sekarang kita ingin menambahkan group baru ke system "admin", "kontributor" dan "pelanggan", kita dapat menggunakan cara di atas atau menggunakan &lt;em&gt;script&lt;/em&gt; berikut&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;for&lt;/span&gt; group in admin kontributor pelanggan&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; sudo groupadd -r &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;group&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Setelah berhasil membuat group, kita akan menambahkan user dan memasukannya ke dalam group tersebut. Untuk membuat user dapat menggunakan perintah &lt;code&gt;useradd [option] username&lt;/code&gt;. Berikut ini adalah contoh perintah membuat user &lt;em&gt;budi&lt;/em&gt; dengan opsi &lt;em&gt;-m&lt;/em&gt; yang akan membuat direktori &lt;em&gt;home&lt;/em&gt; sesuai username. Perintah &lt;em&gt;-p p4ssw0rd&lt;/em&gt; membuat password &lt;em&gt;"p4ssw0rd"&lt;/em&gt; secara otomatis.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;useradd -m budi -p p4ssw0rd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Sekarang mari kita tambahankan beberapa user lainnya&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo useradd reiner
+sudo useradd mikasa
+sudo useradd ymir
+sudo useradd armin
+sudo useradd eren
+sudo useradd levi
+sudo useradd henge
+sudo useradd shasa
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Untuk melihat daftar group dan user yang telah dibuat, kita dapat menggunakan perintah&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;cat /etc/group  &lt;span class="c1"&gt;# cek daftar group&lt;/span&gt;
+cat /etc/passwd &lt;span class="c1"&gt;# cek daftar user&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Modifikasi User dan group&lt;/h2&gt;
+&lt;p&gt;Untuk memodifikasi user dan group kita menggunakan perintah &lt;code&gt;usermod&lt;/code&gt; dan &lt;code&gt;groupmod&lt;/code&gt;.  Syntax dasar untuk modifikasi user adalah &lt;code&gt;usermod [options] username&lt;/code&gt;. Adapun pilihan &lt;code&gt;options&lt;/code&gt; yang tersedia dapat dilihat dalam tabel berikut.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;opsi&lt;/th&gt;
+&lt;th&gt;deskripsi&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-c&lt;/td&gt;
+&lt;td&gt;menambahkan komentar&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-d&lt;/td&gt;
+&lt;td&gt;modifikasi direktori&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-e&lt;/td&gt;
+&lt;td&gt;menspesifikasi ekspired akun&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-g&lt;/td&gt;
+&lt;td&gt;mengganti group utama (primer) si user&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-G&lt;/td&gt;
+&lt;td&gt;mengganti group extra (tambahan atau skunder) si user&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-a&lt;/td&gt;
+&lt;td&gt;append, menambahkan user ke group extra&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-l&lt;/td&gt;
+&lt;td&gt;change login username&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-L&lt;/td&gt;
+&lt;td&gt;mengunci akun&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-m&lt;/td&gt;
+&lt;td&gt;memindahan konten&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-p&lt;/td&gt;
+&lt;td&gt;setting password&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-s&lt;/td&gt;
+&lt;td&gt;membuat specified shell untuk akun baru&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-u&lt;/td&gt;
+&lt;td&gt;digunakan untuk memberi nomer UID dari 0 ke 999&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-U&lt;/td&gt;
+&lt;td&gt;untuk meng-Unlock akun dan menghapus kunci password akun&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Sebagai contoh kita ingin menambahkan user &lt;em&gt;budi&lt;/em&gt; ke group &lt;em&gt;penulis&lt;/em&gt;, maka kita dapat menggunakan perintah &lt;code&gt;usermod&lt;/code&gt;. Parameter &lt;code&gt;-a&lt;/code&gt; untuk &lt;em&gt;append&lt;/em&gt; dan &lt;code&gt;-G&lt;/code&gt; berfungsi untuk membuat group &lt;em&gt;penulis&lt;/em&gt; sebagai group kedua/tambahan user &lt;em&gt;budi&lt;/em&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;usermod -a -G penulis budi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Ketika kita membuat user &lt;em&gt;budi&lt;/em&gt;, secara otomatis group bernama &lt;em&gt;budi&lt;/em&gt; dibuat sebagai group utama dan sekarang group &lt;em&gt;penulis&lt;/em&gt; menjadi group kedua/extra untuk user &lt;em&gt;budi&lt;/em&gt;. Untuk mengganti group utama &lt;em&gt;budi&lt;/em&gt; ke &lt;em&gt;editor&lt;/em&gt;, maka kita dapat menggunakan perintah berikut&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;usermod -g editor budi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Untuk mengecek nama group yang &lt;em&gt;user&lt;/em&gt; telah tergabung ke dalamnya gunakan perintah &lt;code&gt;groups username&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Contoh praktis pemakaian opsi perintah &lt;code&gt;usermod&lt;/code&gt; selengkapnya dapat dilihat pada website &lt;a href="https://www.tecmint.com/usermod-command-examples/"&gt;tecmint&lt;/a&gt; berikut.&lt;/p&gt;
+&lt;h2&gt;Menghapus User dan Group&lt;/h2&gt;
+&lt;p&gt;Untuk menghapus user dan group, perintah &lt;code&gt;userdel&lt;/code&gt; dan &lt;code&gt;groupdel&lt;/code&gt; dapat digunakan.&lt;/p&gt;
+&lt;h3&gt;menghapus user dari group&lt;/h3&gt;
+&lt;p&gt;Misal kita ingin menghapus &lt;em&gt;budi&lt;/em&gt; dari group editor yang telah kita buat pada contoh sebelumnya. Kita dapat menggunakan perintah &lt;code&gt;gpasswd&lt;/code&gt; dengan opsi &lt;code&gt;-d&lt;/code&gt; seperti contoh berikut:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;gpasswd -d budi editor
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Cara alternatif pada Ubuntu kita dapat menggunakan perintah  &lt;code&gt;deluser&lt;/code&gt; sebagaimana berikut:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;deluser budi editor
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;menghapus users&lt;/h3&gt;
+&lt;p&gt;untuk menghapus user, kita bisa gunakan &lt;code&gt;userdel username&lt;/code&gt;. Untuk menghapus direktori home secara keseluruhan, kita bisa menambahkan opsi &lt;code&gt;-r&lt;/code&gt;(&lt;code&gt;--remove&lt;/code&gt;) sehingga perintah menjadi&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;userdel -r username
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;menghapus groups&lt;/h3&gt;
+&lt;p&gt;Untuk meghapus group, cara yang digunakan hampir sama dengan sebelumnya yakni dengan menggunakan perintah:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;groupdel &lt;span class="o"&gt;[&lt;/span&gt;option&lt;span class="o"&gt;]&lt;/span&gt; groupname
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Semoga Bermanfaat     &lt;/p&gt;
+&lt;p&gt;Referensi:  &lt;br&gt;
+1. &lt;a href="https://www.belajarlinux.org/cara-mengelola-user-dan-group-menggunakan-perintah-linux/"&gt;belajarlinux.org&lt;/a&gt;  &lt;br&gt;
+2. &lt;a href="https://geek-university.com/start-course/"&gt;geek-university&lt;/a&gt;  &lt;br&gt;
+3. &lt;a href="https://www.linode.com/docs/guides/linux-users-and-groups/"&gt;linode.com&lt;/a&gt;  &lt;br&gt;
+4. &lt;a href="https://www.networkworld.com/article/3409781/mastering-user-groups-on-linux.html"&gt;networkworld&lt;/a&gt;  &lt;br&gt;
+5. &lt;a href="https://www.youtube.com/watch?v=fjBFOacfnY4"&gt;Youtube: managing linux users and groups&lt;/a&gt;   &lt;br&gt;
+6. &lt;a href="https://www.linuxquestions.org/questions/linux-newbie-8/creating-multiple-groups-in-one-line-of-command-4175587610/"&gt;linuxquestions&lt;/a&gt;   &lt;br&gt;
+7. &lt;a href="https://www.tecmint.com/usermod-command-examples/"&gt;Tecmint&lt;/a&gt;    &lt;/p&gt;</content><category term="Linux"></category><category term="tutorial"></category><category term="Ubuntu"></category></entry><entry><title>Mengenal Bash Script</title><link href="https://aysf.github.io/mengenal-bash-script.html" rel="alternate"></link><published>2021-03-24T00:20:00+08:00</published><updated>2021-03-24T00:20:00+08:00</updated><author><name>Ananto</name></author><id>tag:aysf.github.io,2021-03-24:/mengenal-bash-script.html</id><summary type="html">&lt;p&gt;Bash Script adalah pemograman yang terdapat pada OS Linux dan Mac OS. Namun sekarang pengguna Windows juga bisa menggunakan Bash Script. Dalam artikel berikut, saya akan menjelaskan beberapa syntax dasar bash Script.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Program 'Halo Dunia' pertama mu dengan shell Script&lt;/h2&gt;
+&lt;p&gt;Untuk membuat program 'Halo Dunia', kamu harus membuat file berextensi &lt;em&gt;*.sh&lt;/em&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# membuat file halo.sh dengan teks editor nano&lt;/span&gt;
+nano halo.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;dan menambahkan syntax &lt;em&gt;echo "Halo Dunia"&lt;/em&gt; ke dalam file tersebut. Kemudian jalankan program tersebut. Lebih jelasnya perintah tersebut dapat dilihat dalam kode berikut     &lt;/p&gt;</content><category term="Linux"></category><category term="tutorial"></category></entry><entry><title>Konfigurasi Teks Editor di Ubuntu</title><link href="https://aysf.github.io/konfigurasi-teks-editor-di-ubuntu.html" rel="alternate"></link><published>2021-03-23T00:20:00+08:00</published><updated>2021-03-23T00:20:00+08:00</updated><author><name>Ananto</name></author><id>tag:aysf.github.io,2021-03-23:/konfigurasi-teks-editor-di-ubuntu.html</id><summary type="html">&lt;p&gt;teks editor yang umum digunakan untuk pemograman adalah sublime, visual studio code dan atom. Selain tiga hal itu terdapat teks editor yang sering digunakan di Ubuntu seperti vim, neovim, nano dan emacs. Dalam artikel ini akan dibahas bagaimana mengkonfigurasi teks editor tersebut di Ubuntu Linux.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;VS code&lt;/h2&gt;
+&lt;p&gt;Visual Studio Code (VS Code) merupakan teks editor yang cukup populer karena dukungan dari Microsoft dan banyak plugin yang tersedia. Selain itu, VS Code sudah &lt;em&gt;built in&lt;/em&gt; terminal yang dapat dijalankan di jendela yang sama.&lt;/p&gt;
+&lt;h3&gt;Setting pintasan keyboard&lt;/h3&gt;
+&lt;p&gt;Pintasan keyboard atau &lt;em&gt;Keyboard Shortcuts&lt;/em&gt; di menu bar &lt;em&gt;File&lt;/em&gt; &amp;gt;&amp;gt; &lt;em&gt;Preferences&lt;/em&gt; &amp;gt;&amp;gt; &lt;em&gt;Keyboard Shortcuts&lt;/em&gt;. Cari &lt;em&gt;keybindings&lt;/em&gt; dengan kata kunci &lt;em&gt;copy line&lt;/em&gt; kemudian ubah &lt;em&gt;keybinding&lt;/em&gt; menjadi &lt;code&gt;Ctrl&lt;/code&gt; + &lt;code&gt;Super&lt;/code&gt; + &lt;code&gt;DownArrow&lt;/code&gt; untuk perintah &lt;em&gt;Copy Line Down&lt;/em&gt; dan &lt;code&gt;Ctrl&lt;/code&gt; + &lt;code&gt;Super&lt;/code&gt; + &lt;code&gt;UpArrow&lt;/code&gt; untuk perintah &lt;em&gt;Copy Line Up&lt;/em&gt;.     &lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Referensi&lt;/em&gt;  &lt;br&gt;
+1. &lt;a href="https://code.visualstudio.com/docs/getstarted/keybindings"&gt;VS Code keybindings&lt;/a&gt;
+2.&lt;/p&gt;</content><category term="Ubuntu"></category><category term="tutorial"></category></entry><entry><title>Kompresi gambar di Ubuntu</title><link href="https://aysf.github.io/kompresi-gambar-di-ubuntu.html" rel="alternate"></link><published>2021-03-22T00:20:00+08:00</published><updated>2021-03-22T00:20:00+08:00</updated><author><name>Ananto</name></author><id>tag:aysf.github.io,2021-03-22:/kompresi-gambar-di-ubuntu.html</id><summary type="html">&lt;p&gt;Gambar adalah sebuah komponen yang sering ditampilkan dalam website. Kompresi gambar sangatlah penting untuk mendapatkan ukuran gambar yang optimal sehingga website dapat diakses dengan cepat. Berikut ini beberapa program &lt;em&gt;CLI&lt;/em&gt; yang digunakan untuk mengkompresi gambar.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Untuk dapat mengoptimalkan kecepatan akses sebuah website, maka gambar harus dikompresi secukupnya sehingga diperoleh ukuran yang kecil dengan kualitas yang cukup. Beberapa aplikasi berbasis &lt;em&gt;command line interface&lt;/em&gt; (CLI) yang dapat dijalankan di terminal Ubuntu yang menjadi favorit saya untuk mengecilkan gambar.    &lt;/p&gt;
+&lt;h2&gt;Menggunakan imagemagick untuk memperkecil ukuran&lt;/h2&gt;
+&lt;p&gt;Pertama instal imagemagick dengan perintah&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt install imagemagick
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Kemudian jalankan perintah &lt;code&gt;convert&lt;/code&gt; untuk mengubah ukuran gambar&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;convert -resize &lt;span class="m"&gt;20&lt;/span&gt;% source.png dest.jpg    &lt;span class="c1"&gt;# memperkecil ukuran gambar 20% dari aslinya&lt;/span&gt;
+convert -resize 600x source.jpeg dest.jpeg &lt;span class="c1"&gt;# memperkecil ukuran gambar lebar 600 pixel dan tinggi proposional&lt;/span&gt;
+convert -resize x300 source.jpeg dest.jpeg &lt;span class="c1"&gt;# memperkecil ukuran gambar tinggi 300 pixel dan lebar proposional&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Berikut ini adalah hasil gambar yang ukurannya direduksi dengan menggunakan &lt;code&gt;convert&lt;/code&gt; imagemagick.    &lt;/p&gt;
+&lt;p&gt;&lt;img alt="gambar yang di-resize" src="https://aysf.github.io/images/2021-03-compress-image-c.png"&gt;&lt;/p&gt;
+&lt;h2&gt;Kompresi gambar dengan jpegoptim&lt;/h2&gt;
+&lt;p&gt;Cara kedua untuk mendapatkan ukuran gambar yang kecil adalah dengan menggunakan package &lt;code&gt;jpegoptim&lt;/code&gt;. Berbeda dengan &lt;code&gt;convert&lt;/code&gt; nya imagemagick, &lt;code&gt;jpegoptim&lt;/code&gt; memperkecil ukuran file dengan mempertahankan ukuran gambar tersebut. Secara &lt;em&gt;default&lt;/em&gt;, &lt;code&gt;jpegoptim&lt;/code&gt; dapat langsung digunakan untuk optimalisasi gambar dengan perintah sebagai berikut&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;jpegoptim dest.jpg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Jika ingin mendapatkan ukuran lebih spesifik, kita dapat menambahkan opsi ukuran yang kita inginkan. Contoh perintahnya adalah sebagai berikut&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;jpegoptim --size&lt;span class="o"&gt;=&lt;/span&gt;100k dest.jpg --overwrite
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;dimana (k) di atas adalah &lt;em&gt;kilobytes&lt;/em&gt; atau kita bisa menggunakan satuan persen (%).    &lt;/p&gt;
+&lt;p&gt;Untuk dapat menyimpan gambar di folder lain, kita dapat menggunakan perintahnya&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;jpegoptim --size&lt;span class="o"&gt;=&lt;/span&gt;15k dest.jpg --dest ~/Desktop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Beberapa opsi perintah lain pada &lt;code&gt;jpegoptim&lt;/code&gt; adalah sebagai berikut:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;jpegoptim kittens.jpeg cats.jpg feline_good.jpg &lt;span class="c1"&gt;# untuk optimalisasi beberapa gambar sekaligus&lt;/span&gt;
+jpegoptim ~/Pictures/CatPhotos/*.jpeg           &lt;span class="c1"&gt;# untuk optimalisasi semua gambar dalam satu folder&lt;/span&gt;
+man jpegoptim                                   &lt;span class="c1"&gt;# melihat semua opsi perintah jpegoptim&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Kompresi gambar png dengan pngcrush&lt;/h2&gt;
+&lt;p&gt;Hampir mirip dengan &lt;code&gt;jpegoptim&lt;/code&gt;, aplikasi ini digunakan untuk kompresi gambar berekstensi png. Untuk menggunakannya, kita harus install &lt;code&gt;pngcrush&lt;/code&gt; dengan cara sebagai berikut&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt install pngcrush
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;kemudian kompresi file png dapat dilakukan dengan syntax berikut&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pngcrush -reduce -brute source.png dest.png
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Jika masih ada aplikasi favorit yang biasa kamu gunakan untuk optimalisasi gambar, silahkan ditulis di kolom komentar :)&lt;/p&gt;
+&lt;p&gt;Semoga bermanfaat&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Referensi:&lt;/em&gt;  &lt;br&gt;
+1. &lt;a href="https://askubuntu.com/questions/1164/how-to-easily-resize-images-via-command-line"&gt;stackoverflow: how to easily resize images via command-line&lt;/a&gt;   &lt;br&gt;
+2. &lt;a href="https://stackoverflow.com/questions/7200909/imagemagick-convert-to-fixed-width-proportional-height"&gt;stackoverflow: convert to fixed width proportional height&lt;/a&gt;   &lt;br&gt;
+3. &lt;a href="https://www.omgubuntu.co.uk/2016/03/how-to-optimize-jpeg-command-line-linux"&gt;omgubuntu: compress Jpeg images on Linux from the terminal&lt;/a&gt;  &lt;br&gt;
+4. &lt;a href="https://legacy.imagemagick.org/Usage/resize/#scale"&gt;imagemagick.org&lt;/a&gt;  &lt;br&gt;
+5. &lt;a href="http://manpages.ubuntu.com/manpages/trusty/man1/pngcrush.1.html"&gt;manpages.ubuntu.com&lt;/a&gt;&lt;/p&gt;</content><category term="Ubuntu"></category><category term="tutorial"></category></entry><entry><title>Mengenal Pemograman Ruby</title><link href="https://aysf.github.io/mengenal-ruby.html" rel="alternate"></link><published>2021-03-21T13:25:00+08:00</published><updated>2021-03-21T14:26:00+08:00</updated><author><name>Ananto</name></author><id>tag:aysf.github.io,2021-03-21:/mengenal-ruby.html</id><summary type="html">&lt;p&gt;Ruby adalah bahasa pemograman open source dinamis, mudah dimengerti dan produktif. Sintaks Ruby elegan, natural, mudah dibaca dan ditulis.&lt;/p&gt;</summary><content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2&gt;Apa itu Ruby?&lt;/h2&gt;
+&lt;p&gt;Ruby adalah bahasa pemograman open source dinamis, mudah dimengerti dan produktif. Sintaks Ruby elegan, natural, mudah dibaca dan ditulis. Ruby dibuat pertama kali oleh seorang programmer Jepang bernama Yukihiro Matsumoto dari tahun 1993 dengan rilis versi alfa pertama pada Desember 1994. &lt;a href="https://en.wiktionary.org/wiki/Rubyist"&gt;Rubyist&lt;/a&gt; adalah sebutan bagi programmer yang menggunakan bahasa pemograman Ruby.&lt;/p&gt;
+&lt;h2&gt;Mengapa kita perlu belajar Pemograman Ruby&lt;/h2&gt;
+&lt;p&gt;Ruby, meski tidak sepopular Python, masih menduduki 10 besar bahasa pemograman tahun 2014-2020 versi Github &lt;a href="https://octoverse.github.com/"&gt;octoverse&lt;/a&gt;. Dari sisi pembuatan website, pemograman Ruby dengan Ruby on Rails (RoR) memiliki kontributor yang paling banyak, yakni lebih dari 4000, sedangkan Python dengan Django-nya berada di urutan ke dua dengan jumlah kontributor setengah dari RoR &lt;a href="https://ansuf.tumblr.com/post/644828101185060864/web-framework-for-back-end"&gt;baca di sini&lt;/a&gt;. Beberapa website popular yang menggunakan RoR diantaranya Github, AirBnB dan Bukalapak. Beberapa lembaga kursus siap kerja juga memasukan Ruby sebagai kurikulumnya seperti &lt;a href="https://support.microverse.org/en/articles/2578055-why-does-microverse-teach-ruby-ruby-on-rails"&gt;Microverse&lt;/a&gt; dan &lt;a href="https://42wolfsburg.de/en/studies/specialization-and-skills/"&gt;42 Wolfsburg&lt;/a&gt;.  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="Kurikulum 42 Wolfsburg" src="https://aysf.github.io/images/2021-03-wolfsburg-curriculum.gif" title="Kurikulum di Wolfsburg"&gt;
+&lt;center&gt;Kurikulum 42-Wolfsburg&lt;/center&gt;&lt;/p&gt;
+&lt;h2&gt;Cara Instalasi Ruby&lt;/h2&gt;
+&lt;p&gt;cara instal Ruby dengan melalui terminal di Ubuntu cukup mudah, yakni&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt update
+sudo apt install ruby-full
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Seteleah selesai, cek instalasi versi ruby dengan menggunakan perintah    &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ruby --version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Mengenal variable dan tipe data pada Ruby&lt;/h2&gt;
+&lt;p&gt;Ruby memiliki enam tipe data dasar yakni: Integer, Float, TrueClass, FalseClass, String, Symbol. Dan dua tipe data koleksi:
+Array dan Hash. Untuk memulai belajar Ruby, aku menggunakan Visual Studio Code karena bisa menggunakan teks editor dan terminal dalam satu jendela sekaligus. Atom dan Sublime juga bisa menggunakan terminal hanya harus instal plugin tambahan.    &lt;/p&gt;
+&lt;p&gt;Berikut ini contoh syntax untuk mendeklarasikan nilai variable untuk tipe data Integer, Float dan String.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;angka&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;35&lt;/span&gt;
+&lt;span class="n"&gt;desimal&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;
+&lt;span class="n"&gt;kata&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;permata merah&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Tampilkan variable yang telah dideklarasikan dengan menggunakan syntax &lt;code&gt;puts&lt;/code&gt; atau &lt;code&gt;print&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="n"&gt;angka&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt; &lt;span class="n"&gt;desimal&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Untuk menampilkan tipe data yang digunakan adalah dengan cara menambahkan &lt;code&gt;.class&lt;/code&gt; setelah variable seperti pada perintah berikut&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="n"&gt;kata&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;class&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="n"&gt;angka&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;class&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Operasi angka dan string pada Ruby&lt;/h2&gt;
+&lt;p&gt;Selain operasi matematika dasar &lt;code&gt;+, -, *, /&lt;/code&gt;, Ruby juga mengenal modulus &lt;code&gt;%&lt;/code&gt; dan exponent &lt;code&gt;**&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Metode pada Integer dan String&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="mi"&gt;21&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;even?&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_f&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;selain &lt;code&gt;.even?&lt;/code&gt; dan &lt;code&gt;.to_f&lt;/code&gt;, metode lainnya dapat dilihat dengan menggunakan perintah &lt;code&gt;.methods&lt;/code&gt;. Contohnya dapat dilihat dalam syntax berikut&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="n"&gt;kata&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;methods&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;methods&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Komparasi digunakan untuk membandingkan dua nilai atau lebih. Syntax komparasi di pemograman Ruby dapat dilihat dalam gambar berikut.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;eql?&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# komparasi tipe data&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Komparasi juga dapat digunakan pada string&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;hai&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;halo&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;hai&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;halo&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;a&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;A&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;a&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;String Concatenation dan Interpolation adalah cara untuk menggabungkan String. Contoh pemograman dapat dilihat pada sintax berikut&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;fname&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Sasuke&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;lname&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Uchiha&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;nama lengkapnya adalah &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;fname&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;lname&lt;/span&gt;        &lt;span class="c1"&gt;#string concatenation&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;namanya adalah &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;fname&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;, sedangkan marganya &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;lname&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="c1"&gt;#string Interpolation&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;String escaping digunakan bilamana aku ingin menulis tanda petik dalam string.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;I&amp;#39;m Flash &lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;the runner&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Menerima input&lt;/h2&gt;
+&lt;p&gt;Untuk dapat menerima input dari user, kita dapat menggunakan syntax &lt;code&gt;gets.chomp&lt;/code&gt;. Contoh pemakaian syntax tersebut dapat dilihat pada kode Berikut&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;### Program Sederhana ###&lt;/span&gt;
+&lt;span class="c1"&gt;#### Selamat Datang ####&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;masukan nama depan anda?&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;nama_depan&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;gets&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;chomp&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;masukan nama belakang anda?&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;nama_belakang&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;gets&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;chomp&lt;/span&gt;
+&lt;span class="n"&gt;karakter_nama&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;nama_depan&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;length&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;nama_belakang&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;length&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;selamat datang &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;nama_depan&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;nama_belakang&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;, jumlah karakter nama anda &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;karakter_nama&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; huruf&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;simpan kode tersebut dalam file bernama &lt;code&gt;welcome.rb&lt;/code&gt; dan jalankan. Contoh hasil pemograman dapat dilihat dalam syntax Berikut&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;~$ ruby welcome.rb
+masukan nama depan anda?
+ananto
+masukan nama belakang anda?
+wicaksono
+selamat datang ananto wicaksono, jumlah karakter nama anda &lt;span class="m"&gt;15&lt;/span&gt; huruf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;membuat &lt;em&gt;method&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Metodh&lt;/em&gt; atau fungsi dalam Python dapat dibuat sendiri dengan menggunakan syntax &lt;code&gt;def&lt;/code&gt; dan ditutup oleh &lt;code&gt;end&lt;/code&gt;. Contoh pemograman membuat metode dapat dilihat dalam kode berikut ini&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;multiply&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first_num&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;second_num&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;first_num&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_f&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;second_num&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_f&lt;/span&gt;  &lt;span class="c1"&gt;# in ruby, last statement return automatically&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;divide&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first_num&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;second_num&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;first_num&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_f&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;second_num&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_f&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;subtract&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first_num&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;second_num&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;first_num&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_f&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;second_num&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_f&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first_num&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;second_num&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;first_num&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;second_num&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;mod&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first_num&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;second_num&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;first_num&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;second_num&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Sekarang mari kita tes metode &lt;code&gt;multiply&lt;/code&gt;, &lt;code&gt;divide&lt;/code&gt;, &lt;code&gt;subtract&lt;/code&gt;, &lt;code&gt;add&lt;/code&gt;, dan &lt;code&gt;mod&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="n"&gt;multiply&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="n"&gt;divide&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="n"&gt;subtract&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="n"&gt;mod&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Percabangan (Branching)&lt;/h2&gt;
+&lt;p&gt;Percabangan atau &lt;em&gt;branching&lt;/em&gt; umumnya menggunakan statement &lt;code&gt;if&lt;/code&gt;, &lt;code&gt;elsif&lt;/code&gt;, dan &lt;code&gt;else&lt;/code&gt;. Untuk lebih jelasnya, perhatikan contoh program berikut ini.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;siapa nama kamu?&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;nama&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;gets&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;chomp&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;berapa umur kamu?&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;umur&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;gets&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;chomp&lt;/span&gt;
+&lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;berapa tinggi badan kamu dalam cm?&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;tinggi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;gets&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;chomp&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;umur&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_i&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;umur&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;tinggi&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_i&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="mi"&gt;150&lt;/span&gt;
+  &lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;selamat kakak &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;nama&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;, kamu sudah berhak bikin SIM&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;elsif&lt;/span&gt; &lt;span class="n"&gt;umur&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="n"&gt;tinggi&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;150&lt;/span&gt;
+  &lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;maaf kak &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;nama&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; belum bisa bikin SIM karena umur kakak belum 17 tahun atau tinggi tidak mencapai 150 cm&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;
+  &lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;maaf umur kakak &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;nama&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; sudah melebihi ambang batas bikin SIM&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Pada program tersebut, user disuruh mengisi nama, umur dan tinggi badan. Jika umur dan tinggi badan sesuai yang disyaratkan maka program tersebut akan memberikan ucapan selamat. Jika tidak, maka program akan memberi peringatan pesyaratan mana saja yang belum dipenuhi oleh user.&lt;/p&gt;
+&lt;h2&gt;Referensi&lt;/h2&gt;
+&lt;p&gt;Kini tersedia banyak website yang memberikan materi-materi untuk belajar pemograman Ruby secara gratis diantaranya adalah:    &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="https://www.theodinproject.com/"&gt;The Odin Project&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theodinproject.com/"&gt;Ruby-Lang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://rubylearning.com/"&gt;rubylearning.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.rubyguides.com/ruby-tutorial/"&gt;rubyguides.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Sekian dulu artikel ku tentang pengenalan pemograman Ruby. Jika masih ada waktu dan umur, &lt;em&gt;insya Allah&lt;/em&gt; tulisan ini akan saya &lt;em&gt;update&lt;/em&gt; kembali sesuai perkembangan zaman.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Artikel ini ditulis selama masa karantina di Wisma Atlet Pandemangan&lt;/em&gt;&lt;/p&gt;</content><category term="programming"></category><category term="ruby"></category></entry><entry><title>Pengalaman terbang bersama Emirates</title><link href="https://aysf.github.io/pengalaman-emirates.html" rel="alternate"></link><published>2021-03-20T10:10:00+08:00</published><updated>2021-03-20T10:26:00+08:00</updated><author><name>Ananto</name></author><id>tag:aysf.github.io,2021-03-20:/pengalaman-emirates.html</id><summary type="html">&lt;p&gt;Dalam artikel kali ini saya akan menceritakan pengalaman saya terbang dengan menggunakan maskapai Emirates dari Dubai ke Jakarta. Beberapa hal yang menjadi catatan selama perjalanan seperti menu makanan, fasilitas hiburan dan pengalaman terbang.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Setelah lulus magister, aku bersama seorang teman pulang menuju kampung halaman di pulau Lombok. Kami mendapatkan penerbangan dengan menggunakan maskapai Emirates rute Warsaw-Dubai-Jakarta.&lt;/p&gt;
+&lt;p&gt;Yang paling ku suka dari penerbangan menggunakan Emirates adalah mereka menyajikan &lt;em&gt;warm food&lt;/em&gt; sebagai hidangan utama mereka. Berbeda dengan beberapa maskapai lain yang menyajikan makanan yang sudah dingin seperti baru dikeluarkan dari lemari pendingin.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Menu makanan siang" src="https://aysf.github.io/images/2021-03-emirates-experiences-2c.jpg" title="menu makan siang emirates"&gt;&lt;/p&gt;
+&lt;p&gt;Gambar di atas adalah penampangan hidangan makan siang dengan menu kari ayam saat penerbangan Dubai-Jakarta. Sekitar dua jam sebelum mendarat, kami diberi makanan penutup &lt;em&gt;Leicester Merah&lt;/em&gt;, keju yang konon berasal dari Leicester, Inggris (&lt;a href="https://id.wikipedia.org/wiki/Keju_Leicester" target="_blank"&gt;Wikipedia&lt;/a&gt;). Karena suasana malam hari, kamera ponsel ku pun tak mampu menangkap gambar makanan tersebut dengan baik.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Makanan penutup" src="https://aysf.github.io/images/2021-03-emirates-experiences-3.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Daftar menu yang mereka sajikan dapat diunduh melalui portal jaringan intranet yang terkoneksi dengan wifi pesawat.&lt;/p&gt;</content><category term="my story"></category><category term="travel"></category><category term="flight"></category></entry><entry><title>Alhamdulillah lulus magister</title><link href="https://aysf.github.io/alhamdulillah-lulus-magister.html" rel="alternate"></link><published>2021-03-17T22:30:00+08:00</published><updated>2021-03-17T22:30:00+08:00</updated><author><name>Ananto</name></author><id>tag:aysf.github.io,2021-03-17:/alhamdulillah-lulus-magister.html</id><summary type="html">&lt;p&gt;Perantauan ku di negara Polandia untuk kuliah magister akhirnya dapat ku selesaikan dengan tepat waktu dalam kurun 1,5 tahun. Mendapatkan ijazah beberapa jam sebelum penerbangan pulang ke kampung halaman menambah rasa syukur ku atas kemudahan yang ku dapatkan.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Jumat 12 maret 2021, setelah penantian panjang akhirnya aku berhasil menyelesaikan kuliah magister teknik sipil di salah satu universitas di Warsawa, Polandia. Sudah tidak sabar untuk pulang dan bertemu keluarga yang tidak berjumpa selama satu setengah tahun.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="ijazah" src="https://aysf.github.io/images/ijazah-c.jpeg"&gt;    &lt;/p&gt;
+&lt;p&gt;Setelah dinyatakan lulus, masalah berikutnya adalah menentukan tanggal tiket kepulangan. Apakah aku harus ikut teman-teman Vistula yang memesan tiket kepulangan tanggal 31 Maret dengan menggunakan Emirates atau lebih awal tanggal 17 bersama seorang teman yang sudah &lt;em&gt;booking&lt;/em&gt; tiket terlebih dahulu dengan maskapai Emirates juga. Karena terlalu lama mikir, tiket tanggal 31 bersama rombongan pun habis. Pilihannya barang teman tanggal 17 atau cari tanggal-tanggal lain, &lt;em&gt;so I will be solo traveler&lt;/em&gt;.     &lt;/p&gt;
+&lt;p&gt;Kondisi sejatinya sangat memungkinkan untuk pulang tanggal 31 bareng dengan rombongan Vistula namun dengan menggunakan maskapai yang berbeda. Di satu sisi, slot tanggal 17 bersama seorang teman masih tersedia dengan maskapai yang sama. Akhirnya ku hubungi pihak KBRI Polandia menanyakan apakah legalisir ijazah bisa diwakilkan dan ku hubungi juga pihak kampus menanyakan hal yang sama seputar pengambilan ijazah yang diwakilkan. Mendapat respon positif dari dua pihak tersebut, ku langsung &lt;em&gt;booking&lt;/em&gt; tiket tanggal 17 dan mengurus berbagai keperluan persiapan kepulangan.    &lt;/p&gt;
+&lt;p&gt;Namun siapa sangka, sekitar satu atau dua hari sebelum kepulangan, koordinator kelas kami mengabarkan bahwa ijazah ku mungkin dapat diambil sekitar pukul 10, waktu yang cukup mepet mengingat pesawat lepas landas pukul 14. Jujur, senang sekali mendengar kabar tersebut, ditambah lagi ketika saya mengetahui legalisir ijazah di KBRI bisa dilakukan via online.    &lt;/p&gt;
+&lt;p&gt;Namun demikian, perjuangan ku belum berakhir. Beberapa rencana harus dipersiapkan dan dilaksanakan seperti daftar mempersiapkan lamaran untuk beasiswa doktoral, mengabdi sebagai dosen dan mengasah ketrampilan pemogramman. Atau bisa juga membuka usaha mandiri. Yang jelas aku sangat berterimakasih kepada pemerintah NTB yang telah memberikan kesempatan untuk melanjutkan kuliah ke luar negeri dan komitmen ku untuk memberikan kontribusi balik harus segera dilaksanakan.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Ditulis dari Dubai International Airport&lt;/em&gt;&lt;/p&gt;</content><category term="my story"></category><category term="Polandia"></category></entry></feed>

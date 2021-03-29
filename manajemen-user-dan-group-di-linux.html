@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<html lang="en_us">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet/less" type="text/css" href="./theme/stylesheet/style.less">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js" type="text/javascript"></script>
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="./theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="./theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="./theme/pygments/monokai.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/solid.css">
+
+
+    <link href="https://aysf.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Aysf Atom">
+
+
+
+
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#333333">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#333333">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Microsoft EDGE -->
+    <meta name="msapplication-TileColor" content="#333333">
+
+<meta name="author" content="Ananto" />
+<meta name="description" content="Untuk mengontrol akses pengguna di Linux, kita dapat membuat group dan user. Pada artikel berikut saya akan menjelaskan bagaimana cara membuat, memodifikasi dan menghapus group dan user pada OS Linux." />
+<meta name="keywords" content="tutorial, Ubuntu">
+
+
+<meta property="og:site_name" content="Aysf"/>
+<meta property="og:title" content="Manajemen user dan group di Linux"/>
+<meta property="og:description" content="Untuk mengontrol akses pengguna di Linux, kita dapat membuat group dan user. Pada artikel berikut saya akan menjelaskan bagaimana cara membuat, memodifikasi dan menghapus group dan user pada OS Linux."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="./manajemen-user-dan-group-di-linux.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2021-03-24 00:20:00+08:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="./author/ananto.html">
+<meta property="article:section" content="Linux"/>
+<meta property="article:tag" content="tutorial"/>
+<meta property="article:tag" content="Ubuntu"/>
+<meta property="og:image" content="">
+
+  <title>Aysf &ndash; Manajemen user dan group di Linux</title>
+
+</head>
+<body >
+  <aside>
+    <div>
+      <a href=".">
+        <img src="./theme/img/profile.png" alt="Aysf's note" title="Aysf's note">
+      </a>
+
+      <h1>
+        <a href=".">Aysf's note</a>
+      </h1>
+
+<p>catatan belajar coding dan teknik</p>
+
+      <nav>
+        <ul class="list">
+
+
+              <li>
+                <a target="_self"
+                   href="./pages/tautan.html#tautan">
+                  Tautan
+                </a>
+              </li>
+              <li>
+                <a target="_self"
+                   href="./pages/tentang.html#tentang">
+                  Tentang
+                </a>
+              </li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-github" href="https://github.com/aysf" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-rss" href="/blog/feeds/all.atom.xml" target="_blank">
+              <i class="fas fa-rss"></i>
+            </a>
+          </li>
+      </ul>
+    </div>
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href=".">Home</a>
+
+      <a href="/archives.html">Archives</a>
+      <a href="/categories.html">Categories</a>
+      <a href="/tags.html">Tags</a>
+
+      <a href="https://aysf.github.io/feeds/all.atom.xml">Atom</a>
+
+    </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="manajemen-user-dan-group-di-linux">Manajemen user dan group di Linux</h1>
+    <p>
+      Posted on Wed 24 March 2021 in <a href="./category/linux.html">Linux</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>Mekanisme <em>user</em> dan <em>group</em> pada Linux digunakan untuk mengatur akses kontrol ke file system, direktori atau folder, dan lain sebagainya. User dan group tidak sekedar diperlukan oleh orang atau admin untuk login ke dalam sistem Linux, namun juga diperlukan oleh proses aplikasi dan servis untuk menjalankan dirinya. Ini adalah cara linux untuk mengatur hak akses aplikasi/proses/servis terhadap <em>resource</em> komputer yang ada (<em>file, folder, pheripheral, memory, dll</em>) untuk menjamin keamanan.     </p>
+<h2>Membuat Group dan User</h2>
+<p>Untuk membuat group gunakan perintah <code>groupadd</code> sedangkan perintah <code>useradd</code> digunakan untuk membuat user.</p>
+<p>Sebagai latihan, mari kita membuat group bernama "penulis" dan "editor". Jika ditulis dalam bahasa inggris, biasanya digunakan kata jamak <em>writers</em> dan <em>editors</em>. Penambahan perintah <code>sudo</code> mungkin diperlukan saat pertama kali memasukan perintah.</p>
+<div class="highlight"><pre><span></span><code>groupadd penulis
+groupadd editor
+</code></pre></div>
+
+<p>Sekarang kita ingin menambahkan group baru ke system "admin", "kontributor" dan "pelanggan", kita dapat menggunakan cara di atas atau menggunakan <em>script</em> berikut</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> group in admin kontributor pelanggan<span class="p">;</span> <span class="k">do</span> sudo groupadd -r <span class="si">${</span><span class="nv">group</span><span class="si">}</span><span class="p">;</span><span class="k">done</span>
+</code></pre></div>
+
+<p>Setelah berhasil membuat group, kita akan menambahkan user dan memasukannya ke dalam group tersebut. Untuk membuat user dapat menggunakan perintah <code>useradd [option] username</code>. Berikut ini adalah contoh perintah membuat user <em>budi</em> dengan opsi <em>-m</em> yang akan membuat direktori <em>home</em> sesuai username. Perintah <em>-p p4ssw0rd</em> membuat password <em>"p4ssw0rd"</em> secara otomatis.</p>
+<div class="highlight"><pre><span></span><code>useradd -m budi -p p4ssw0rd
+</code></pre></div>
+
+<p>Sekarang mari kita tambahankan beberapa user lainnya</p>
+<div class="highlight"><pre><span></span><code>sudo useradd reiner
+sudo useradd mikasa
+sudo useradd ymir
+sudo useradd armin
+sudo useradd eren
+sudo useradd levi
+sudo useradd henge
+sudo useradd shasa
+</code></pre></div>
+
+<p>Untuk melihat daftar group dan user yang telah dibuat, kita dapat menggunakan perintah</p>
+<div class="highlight"><pre><span></span><code>cat /etc/group  <span class="c1"># cek daftar group</span>
+cat /etc/passwd <span class="c1"># cek daftar user</span>
+</code></pre></div>
+
+<h2>Modifikasi User dan group</h2>
+<p>Untuk memodifikasi user dan group kita menggunakan perintah <code>usermod</code> dan <code>groupmod</code>.  Syntax dasar untuk modifikasi user adalah <code>usermod [options] username</code>. Adapun pilihan <code>options</code> yang tersedia dapat dilihat dalam tabel berikut.</p>
+<table>
+<thead>
+<tr>
+<th>opsi</th>
+<th>deskripsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-c</td>
+<td>menambahkan komentar</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>modifikasi direktori</td>
+</tr>
+<tr>
+<td>-e</td>
+<td>menspesifikasi ekspired akun</td>
+</tr>
+<tr>
+<td>-g</td>
+<td>mengganti group utama (primer) si user</td>
+</tr>
+<tr>
+<td>-G</td>
+<td>mengganti group extra (tambahan atau skunder) si user</td>
+</tr>
+<tr>
+<td>-a</td>
+<td>append, menambahkan user ke group extra</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>change login username</td>
+</tr>
+<tr>
+<td>-L</td>
+<td>mengunci akun</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>memindahan konten</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>setting password</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>membuat specified shell untuk akun baru</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>digunakan untuk memberi nomer UID dari 0 ke 999</td>
+</tr>
+<tr>
+<td>-U</td>
+<td>untuk meng-Unlock akun dan menghapus kunci password akun</td>
+</tr>
+</tbody>
+</table>
+<p>Sebagai contoh kita ingin menambahkan user <em>budi</em> ke group <em>penulis</em>, maka kita dapat menggunakan perintah <code>usermod</code>. Parameter <code>-a</code> untuk <em>append</em> dan <code>-G</code> berfungsi untuk membuat group <em>penulis</em> sebagai group kedua/tambahan user <em>budi</em></p>
+<div class="highlight"><pre><span></span><code>usermod -a -G penulis budi
+</code></pre></div>
+
+<p>Ketika kita membuat user <em>budi</em>, secara otomatis group bernama <em>budi</em> dibuat sebagai group utama dan sekarang group <em>penulis</em> menjadi group kedua/extra untuk user <em>budi</em>. Untuk mengganti group utama <em>budi</em> ke <em>editor</em>, maka kita dapat menggunakan perintah berikut</p>
+<div class="highlight"><pre><span></span><code>usermod -g editor budi
+</code></pre></div>
+
+<p>Untuk mengecek nama group yang <em>user</em> telah tergabung ke dalamnya gunakan perintah <code>groups username</code></p>
+<p>Contoh praktis pemakaian opsi perintah <code>usermod</code> selengkapnya dapat dilihat pada website <a href="https://www.tecmint.com/usermod-command-examples/">tecmint</a> berikut.</p>
+<h2>Menghapus User dan Group</h2>
+<p>Untuk menghapus user dan group, perintah <code>userdel</code> dan <code>groupdel</code> dapat digunakan.</p>
+<h3>menghapus user dari group</h3>
+<p>Misal kita ingin menghapus <em>budi</em> dari group editor yang telah kita buat pada contoh sebelumnya. Kita dapat menggunakan perintah <code>gpasswd</code> dengan opsi <code>-d</code> seperti contoh berikut:</p>
+<div class="highlight"><pre><span></span><code>gpasswd -d budi editor
+</code></pre></div>
+
+<p>Cara alternatif pada Ubuntu kita dapat menggunakan perintah  <code>deluser</code> sebagaimana berikut:</p>
+<div class="highlight"><pre><span></span><code>deluser budi editor
+</code></pre></div>
+
+<h3>menghapus users</h3>
+<p>untuk menghapus user, kita bisa gunakan <code>userdel username</code>. Untuk menghapus direktori home secara keseluruhan, kita bisa menambahkan opsi <code>-r</code>(<code>--remove</code>) sehingga perintah menjadi</p>
+<div class="highlight"><pre><span></span><code>userdel -r username
+</code></pre></div>
+
+<h3>menghapus groups</h3>
+<p>Untuk meghapus group, cara yang digunakan hampir sama dengan sebelumnya yakni dengan menggunakan perintah:</p>
+<div class="highlight"><pre><span></span><code>groupdel <span class="o">[</span>option<span class="o">]</span> groupname
+</code></pre></div>
+
+<p>Semoga Bermanfaat     </p>
+<p>Referensi:  <br>
+1. <a href="https://www.belajarlinux.org/cara-mengelola-user-dan-group-menggunakan-perintah-linux/">belajarlinux.org</a>  <br>
+2. <a href="https://geek-university.com/start-course/">geek-university</a>  <br>
+3. <a href="https://www.linode.com/docs/guides/linux-users-and-groups/">linode.com</a>  <br>
+4. <a href="https://www.networkworld.com/article/3409781/mastering-user-groups-on-linux.html">networkworld</a>  <br>
+5. <a href="https://www.youtube.com/watch?v=fjBFOacfnY4">Youtube: managing linux users and groups</a>   <br>
+6. <a href="https://www.linuxquestions.org/questions/linux-newbie-8/creating-multiple-groups-in-one-line-of-command-4175587610/">linuxquestions</a>   <br>
+7. <a href="https://www.tecmint.com/usermod-command-examples/">Tecmint</a>    </p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="./tag/tutorial.html">tutorial</a>
+      <a href="./tag/ubuntu.html">Ubuntu</a>
+    </p>
+  </div>
+
+  <div class="center social-share">
+    <p>Like this article? Share it with your friends!</p>
+    <div class="addthis_native_toolbox"></div>
+    <div class="addthis_sharing_toolbox"></div>
+    <div class="addthis_inline_share_toolbox"></div>
+  </div>
+
+
+    <div class="addthis_relatedposts_inline"></div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ansuf';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+    <footer>
+<p>
+  &copy; 2021  - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+  <span class="footer-separator">|</span>
+  Switch to the <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> theme
+  <script id="dark-theme-script"
+          src="./theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>    </footer>
+  </main>
+
+
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55adbb025d4f7e55" async="async"></script>
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Aysf ",
+  "url" : ".",
+  "image": "",
+  "description": "this is personal blog"
+}
+</script>
+
+
+</body>
+</html>
