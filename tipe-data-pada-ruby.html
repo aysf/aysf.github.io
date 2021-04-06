@@ -47,25 +47,24 @@
     <meta name="msapplication-TileColor" content="#333333">
 
 <meta name="author" content="Ananto" />
-<meta name="description" content="Dalam artikel kali ini saya akan menceritakan pengalaman saya terbang dengan menggunakan maskapai Emirates dari Dubai ke Jakarta. Beberapa hal yang menjadi catatan selama perjalanan seperti menu makanan, fasilitas hiburan dan pengalaman terbang." />
-<meta name="keywords" content="travel, flight">
+<meta name="description" content="Dalam tulisan kali ini saya akan menjelaskan tipe data pada Ruby yaitu: Integer, Float, Boolean, String, Symbols, Array, dan Hashes." />
+<meta name="keywords" content="ruby">
 
 
 <meta property="og:site_name" content="aysf"/>
-<meta property="og:title" content="Pengalaman terbang bersama Emirates"/>
-<meta property="og:description" content="Dalam artikel kali ini saya akan menceritakan pengalaman saya terbang dengan menggunakan maskapai Emirates dari Dubai ke Jakarta. Beberapa hal yang menjadi catatan selama perjalanan seperti menu makanan, fasilitas hiburan dan pengalaman terbang."/>
+<meta property="og:title" content="Tipe Data Pada Ruby"/>
+<meta property="og:description" content="Dalam tulisan kali ini saya akan menjelaskan tipe data pada Ruby yaitu: Integer, Float, Boolean, String, Symbols, Array, dan Hashes."/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="./pengalaman-emirates.html"/>
+<meta property="og:url" content="./tipe-data-pada-ruby.html"/>
 <meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2021-03-20 10:10:00+08:00"/>
-<meta property="article:modified_time" content="2021-03-20 10:26:00+08:00"/>
+<meta property="article:published_time" content="2021-04-06 00:20:00+08:00"/>
+<meta property="article:modified_time" content=""/>
 <meta property="article:author" content="./author/ananto.html">
-<meta property="article:section" content="my story"/>
-<meta property="article:tag" content="travel"/>
-<meta property="article:tag" content="flight"/>
+<meta property="article:section" content="programming"/>
+<meta property="article:tag" content="ruby"/>
 <meta property="og:image" content="">
 
-  <title>aysf &ndash; Pengalaman terbang bersama Emirates</title>
+  <title>aysf &ndash; Tipe Data Pada Ruby</title>
 
 </head>
 <body >
@@ -138,26 +137,37 @@
 <article class="single">
   <header>
       
-    <h1 id="pengalaman-emirates">Pengalaman terbang bersama Emirates</h1>
+    <h1 id="tipe-data-pada-ruby">Tipe Data Pada Ruby</h1>
     <p>
-      Posted on Sat 20 March 2021 in <a href="./category/my-story.html">my story</a>
+      Posted on Tue 06 April 2021 in <a href="./category/programming.html">programming</a>
 
     </p>
   </header>
 
 
   <div>
-    <p>Setelah lulus magister, aku bersama seorang teman pulang menuju kampung halaman di pulau Lombok. Kami mendapatkan penerbangan dengan menggunakan maskapai Emirates rute Warsaw-Dubai-Jakarta.</p>
-<p>Yang paling ku suka dari penerbangan menggunakan Emirates adalah mereka menyajikan <em>warm food</em> sebagai hidangan utama mereka. Berbeda dengan beberapa maskapai lain yang menyajikan makanan yang sudah dingin seperti baru dikeluarkan dari lemari pendingin.</p>
-<p><img alt="Menu makanan siang" src="./images/2021-03-emirates-experiences-2c.jpg" title="menu makan siang emirates"></p>
-<p>Gambar di atas adalah penampangan hidangan makan siang dengan menu kari ayam saat penerbangan Dubai-Jakarta. Sekitar dua jam sebelum mendarat, kami diberi makanan penutup <em>Leicester Merah</em>, keju yang konon berasal dari Leicester, Inggris (<a href="https://id.wikipedia.org/wiki/Keju_Leicester" target="_blank">Wikipedia</a>). Karena suasana malam hari, kamera ponsel ku pun tak mampu menangkap gambar makanan tersebut dengan baik.</p>
-<p><img alt="Makanan penutup" src="./images/2021-03-emirates-experiences-3.jpg"></p>
-<p>Daftar menu yang mereka sajikan dapat diunduh melalui portal jaringan intranet yang terkoneksi dengan wifi pesawat.</p>
+    <h2>Integer dan Float: Tipe Data Angka</h2>
+<p><em>Integer</em> dan <em>Float</em> adalah tipe data yang menangani angka atau bilangan dalam program. Perbedaannya, <em>Integer</em> digunakan untuk bilangan bulat sedangkan <em>Float</em> untuk bilangan desimal. Berikut ini contoh penggunaan tipe data <em>Integer</em> dan <em>Float</em> untuk variable usia dan berat_badan</p>
+<div class="highlight"><pre><span></span><code><span class="n">usia</span> <span class="o">=</span> <span class="mi">21</span>
+<span class="n">berat_badan</span> <span class="o">=</span> <span class="mi">12</span><span class="o">.</span><span class="mi">3</span>
+</code></pre></div>
+
+<p>Ruby secara otomatis memberikan tipe data sesuai variable yang dimasukan. Kita dapat mengecek tipe data pada variable yang telah kita buat dengan syntax <code>.class</code> seperti contoh berikut ini,    </p>
+<div class="highlight"><pre><span></span><code><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">001</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">usia</span> <span class="o">=</span> <span class="mi">21</span>
+<span class="o">=&gt;</span> <span class="mi">21</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">002</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">berat_badan</span> <span class="o">=</span> <span class="mi">12</span><span class="o">.</span><span class="mi">3</span>
+<span class="o">=&gt;</span> <span class="mi">12</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">003</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">usia</span><span class="o">.</span><span class="n">class</span>
+<span class="o">=&gt;</span> <span class="nb">Integer</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">004</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">berat_badan</span><span class="o">.</span><span class="n">class</span>
+<span class="o">=&gt;</span> <span class="nb">Float</span>
+</code></pre></div>
+
+<p>Seperti <em>ipython</em>, Ruby juga memiliki pemograman interaktif yang bernama <em>irb</em> (<em>interactive Ruby</em>). Contoh di atas menggunakan <em>interactive Ruby</em> yang dapat diaktifkan dengan mengetikan <em>irb</em> pada terminal atau command prompt.</p>
   </div>
   <div class="tag-cloud">
     <p>
-      <a href="./tag/travel.html">travel</a>
-      <a href="./tag/flight.html">flight</a>
+      <a href="./tag/ruby.html">ruby</a>
     </p>
   </div>
 
