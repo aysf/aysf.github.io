@@ -47,13 +47,13 @@
     <meta name="msapplication-TileColor" content="#333333">
 
 <meta name="author" content="Ananto" />
-<meta name="description" content="C adalah bahasa pemograman tertua yang sangat popular, dibuat tahun 1972 oleh Dennis Ritchie. Meski demikian, bahasa pemograman C banyak digunakan pada peralatan elektronik seperti mikrokontroler, embedded system, dan operating system." />
+<meta name="description" content="C adalah bahasa pemograman tertua yang sangat popular, dibuat tahun 1972 oleh Dennis Ritchie. Bahasa pemograman C banyak digunakan pada peralatan elektronik seperti mikrokontroler, embedded system, dan operating system." />
 <meta name="keywords" content="c">
 
 
 <meta property="og:site_name" content="aysf"/>
 <meta property="og:title" content="Getting Started with C"/>
-<meta property="og:description" content="C adalah bahasa pemograman tertua yang sangat popular, dibuat tahun 1972 oleh Dennis Ritchie. Meski demikian, bahasa pemograman C banyak digunakan pada peralatan elektronik seperti mikrokontroler, embedded system, dan operating system."/>
+<meta property="og:description" content="C adalah bahasa pemograman tertua yang sangat popular, dibuat tahun 1972 oleh Dennis Ritchie. Bahasa pemograman C banyak digunakan pada peralatan elektronik seperti mikrokontroler, embedded system, dan operating system."/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="./getting-started-with-c.html"/>
 <meta property="og:type" content="article"/>
@@ -146,7 +146,46 @@
 
 
   <div>
-    
+    <p>C adalah bahasa pemograman dengan paragdima prosedur (<em>procedural programming language</em>), tidak seperti kebanyakan bahasa pemograman kini yang kebanyakan berparadigma fungsional atau berorentasi obyek (baca lagi tentang <em>programming paragdigms</em>). Berikut ini adalah contoh pemograman prosedural sederhana dengan menggunakan C.</p>
+<p>Buat file baru <code>main.c</code> yang berisi sebagai berikut,</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;orders.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="kt">double</span> <span class="n">order_subtotal</span> <span class="o">=</span> <span class="mf">50.00</span><span class="p">;</span>
+
+  <span class="kt">double</span> <span class="n">grand_total</span> <span class="o">=</span> <span class="n">calculate_order_total</span><span class="p">(</span><span class="n">order_subtotal</span><span class="p">);</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Grand total: %lf&quot;</span><span class="p">,</span> <span class="n">grand_total</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Kemudian buatlah file lainnya bernama <code>orders.c</code> yang berisi beberapa prosedur yang bisa digunakan untuk membantu menghitung jumlah pemesanan pada file sebelumnya.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">double</span> <span class="nf">calculate_sales_tax</span><span class="p">(</span><span class="kt">double</span> <span class="n">order_subtotal</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n">order_subtotal</span> <span class="o">*</span> <span class="mf">.05</span><span class="p">;</span> <span class="c1">// 5% sales tax</span>
+<span class="p">}</span>
+
+<span class="kt">double</span> <span class="nf">calculate_shipping_cost</span><span class="p">(</span><span class="kt">double</span> <span class="n">order_subtotal</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n">order_subtotal</span> <span class="o">*</span> <span class="mf">.1</span><span class="p">;</span> <span class="c1">// 10% shipping charge</span>
+<span class="p">}</span>
+
+<span class="kt">double</span> <span class="nf">calculate_order_total</span><span class="p">(</span><span class="kt">double</span> <span class="n">order_subtotal</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">double</span> <span class="n">order_total</span> <span class="o">=</span> <span class="n">order_subtotal</span> <span class="o">+</span> <span class="n">calculate_sales_tax</span><span class="p">(</span><span class="n">order_subtotal</span><span class="p">);</span>
+  <span class="n">order_total</span> <span class="o">+=</span> <span class="n">calculate_shipping_cost</span><span class="p">(</span><span class="n">order_subtotal</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">order_total</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Untuk menggunakan fungsi <em>calculated_order_total</em> pada file di atas, diperlukan file header <code>orders.h</code> yang berisi fungsi tersebut.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">double</span> <span class="nf">calculate_order_total</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span>
+</code></pre></div>
+
+<p>tempatkanlah file tersebut dalam satu folder, kemudian jalankan perintah <code>cl *.c /Fecalc.exe</code> pada command prompt jika menggunakan windows atau <code>gcc *.c -o calc.exe</code> jika menggunakan linux. Ketiga file tersebut juga dapat diunduh di <a href="./downloads/procedural_sample.tar">sini</a>.</p>
+<p>Salah satu keunggulan pemograman C adalah dapat mengakses memori secara langsung dengan fitur <em>pointers</em>.</p>
   </div>
   <div class="tag-cloud">
     <p>
