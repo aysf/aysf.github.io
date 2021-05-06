@@ -46,16 +46,25 @@
     <!-- Microsoft EDGE -->
     <meta name="msapplication-TileColor" content="#333333">
 
-    <meta name="author" content="Ananto Yusuf W" />
-    <meta name="description" content="this is personal blog" />
-<meta property="og:site_name" content="aysf"/>
-<meta property="og:type" content="blog"/>
-<meta property="og:title" content="aysf"/>
-<meta property="og:description" content="this is personal blog"/>
-<meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="."/>
+<meta name="author" content="Ananto" />
+<meta name="description" content="Dalam tulisan berikut saya akan mengulas penggunaan metode map pada struktur data array dalam JavaScript." />
+<meta name="keywords" content="JavaScript">
 
-  <title>aysf &ndash; Authors</title>
+
+<meta property="og:site_name" content="aysf"/>
+<meta property="og:title" content="Metod map pada Array JavaScript"/>
+<meta property="og:description" content="Dalam tulisan berikut saya akan mengulas penggunaan metode map pada struktur data array dalam JavaScript."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="./metod-map-pada-array-javascript.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2021-05-01 00:20:00+08:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="./author/ananto.html">
+<meta property="article:section" content="Programming"/>
+<meta property="article:tag" content="JavaScript"/>
+<meta property="og:image" content="">
+
+  <title>aysf &ndash; Metod map pada Array JavaScript</title>
 
 </head>
 <body >
@@ -127,13 +136,57 @@
 
 <article class="single">
   <header>
-    <h1 id="authors">Authors</h1>
+      
+    <h1 id="metod-map-pada-array-javascript">Metod map pada Array JavaScript</h1>
+    <p>
+      Posted on Sat 01 May 2021 in <a href="./category/programming.html">Programming</a>
+
+    </p>
   </header>
+
+
   <div>
-    <ul class="list">
-      <li><a href="./author/ananto.html">Ananto</a> (14)</li>
-    </ul>
+    <p>Map adalah metod dalam JavaScript yang digunakan untuk membuat array baru dengan menerapkan suatu fungsi pada setiap elemen array. Untuk lebih jelasnya mari kita lihat contoh berikut.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">hargaProduk</span> <span class="o">=</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">280</span><span class="p">];</span>
+<span class="kr">const</span> <span class="nx">hargaDiskon</span> <span class="o">=</span> <span class="nx">map</span><span class="p">.</span><span class="nx">hargaProduk</span><span class="p">(</span><span class="nx">x</span> <span class="p">=&gt;</span> <span class="mf">0.8</span><span class="o">*</span><span class="nx">x</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">hargaDiskon</span><span class="p">);</span>
+</code></pre></div>
+
+<p><code>hargaProduk</code> adalah variable array yang terdiri dari daftar harga 3 produk. Untuk membuat array <code>hargaDiskon</code>, kita dapat menggunakan fungsi <code>map</code></p>
+<p>referensi:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map</p>
   </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="./tag/javascript.html">JavaScript</a>
+    </p>
+  </div>
+
+  <div class="center social-share">
+    <p>Like this article? Share it with your friends!</p>
+    <div class="addthis_native_toolbox"></div>
+    <div class="addthis_sharing_toolbox"></div>
+    <div class="addthis_inline_share_toolbox"></div>
+  </div>
+
+
+    <div class="addthis_relatedposts_inline"></div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ansuf';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
 </article>
 
     <footer>

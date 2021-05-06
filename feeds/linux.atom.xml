@@ -236,10 +236,30 @@ cat /etc/passwd &lt;span class="c1"&gt;# cek daftar user&lt;/span&gt;
 4. &lt;a href="https://www.networkworld.com/article/3409781/mastering-user-groups-on-linux.html"&gt;networkworld&lt;/a&gt;  &lt;br&gt;
 5. &lt;a href="https://www.youtube.com/watch?v=fjBFOacfnY4"&gt;Youtube: managing linux users and groups&lt;/a&gt;   &lt;br&gt;
 6. &lt;a href="https://www.linuxquestions.org/questions/linux-newbie-8/creating-multiple-groups-in-one-line-of-command-4175587610/"&gt;linuxquestions&lt;/a&gt;   &lt;br&gt;
-7. &lt;a href="https://www.tecmint.com/usermod-command-examples/"&gt;Tecmint&lt;/a&gt;    &lt;/p&gt;</content><category term="Linux"></category><category term="tutorial"></category><category term="Ubuntu"></category></entry><entry><title>Mengenal Bash Script</title><link href="https://aysf.github.io/mengenal-bash-script.html" rel="alternate"></link><published>2021-03-24T00:20:00+08:00</published><updated>2021-03-24T00:20:00+08:00</updated><author><name>Ananto</name></author><id>tag:aysf.github.io,2021-03-24:/mengenal-bash-script.html</id><summary type="html">&lt;p&gt;Bash Script adalah pemograman yang terdapat pada OS Linux dan Mac OS. Namun sekarang pengguna Windows juga bisa menggunakan Bash Script. Dalam artikel berikut, saya akan menjelaskan beberapa syntax dasar bash Script.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Program 'Halo Dunia' pertama mu dengan shell Script&lt;/h2&gt;
+7. &lt;a href="https://www.tecmint.com/usermod-command-examples/"&gt;Tecmint&lt;/a&gt;    &lt;/p&gt;</content><category term="Linux"></category><category term="tutorial"></category><category term="Ubuntu"></category></entry><entry><title>Pengenalan Pemograman Shell</title><link href="https://aysf.github.io/pengenalan-pemograman-shell.html" rel="alternate"></link><published>2021-03-24T00:20:00+08:00</published><updated>2021-03-24T00:20:00+08:00</updated><author><name>Ananto</name></author><id>tag:aysf.github.io,2021-03-24:/pengenalan-pemograman-shell.html</id><summary type="html">&lt;p&gt;Shell Script adalah pemograman yang terdapat pada OS Linux dan Mac OS. Namun sekarang pengguna Windows juga bisa menggunakan Shell Script. Dalam artikel berikut, saya akan menjelaskan beberapa syntax dasar bash Script.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Apa itu Shell ?&lt;/h2&gt;
+&lt;p&gt;Dikutip dari onnocenter.or.id, shell adalah program (penerjemah perintah) yang menjembatani user dengan sistem operasi dalam hal ini kernel (inti sistem operasi), umumnya shell menyediakan prompt sebagai user interface, tempat dimana user mengetikkan perintah-perintah yang diinginkan.&lt;/p&gt;
+&lt;p&gt;Shell memiliki beberpa varian diantaranya:    &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;UNIX, Linux, MacOS   &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Bourne sell (sh), C shell (csh), korn shell (ksh)    &lt;/li&gt;
+&lt;li&gt;Z shell (zsh) adalah shell &lt;em&gt;default&lt;/em&gt; yang digunakan pada Mac Catalina     &lt;/li&gt;
+&lt;li&gt;Bourne again shell (bash) adalah yang paling popular    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Windows    &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cmd, PowerShell    &lt;/li&gt;
+&lt;li&gt;Linux subsystem bisa menjalankan &lt;em&gt;bash/zsh&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Program 'Halo Dunia' pertama mu dengan shell Script&lt;/h2&gt;
 &lt;p&gt;Untuk membuat program 'Halo Dunia', kamu harus membuat file berextensi &lt;em&gt;*.sh&lt;/em&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# membuat file halo.sh dengan teks editor nano&lt;/span&gt;
 nano halo.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;dan menambahkan syntax &lt;em&gt;echo "Halo Dunia"&lt;/em&gt; ke dalam file tersebut. Kemudian jalankan program tersebut. Lebih jelasnya perintah tersebut dapat dilihat dalam kode berikut     &lt;/p&gt;</content><category term="Linux"></category><category term="tutorial"></category></entry></feed>
+&lt;p&gt;kemudian tambahkan &lt;code&gt;echo "Halo Dunia"&lt;/code&gt; ke dalam file tersebut, simpan dan jalankan dengan perintah &lt;code&gt;bash halo.sh&lt;/code&gt;     &lt;/p&gt;</content><category term="Linux"></category><category term="shell"></category></entry></feed>
