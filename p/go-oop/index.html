@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Undersstanding Object Orientation in Golang'>
+<title>Object Oriented in Go</title>
+
+<link rel='canonical' href='https://ayw.codeberg.page/p/go-oop/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Object Oriented in Go'>
+<meta property='og:description' content='Undersstanding Object Orientation in Golang'>
+<meta property='og:url' content='https://ayw.codeberg.page/p/go-oop/'>
+<meta property='og:site_name' content='Coding Notes'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='OOP' /><meta property='article:published_time' content='2022-08-16T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-08-16T00:00:00&#43;00:00'/><meta property='og:image' content='https://ayw.codeberg.page/images/go.png' />
+<meta name="twitter:title" content="Object Oriented in Go">
+<meta name="twitter:description" content="Undersstanding Object Orientation in Golang"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://ayw.codeberg.page/images/go.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hub43f63f8dc0670818fae77f9ea942db8_53425_300x0_resize_q75_box.jpeg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Coding Notes</a></h1>
+            <h2 class="site-description">Go/Ruby Developer</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/aysf'
+                        target="_blank"
+                        title="Github"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/ansuf'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://ayw.codeberg.page/" selected>English</option>
+                        
+                            <option value="https://ayw.codeberg.page/id/" >Indonesia</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#intro">Intro</a>
+      <ol>
+        <li><a href="#traditional-object-orientation">Traditional Object Orientation</a></li>
+        <li><a href="#oop-in-go">OOP in Go</a></li>
+      </ol>
+    </li>
+    <li><a href="#practicing">Practicing</a>
+      <ol>
+        <li><a href="#encapsulation">Encapsulation</a>
+          <ol>
+            <li><a href="#package-oriented-design">Package-oriented Design</a></li>
+            <li><a href="#interface">Interface</a></li>
+          </ol>
+        </li>
+        <li><a href="#message-passing">Message Passing</a></li>
+        <li><a href="#inheritance--composition">Inheritance / Composition</a></li>
+        <li><a href="#polymorphism">Polymorphism</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/go-oop/">
+                
+                    <img src="/images/go.png" loading="lazy" alt="Featured image of post Object Oriented in Go" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/golang/" >
+                Golang
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/go-oop/">Object Oriented in Go</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Undersstanding Object Orientation in Golang
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 16, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    12 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>back to <a class="link" href="/p/go-tutorial" >Go tutorial index</a></p>
+<h2 id="intro">Intro</h2>
+<p>Understanding object-oriented implementation in Go is very important to build scalable app. Source for this article can be downloaded <a class="link" href="https://github.com/aysf/gopherpay"  target="_blank" rel="noopener"
+    >here</a></p>
+<h3 id="traditional-object-orientation">Traditional Object Orientation</h3>
+<p>Object orientation is about isolating objects one from another so that each aspect of our system can interact with another, but not have to be overly concerned about the implementation details of the objects that they&rsquo;re interacting with.</p>
+<p>When we start to break down an object-oriented system, there are several features that the object exhibit in order to allow us to establish this separation of concern.</p>
+<p>The first characteristic of an object-oriented system is something called <strong>encapsulation</strong> and that&rsquo;s that idea that we&rsquo;re going to interact with objects through their methods, but we&rsquo;re not going to understand the details of how those objects are going to accomplish the functionality that we&rsquo;re asking them to. So for example, when we&rsquo;re interacting with a TCP connection handler object, we don&rsquo;t know how it&rsquo;s managing that connection. So it might have a direct connection to the port, or it might have another object that it&rsquo;s using to manage that port, or it might be managing the state some other way. The point with encapsulation is, we don&rsquo;t know, and we don&rsquo;t have to care. That&rsquo;s the responsibility of the TCP connection handler. We just know that it can provide us some functionality and we&rsquo;re going to take advantage of that functionality.</p>
+<p>The next characteristic is <strong>message passing</strong>. So one of the things that we want to be able to do when we&rsquo;re interacting with these objects is we don&rsquo;t want to have anymore information about the object that we need. So when we want to invoke some functionality, sometimes we want to know exactly the functionality that we want to invoke, and that&rsquo;s not going to be message passing, that&rsquo;s directly calling a method on an object that we&rsquo;re working with. But sometimes, we want to allow that object flexibility for exactly how that message is going to be interpreted. So in those situation we&rsquo;re going to do what&rsquo;s called message passing where we&rsquo;re going to provide a message, but we&rsquo;re not going to have any opinion on how that object is going to interpret that message, or if it does anything with it at all.</p>
+<p>The next characteristic that we&rsquo;re used to seeing in an object-oriented system is a concept called inheritance, where we can have a base type, often called a <strong>class</strong> in many languages, and we can derive descendent types from that. Now in Go we don&rsquo;t have capability, there is no inheritance model in Go, but we will talk about another mechanism that is present in the Go language.</p>
+<p>And the final characteristic that we&rsquo;re going to be focusing on in an object-oriented system is this concept of polymorphism. Now polymorphism is the ability to have multiple types stand in for some common type. So in our payment processing system, we might have a payment option type, and then we might have implementing that type, a credit card payment method, we might have a checking account payment method, we might have a cash payment method, and all of those can operate as a payment option in our system. And when we work with types that way, they&rsquo;re going to be working polymorphically, which means we don&rsquo;t really care about the underlying type, we just know that it&rsquo;s going to expose some capabilities that we&rsquo;re interested in.</p>
+<p>To sum up:</p>
+<ol>
+<li>By <strong>encapsulation</strong>, we isolate our objects from one another so that they don&rsquo;t have access to one another&rsquo;s data</li>
+<li>By <strong>passing messages</strong>, we&rsquo;re not going to understand as we ask an object to perform some behaviour, we&rsquo;re not going to be sure of that exact behaviour that it&rsquo;s going to invoke. We just know that we&rsquo;re asking it to do something, we&rsquo;re relying on it to understand how to do that work.</li>
+<li>With <strong>inheritance</strong>, we&rsquo;re going to be able to work with some kind of a super type, and that supertype is going to be able to delegate functionality down to its children.</li>
+<li>And then with <strong>polymorphism</strong> we&rsquo;re going to have a common abstract type of some sort, and we&rsquo;re going to be able to interact with that abstraction without actually understanding the underlying implementation.</li>
+</ol>
+<h3 id="oop-in-go">OOP in Go</h3>
+<p>Just to name some of the challenges that we&rsquo;re going to be facing,</p>
+<ul>
+<li>Go is not a class and object language,</li>
+<li>Go doesn&rsquo;t have the concept of private data,</li>
+<li>Go doesn&rsquo;t support inheritance</li>
+<li>Go doesn&rsquo;t have abstract base types</li>
+</ul>
+<p>OOP Concept in Go</p>
+<ul>
+<li><strong>Methods</strong>: So while Go doesn&rsquo;t have a traditional <strong>class structure</strong>, we can take data structures and attach functions to them, turning them into methods,</li>
+<li><strong>Package oriented design</strong>: So while Go doesn&rsquo;t have the concept of private data, meaning data that&rsquo;s private to a class or to a data structure, we do have the concept of package-level data. So if we change our design prespective from a <strong>class-oriented design</strong>, which is what a lot of object-oriented programming languages drive us to, and focus instead on a <strong>package-orientated design</strong>, then I think we&rsquo;re going to see that a lot of our problems go away.</li>
+<li><strong>Type embedding</strong>: That&rsquo;s going to allow us to gain a lot of the advantages of an <strong>inheritance-based system</strong> without a lot of baggage.</li>
+<li><strong>Interface</strong>: is relied on heavily in the Go language to provide a lot of the object-orientated characteristics that we&rsquo;re going to be talking about.</li>
+</ul>
+<h2 id="practicing">Practicing</h2>
+<p>We&rsquo;re going to practice object-oriented design implementation in payment study case.</p>
+<h3 id="encapsulation">Encapsulation</h3>
+<p>Accessing a service on an object <strong>without knowing</strong> how that service is implemented.</p>
+<p>Two tools in Go for encapsulation, <strong>package-oriented</strong> design and <strong>interface</strong>. To encapsulate application data in Go means separating the data that the object can make available from how that object is actually storing it or retrieving it.</p>
+<h4 id="package-oriented-design">Package-oriented Design</h4>
+<p>We want to start by defining a data structure for a credit card in <code>gopherpay/payment/payment.go</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">payment</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">CreditCard</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">ownerName</span>       <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">cardNumber</span>      <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">expirationMonth</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">expirationYear</span>  <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">securityCode</span>    <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">availableCredit</span> <span class="kt">float32</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The available credit being stored internal to the credit card structure is really a design decision that we need to make, because we might decide we&rsquo;re going to access that available every time through web server or we might use the web service to populate this first time we access the data.</p>
+<p>Now the first challange that we have with this type is we can&rsquo;t actually build one from outside of the package, because all of the fields are internal and private to the package.</p>
+<p>So a typical one to get around that is by adding a <strong>constructor function</strong> as you see here</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">CreateCreditAccount</span><span class="p">(</span><span class="nx">ownerName</span><span class="p">,</span> <span class="nx">cardNumber</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">expirationMonth</span><span class="p">,</span> <span class="nx">expirationYear</span><span class="p">,</span> <span class="nx">securityCode</span> <span class="kt">int</span><span class="p">)</span> <span class="o">*</span><span class="nx">CreditCard</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">CreditCard</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ownerName</span><span class="p">:</span>       <span class="nx">ownerName</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">cardNumber</span><span class="p">:</span>      <span class="nx">cardNumber</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">expirationMonth</span><span class="p">:</span> <span class="nx">expirationMonth</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">expirationYear</span><span class="p">:</span>  <span class="nx">expirationYear</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">securityCode</span><span class="p">:</span>    <span class="nx">securityCode</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now that we have the ability to create the credit card, we need to allow the consumers of this credit card to be able to interact with it, because now they can create credit card, but they still can&rsquo;t access any of the data that is stored or any the behaviors that we want to expose. So we add few methods below</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="nx">CreditCard</span><span class="p">)</span> <span class="nf">OwnerName</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">ownerName</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">CreditCard</span><span class="p">)</span> <span class="nf">SetOwnerName</span><span class="p">(</span><span class="nx">value</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">retrun</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;invalid owner name provided&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">c</span><span class="p">.</span><span class="nx">ownerName</span> <span class="p">=</span> <span class="nx">value</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="nx">CreditCard</span><span class="p">)</span> <span class="nf">CardNumber</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">cardNumber</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">cardNumberPattern</span> <span class="p">=</span> <span class="nx">regexp</span><span class="p">.</span><span class="nf">MustCompile</span><span class="p">(</span><span class="s">&#34;\\d{4}-\\d{4}-\\d{4}-\\d{4}&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">CreditCard</span><span class="p">)</span> <span class="nf">SetCardNumber</span><span class="p">(</span><span class="nx">value</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">!</span><span class="nx">cardNumberPattern</span><span class="p">.</span><span class="nf">Match</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">value</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">erros</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;Invalid credit card number format&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">c</span><span class="p">.</span><span class="nx">cardNumber</span> <span class="p">=</span> <span class="nx">value</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="nx">CreditCard</span><span class="p">)</span> <span class="nf">ExpirationDate</span><span class="p">()</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">expirationMonth</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">expirationYear</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">CreditCard</span><span class="p">)</span> <span class="nf">SetExpirationDate</span><span class="p">(</span><span class="nx">month</span><span class="p">,</span> <span class="nx">year</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">now</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="nx">year</span> <span class="p">&lt;</span> <span class="nx">now</span><span class="p">.</span><span class="nf">Year</span><span class="p">()</span> <span class="o">||</span> <span class="p">(</span><span class="nx">year</span> <span class="o">==</span> <span class="nx">now</span><span class="p">.</span><span class="nf">Year</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Month</span><span class="p">(</span><span class="nx">month</span><span class="p">)</span> <span class="p">&lt;</span> <span class="nx">now</span><span class="p">.</span><span class="nf">Month</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;Epiration date must lie in the future&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">c</span><span class="p">.</span><span class="nx">expirationMonth</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">expirationYear</span> <span class="p">=</span> <span class="nx">month</span><span class="p">,</span> <span class="nx">year</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="nx">CreditCard</span><span class="p">)</span> <span class="nf">SecurityCode</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">securityCode</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">CreditCard</span><span class="p">)</span> <span class="nf">SetSecurityCode</span><span class="p">(</span><span class="nx">value</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="nx">value</span> <span class="p">&lt;</span> <span class="mi">100</span> <span class="o">||</span> <span class="nx">value</span> <span class="p">&gt;</span> <span class="mi">999</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;Security code is not valid&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">c</span><span class="p">.</span><span class="nx">securityCode</span> <span class="p">=</span> <span class="nx">value</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="nx">CreditCard</span><span class="p">)</span> <span class="nf">AvailableCredit</span><span class="p">()</span> <span class="kt">float32</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">5000</span> <span class="c1">// this come from web service, client doesn&#39;t know or care
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Naming conventions for accessor methods above is to name accessor method for <strong>getters</strong> the same name as the the field that you&rsquo;re getting the data from. So for example, the accessor for <code>ownerName</code> is going to be <code>OwnerName</code> method, we&rsquo;re just going to capitalize the field name instead of using lowercase. If we need to make an accessor method available that&rsquo;s going to set the data, then you just prefix that method with set. So the ability to set the ownerName is going to be given the method name <code>SetOwnerName</code>.</p>
+<p><strong>Don&rsquo;t Overuse</strong>: There are certainly times when you should design a data structure that accessor methods for some or all of its properties, and you might not make some of those properties available at all, you&rsquo;re going to encapsulate that data within the package. However, if you just designing a data structure that&rsquo;s going to be passing JSON data back and forth between a web client and your application, then you probably don&rsquo;t need to create accessor methods, just use a simple data structure with publicly accessible fields.</p>
+<p>Now we are going to drop simple implementation in client <code>gopherpay/client/main.go</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">credit</span> <span class="o">:=</span> <span class="nx">payment</span><span class="p">.</span><span class="nf">CreateCreditAccount</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;Don Krieg&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;1111-2222-3333-4444&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">2044</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">323</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Owner name: %v\n&#34;</span><span class="p">,</span> <span class="nx">credit</span><span class="p">.</span><span class="nf">OwnerName</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Card Number: %v\n&#34;</span><span class="p">,</span> <span class="nx">credit</span><span class="p">.</span><span class="nf">CardNumber</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Trying to change card number&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">credit</span><span class="p">.</span><span class="nf">SetCardNumber</span><span class="p">(</span><span class="s">&#34;invalid&#34;</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;That didn&#39;t work: %v\n&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Available credit: %v\n&#34;</span><span class="p">,</span> <span class="nx">credit</span><span class="p">.</span><span class="nf">AvailableCredit</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="interface">Interface</h4>
+<p>Now in this case, the data structure is going to be package scoped. So we will create <code>creditAccount</code> struct with lowercase <code>c</code> that means that the data structure creditAccount is not going to be available outside of the payment package. To make it available, we are going to define an interface, <code>PaymentOption</code>, and it&rsquo;s going to define the accessor methods that are going to be available to access the credit account&rsquo;s data.</p>
+<p>Add  <code>PaymentOption</code> interface before data structure</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">PaymentOption</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">ProcessPayment</span><span class="p">(</span><span class="kt">float32</span><span class="p">)</span> <span class="kt">bool</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>To implement this interface, we&rsquo;re going to add method below after <code>CreateCreditAccount</code> func.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">CreditCard</span><span class="p">)</span> <span class="nf">ProcessPayment</span><span class="p">(</span><span class="nx">amount</span> <span class="kt">float32</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Prinln</span><span class="p">(</span><span class="s">&#34;processing credit card payment..&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The nice thing about interface is we&rsquo;re encapsulating not just the data, but the actual type that&rsquo;s being called. So create another file <code>cash.go</code> in payment package to hold another payment method.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">payment</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Cash</span> <span class="kd">struct</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">CreateCashAccount</span><span class="p">()</span> <span class="o">*</span><span class="nx">Cash</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="o">&amp;</span><span class="nx">Cash</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="nx">Cash</span><span class="p">)</span> <span class="nf">ProcessPayment</span><span class="p">(</span><span class="nx">amount</span> <span class="kt">float32</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Prinln</span><span class="p">(</span><span class="s">&#34;processing cash transaction....&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>In the main function, we peform client action</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">option</span> <span class="nx">payment</span><span class="p">.</span><span class="nx">PaymentOption</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// peform credit payment
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">option</span> <span class="o">:=</span> <span class="nx">payment</span><span class="p">.</span><span class="nf">CreateCreditAccount</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;Don Krieg&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;1111-2222-3333-4444&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">2044</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">323</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">option</span><span class="p">.</span><span class="nf">ProcessPayment</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// peform cash transaction
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">option</span> <span class="p">=</span> <span class="nx">payment</span><span class="p">.</span><span class="nf">CreateCashAccount</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">option</span><span class="p">.</span><span class="nf">ProcessPayment</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="message-passing">Message Passing</h3>
+<p>Sending a message to an object, but <strong>letting that object determine</strong> what to do with it.</p>
+<p>The first strategy is using <strong>interface</strong> to establish that abstraction layer. The second is going to be the use of channels to allow as to abstract the sender of a message from the receiver of that message.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">CreditAccount</span> <span class="kd">struct</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// package scoped
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">CreditAccount</span><span class="p">)</span> <span class="nf">processPayment</span><span class="p">(</span><span class="nx">amount</span> <span class="kt">float32</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Processing credit card payment....&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// construction method
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">CreateCreditAccount</span><span class="p">(</span><span class="nx">chargeCh</span> <span class="kd">chan</span> <span class="kt">float32</span><span class="p">)</span> <span class="o">*</span><span class="nx">CreditAccount</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">creditAccount</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">CreditAccount</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">go</span> <span class="kd">func</span><span class="p">(</span><span class="nx">chargeCh</span> <span class="kd">chan</span> <span class="kt">float32</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">amount</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">chargeCh</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">creditAccount</span><span class="p">.</span><span class="nf">processPayment</span><span class="p">(</span><span class="nx">amount</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}(</span><span class="nx">chargeCh</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">creditAccount</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// creating channel
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">chargeCh</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// pass into construction function
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nf">CreateCreditAccount</span><span class="p">(</span><span class="nx">chargeCh</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// pass message into that channel
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// we don&#39;t know what service is being invoked
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">chargeCh</span> <span class="o">&lt;-</span> <span class="mi">500</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// just to keep main func from shutting down too early
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kd">var</span> <span class="nx">a</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Scanln</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="inheritance--composition">Inheritance / Composition</h3>
+<p><strong>Inheritance :</strong> Behavior reuse strategy where a type is based upon another type, allowing it to <strong>inherit</strong> functionality from the base type.</p>
+<p><strong>Composition :</strong> Behavior reuse strategy where a type <strong>contains</strong> objects that have desired functionality. The type <strong>delegates</strong> calls to those object to use their behaviours.</p>
+<p>Here is the example creating HybridAccount that use embeded functionality of CheckingAccount.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">CreditAccount</span> <span class="kd">struct</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">CreditAccount</span><span class="p">)</span> <span class="nf">AvailableFunds</span><span class="p">()</span> <span class="kt">float32</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Getting credit funds&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">250</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">CheckingAccount</span> <span class="kd">struct</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">CheckingAccount</span><span class="p">)</span> <span class="nf">AvailableFunds</span><span class="p">()</span> <span class="kt">float32</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Getting checking funds&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">125</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">HybridAccount</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">CreditAccount</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">CheckingAccount</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="o">*</span><span class="nx">HybridAccount</span><span class="p">)</span> <span class="nf">AvailableFunds</span><span class="p">()</span> <span class="kt">float32</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">h</span><span class="p">.</span><span class="nx">CreditAccount</span><span class="p">.</span><span class="nf">AvailableFunds</span><span class="p">()</span> <span class="o">+</span> <span class="nx">h</span><span class="p">.</span><span class="nx">CheckingAccount</span><span class="p">.</span><span class="nf">AvailableFunds</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">ha</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">HybridAccount</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">ha</span><span class="p">.</span><span class="nx">AvailableFunds</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="polymorphism">Polymorphism</h3>
+<p>The ability to <strong>transparently substitute</strong> a family of types that implement a common set of behavior.</p>
+<p>Again, for this feature we&rsquo;re going to use <strong>interface</strong>. Interfaces are implicitly implemented in Go.</p>
+<ul>
+<li>Interfaces can be used to provide <strong>encapsulation</strong> by abstracting away the service that&rsquo;s being provided when we invoke that method through the interface.</li>
+<li>Interfaces provide us a level of <strong>message passing</strong>, because we don&rsquo;t know the method that&rsquo;s actually being called when we call through the interface.</li>
+</ul>
+<p>If we&rsquo;re working with interfaces and we&rsquo;re interacting with third-party libraries, make sure that your consuming packages define the interfaces.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/oop/">OOP</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/go-project-csv/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/images/gopher-reading.svg" loading="lazy" data-key="go-project-csv" data-hash="/images/gopher-reading.svg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Go Mini Project: Reading and Filtering csv data</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/go-basic/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/images/go.png" loading="lazy" data-key="go-basic" data-hash="/images/go.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Go Basic Syntax Operation</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/go-snippet-sftp/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/p/go-snippet-sftp/sftp.svg" loading="lazy" data-key="go-snippet-sftp" data-hash="/p/go-snippet-sftp/sftp.svg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Golang Snippet for SFTP Client</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/mq-snippet-go/">
+        
+        
+            <div class="article-image">
+                <img src="/p/mq-snippet-go/thumb-mq.5eef119e57e26da1f1d73cdff70e5079_hu354b3efd1a4b1c172789528fa2f55495_13607_250x150_fill_q75_box_smart1.jpeg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Message Queue with Golang"
+                        data-key="mq-snippet-go" 
+                        data-hash="md5-Xu8RnlfibaHx1zzf9w5QeQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Message Queue with Golang</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/go-std-lib/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Ruby_On_Rails_Logo.svg" loading="lazy" data-key="go-std-lib" data-hash="https://upload.wikimedia.org/wikipedia/commons/6/62/Ruby_On_Rails_Logo.svg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Go Std Library</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 Coding Notes
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

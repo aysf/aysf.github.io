@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Let&#39;s create Twito!, a Tweet Clone App by using Ruby on Rails !'>
+<title>Twitor #1: Create Post</title>
+
+<link rel='canonical' href='https://ayw.codeberg.page/p/twitor-1/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Twitor #1: Create Post'>
+<meta property='og:description' content='Let&#39;s create Twito!, a Tweet Clone App by using Ruby on Rails !'>
+<meta property='og:url' content='https://ayw.codeberg.page/p/twitor-1/'>
+<meta property='og:site_name' content='Coding Notes'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Tutorial' /><meta property='article:tag' content='Twitor' /><meta property='article:published_time' content='2022-02-07T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-02-07T00:00:00&#43;00:00'/><meta property='og:image' content='https://ayw.codeberg.page/p/twitor-1/ruby.jpeg' />
+<meta name="twitter:title" content="Twitor #1: Create Post">
+<meta name="twitter:description" content="Let&#39;s create Twito!, a Tweet Clone App by using Ruby on Rails !"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://ayw.codeberg.page/p/twitor-1/ruby.jpeg' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hub43f63f8dc0670818fae77f9ea942db8_53425_300x0_resize_q75_box.jpeg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Coding Notes</a></h1>
+            <h2 class="site-description">Go/Ruby Developer</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/aysf'
+                        target="_blank"
+                        title="Github"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/ansuf'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://ayw.codeberg.page/" selected>English</option>
+                        
+                            <option value="https://ayw.codeberg.page/id/" >Indonesia</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#prerequisition">Prerequisition</a></li>
+    <li><a href="#generate-new-project">Generate New Project</a></li>
+    <li><a href="#create-homepage">Create Homepage</a>
+      <ol>
+        <li><a href="#understanding-view">Understanding View</a></li>
+        <li><a href="#understanding-controller">Understanding Controller</a></li>
+        <li><a href="#understanding-route">Understanding Route</a></li>
+      </ol>
+    </li>
+    <li><a href="#create-about-page">Create About Page</a></li>
+    <li><a href="#create-posts">Create Posts</a>
+      <ol>
+        <li><a href="#feature">Feature</a></li>
+        <li><a href="#preparing-a-database">Preparing a Database</a>
+          <ol>
+            <li><a href="#create-a-migration-file">Create a Migration File</a></li>
+            <li><a href="#create-a-table">Create a Table</a></li>
+            <li><a href="#adding-data-to-a-table">Adding Data to a Table</a></li>
+          </ol>
+        </li>
+        <li><a href="#displaying-error-message">Displaying Error Message</a></li>
+        <li><a href="#adding-routes">Adding Routes</a></li>
+        <li><a href="#adding-action">Adding Action</a></li>
+        <li><a href="#adding-views">Adding Views</a>
+          <ol>
+            <li><a href="#new-post">New Post</a></li>
+            <li><a href="#displaying-all-post">Displaying All Post</a></li>
+            <li><a href="#displaying-detail-post">Displaying Detail Post</a></li>
+            <li><a href="#edit-form">Edit Form</a></li>
+          </ol>
+        </li>
+        <li><a href="#post-validation">Post Validation</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/twitor-1/">
+                <img src="/p/twitor-1/ruby_hu169ad9fa26116558547dfb60c1b64219_42863_800x0_resize_q75_box.jpeg"
+                        srcset="/p/twitor-1/ruby_hu169ad9fa26116558547dfb60c1b64219_42863_800x0_resize_q75_box.jpeg 800w, /p/twitor-1/ruby_hu169ad9fa26116558547dfb60c1b64219_42863_1600x0_resize_q75_box.jpeg 1600w"
+                        width="800" 
+                        height="351" 
+                        loading="lazy"
+                        alt="Featured image of post Twitor #1: Create Post" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/ruby/" >
+                Ruby
+            </a>
+        
+            <a href="/categories/rails/" >
+                Rails
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/twitor-1/">Twitor #1: Create Post</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Let&#39;s create Twito!, a Tweet Clone App by using Ruby on Rails !
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 07, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    14 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="prerequisition">Prerequisition</h2>
+<p>You have already installed <code>rbenv</code> and familiar with the command.</p>
+<p>This project was made based on <a class="link" href="https://progate.com/"  target="_blank" rel="noopener"
+    >Progate</a></p>
+<h2 id="generate-new-project">Generate New Project</h2>
+<p>Create new folder like <code>mkdir new_project</code> and go inside <code>cd new_project</code>. Set local for ruby version <code>2.7</code> using <code>rbenv local 2.7</code>. Then generate new project by using command <code>rails _7.0.3_ new kicau</code>.</p>
+<p>Go to <code>kicau</code> dir, and run server using <code>rails s</code></p>
+<p>Put this address <code>http://localhost:3000/</code> on browser and you&rsquo;ll see Rails welcoming screen if success.</p>
+<h2 id="create-homepage">Create Homepage</h2>
+<p>Create the top page with <code>rails generate controller home top</code>.</p>
+<p>A new web page is automatically created by this command, and will allow you to access <code>localhost:3000/home/top</code>. Well, when you run the command, Rails generates all the necessary files for displaying page. To display a page in Rails, you need the three things shown below:</p>
+<ul>
+<li>View</li>
+<li>Controller</li>
+<li>Route</li>
+</ul>
+<h3 id="understanding-view">Understanding View</h3>
+<p>A view is an <strong>HTML file that&rsquo;s used to create the look of a page</strong>. When the browser asks for a file, Rails returns a requested view to the browser to display a page. Views are located inside the <strong>views</strong> folder. The <code>rails generate controller home top</code> command generates the <code>home</code> folder and a file named <code>top.html.erb</code> in the views folder. <code>erb</code> is a unique file format, but you can think of it as a regular HTML file for now.</p>
+<p>Because a view (HTML) contains the content displayed in the browser, you can change the content by editing the file. Let&rsquo;s edit <code>top.html.erb</code> to make it look more like the Top page of TweetApp.</p>
+<p>In the view for the Top Page (app/views/home/top.html.erb)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  Tweet to the world
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  connect to the world
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Share your favourite momments!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Open the browser and check <code>localhost:3000/home/top</code> !</p>
+<h3 id="understanding-controller">Understanding Controller</h3>
+<p>When displaying a page, Rails returns views via its <strong>controllers</strong>. Let&rsquo;s take a look inside a controller file. The <code>rails g controller home top</code> command creates creates a controller file named <code>home_controller.rb</code> with a <code>top</code> method. A method within a controller is also known as <code>action</code>.</p>
+<p><img src="/p/twitor-1/controller.png"
+	width="2428"
+	height="742"
+	srcset="/p/twitor-1/controller_hubb42a93003af92c8d8981eba64087693_222265_480x0_resize_box_3.png 480w, /p/twitor-1/controller_hubb42a93003af92c8d8981eba64087693_222265_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="controller"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="327"
+		data-flex-basis="785px"
+	
+></p>
+<p>The role of an action in a controller is to find a view from the <code>views</code> folder, then return it to the browser. The action looks for a folder with the same name as controller (<code>Home</code>), then finds a file with the same name as the action (<code>top</code>)</p>
+<h3 id="understanding-route">Understanding Route</h3>
+<p>While we return the view through the controller, the routing is the one reponsible for connecting the browser to the controller. Make sure to understand that the process for displaying a page is in the following order: routes -&gt; controllers -&gt; views.</p>
+<p>Routes can be described with a <code>routing table</code>. A route points to a specific action of a controller according to the URL requested. When a URL is entered in the browser, it calls for a matching action in the controller based on the URL.</p>
+<p><img src="/p/twitor-1/routing-table.png"
+	width="1324"
+	height="796"
+	srcset="/p/twitor-1/routing-table_hub5e43c4aeab4adb8ea74a2974c6fc9a7_162511_480x0_resize_box_3.png 480w, /p/twitor-1/routing-table_hub5e43c4aeab4adb8ea74a2974c6fc9a7_162511_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="routing table"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="166"
+		data-flex-basis="399px"
+	
+></p>
+<p>Routes are defined in the <code>config/routes.rb</code> file in the following syntax: <code>get &quot;URL&quot; =&gt; &quot;controller#action</code>. For instance, as shown in the image below, the URL &ldquo;localhost:3000/home/top&rdquo; points to the <code>top</code> action in the <strong>Home</strong> controller.</p>
+<p><img src="/p/twitor-1/routes-file.png"
+	width="2406"
+	height="740"
+	srcset="/p/twitor-1/routes-file_hu6c026df8194d865deaa2d19241f7b267_200018_480x0_resize_box_3.png 480w, /p/twitor-1/routes-file_hu6c026df8194d865deaa2d19241f7b267_200018_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="Routes file"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="325"
+		data-flex-basis="780px"
+	
+></p>
+<p>We can practice to change route of the Top page. Once you modify the route, you can access the Top page via <code>localhost:3000/top</code> by changing <code>get &quot;home/top&quot; =&gt; &quot;home#top&quot;</code> to <code>get &quot;top&quot; =&gt; &quot;home#top&quot;</code>.</p>
+<h2 id="create-about-page">Create About Page</h2>
+<p>Let us create the about page. But now we can use again <code>rails generate controller</code>. The command we inputted when we created the Top page actually contains <code>controller name</code> and <code>action name</code>. The <code>rails generate controller controller_name action_name</code> command generates a controller and the files associated with it. However, you can&rsquo;t use this command when a controller with the same name exists.</p>
+<p>To add <code>about</code> page, we do manually.</p>
+<ol>
+<li>In <strong>Routes</strong> file, routes.rb, Add <code>get &quot;about&quot; =&gt; &quot;home#about&quot;</code></li>
+<li>In home_controller.rb file, inside class HomeController, add action for <code>about</code> and left it empty.</li>
+<li>In the <code>app/views/home/</code>, add file called <code>about.html.erb</code>, and put some words in html format.</li>
+</ol>
+<h2 id="create-posts">Create Posts</h2>
+<p>Let&rsquo;s create an index action for the Posts page. Since the Posts controller doesn&rsquo;t exists yet, we can use the command like <code>rails g controller posts index</code>. We&rsquo;re going to write the HTML for the Posts page in <code>views/posts/index.html.erb</code>. First, let&rsquo;s copy &amp; paste the provided code to quickly create a page.</p>
+<h3 id="feature">Feature</h3>
+<p>These are four common features of post:</p>
+<ul>
+<li>View all posts -&gt; use action  <code>posts#index</code> to view all posts</li>
+<li>Show detail post -&gt; use action <code>posts#show</code>to view detail post</li>
+<li>Create post -&gt; use action <code>posts#new</code> and <code>posts#create</code> to view create new post form and sending the form data.</li>
+<li>Edit post -&gt; use action <code>posts#edit</code> and <code>posts#update</code> to view edit form and sending the updated form data.</li>
+<li>Delete post -&gt; use action <code>posts#destroy</code> to delete post record</li>
+</ul>
+<h3 id="preparing-a-database">Preparing a Database</h3>
+<p>A database consists of <strong>tables</strong>. Each table has <strong>rows</strong> and <strong>columns</strong>. In the <code>posts</code> table shown below, each row also known as a <code>record</code>, represents a post while each <strong>column</strong> represents a specific type of data.</p>
+<p>To store data in a database, we need to create a table like the one in the last slide. Let us create the <code>posts</code> table for storing posts. There are two steps we must follow, i.e.</p>
+<ol>
+<li>Create a file that directs the changes to the database</li>
+<li>Apply the changes in the database</li>
+</ol>
+<h4 id="create-a-migration-file">Create a Migration File</h4>
+<p>We need to create a <strong>migration file</strong> to make changes to the database. With the <code>rails g model Post content:text</code> command, you can create a migration file which adds the <strong>posts</strong> table with the <strong>content</strong> column. The <code>text</code> describe the type of data that will be stored in the column.</p>
+<p>Look again <code>rails g model ..</code> command. The <code>Post</code> in the command represent a <strong>model name</strong>. With this command, the following files are generated:</p>
+<ol>
+<li>a file in <strong>app/models</strong> where a model is defined</li>
+<li>a migration file in <strong>db/migrate</strong></li>
+</ol>
+<h4 id="create-a-table">Create a Table</h4>
+<p>In this step, we will apply the changes to the database using the migration file we have created. To apply the changes in the database, simply execute the command <code>rails db:migrate</code>. By executing the command, it will create a table according to the code in the migration file.</p>
+<h4 id="adding-data-to-a-table">Adding Data to a Table</h4>
+<p>Let&rsquo;s create an instance of Post from the Post model (Post class) in the <code>rails console</code>. To create an instance, we&rsquo;re going to use the <code>new</code> method. For example, you can create a Post instance with the content, &ldquo;Hello World&rdquo;, <code>post = Post.new(content: &quot;Hello World&quot;)</code>.</p>
+<p>To save a Post instance to the posts table, you need to run the <code>save</code> method, <code>post.save</code>. Because the Post model inherits from ApplicationRecord, it can use the methods defined in ApplicationRecord, like the <code>save</code> method.</p>
+<p>We can get the first record in the posts table using <code>post = Post.first</code>. Then with <code>post.content</code>, we can get the content of the first post. To get all the data from the posts table, use <code>post = Post.all</code> which returns you all the data saved in the table in the form of an array. Then we can get an element using an index number like <code>Post.all[0]</code>. The data we get with <code>Post.all[0]</code> is the same as data you get with <code>Post.first</code>. So with <code>Post.all[0].content</code>, you can get the content of the first post.</p>
+<h3 id="displaying-error-message">Displaying Error Message</h3>
+<p>Rails provides a special <code>flash</code> variable. By assigning a string to <code>flash[:notice]</code> in an action, you can use <code>flash[:notice]</code> in the views. Flashes are automatically removed after being displayed once. We&rsquo;ll add <code>flash[:notice]</code> to <code>application.html.erb</code> because it&rsquo;ll be used in many places.</p>
+<p>We put these lines after closing tag <code>&lt;/header&gt;</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="err">&lt;</span>% if flash[:notice] %&gt;
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;flash&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="err">&lt;</span>%= flash[:notice] %&gt;
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="err">&lt;</span>% end %&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="adding-routes">Adding Routes</h3>
+<p>By writing <code>posts/:id</code> with a colon <code>:</code> in the URL of the route, you can map URLs like <code>/posts/1</code> and <code>/posts/2</code> to the <code>show</code> action. This applies to every URL written as <code>/posts/...</code>. In <code>routes.rb</code>, write</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl">  <span class="n">get</span> <span class="s2">&#34;posts/index&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;posts#index&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">get</span> <span class="s2">&#34;posts/new&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;posts#new&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">get</span> <span class="s2">&#34;posts/:id&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;posts#show&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">post</span> <span class="s2">&#34;posts/create&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;posts#create&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">get</span> <span class="s2">&#34;posts/:id/edit&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;posts#edit&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">post</span> <span class="s2">&#34;posts/:id/update&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;posts#update&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">post</span> <span class="s2">&#34;posts/:id/destroy&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;posts#destroy&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>It&rsquo;s important that you need to write the route <code>posts/:id</code> below <code>posts/index</code> and <code>posts/new</code>. This is because the routing looks for URLs <strong>from the top</strong>. Writing it above <code>posts/index</code> or <code>posts/new</code> would cause the URL <code>localhost:3000/posts/index</code> or <code>localhost:3000/posts/new</code> to match the route <code>posts/:id</code>.</p>
+<p>Generally, when you press the submit button, the post data will be sent to the server-side (Rails). Let&rsquo;s prepare a create action to save the receive post data to the database. The URL of the <code>create</code> action should be <code>/posts/create</code>. We use <code>post</code> method on the <code>create</code> when receiving data from a form.</p>
+<p>Since the <code>update</code> action receives the value from the form, we also need to change the routing to <code>post</code> instead of <code>get</code>. It is also updates the post with a specific id, so make sure to include <code>id</code> in the URL.</p>
+<h3 id="adding-action">Adding Action</h3>
+<p>Let&rsquo;s adding some actions in the Post Controller. In the <code>index</code> action of the Post controller, We catch the data from the database using <code>Post.all</code>, then assign them to <code>@posts</code> variable. In <code>posts/index.html.erb</code>, we can use the <code>each</code> method to loop through the <code>@posts</code> array to print each post.</p>
+<p>In the <code>show</code> action, the value of the <code>:id</code> is stored in a hash variable known as <strong>params</strong>. You can get that value using <code>params[:id]</code>. To display the post, we declare the variable <code>@post</code> in the <code>show</code> action and assign it the posts whose <code>id</code> is equal to <code>params[:id]</code> by retrieving them from the database. Then we&rsquo;ll display the details of the <code>@post</code> in &lsquo;show.html.erb`.</p>
+<p>Since <code>new.html.erb</code> will also be displayed via <code>new</code> action (localhost:3000/posts/new), an error will occur unless we also define the <code>@post</code> variable there. We can solve this by assigning <code>Post.new</code> (a blank post instance), to <code>@post</code> as code shown above.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">PostsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">index</span>
+</span></span><span class="line"><span class="cl">    <span class="vi">@posts</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">all</span><span class="o">.</span><span class="n">order</span><span class="p">(</span><span class="ss">created_at</span><span class="p">:</span> <span class="ss">:desc</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">show</span>
+</span></span><span class="line"><span class="cl">    <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">find_by</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">new</span>
+</span></span><span class="line"><span class="cl">    <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">new</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">create</span>
+</span></span><span class="line"><span class="cl">    <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">content</span><span class="p">:</span> <span class="n">params</span><span class="o">[</span><span class="ss">:content</span><span class="o">]</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="vi">@post</span><span class="o">.</span><span class="n">save</span>
+</span></span><span class="line"><span class="cl">      <span class="n">flash</span><span class="o">[</span><span class="ss">:notice</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&#34;Post successfully created&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">redirect_to</span><span class="p">(</span><span class="s2">&#34;/posts/index&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">      <span class="n">render</span><span class="p">(</span><span class="s2">&#34;posts/new&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">edit</span>
+</span></span><span class="line"><span class="cl">    <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">find_by</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">update</span>
+</span></span><span class="line"><span class="cl">    <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">find_by</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="vi">@post</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="n">params</span><span class="o">[</span><span class="ss">:content</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="vi">@post</span><span class="o">.</span><span class="n">save</span>
+</span></span><span class="line"><span class="cl">      <span class="n">flash</span><span class="o">[</span><span class="ss">:notice</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&#34;Post successfully edited&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">redirect_to</span><span class="p">(</span><span class="s2">&#34;/posts/index&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">      <span class="n">render</span><span class="p">(</span><span class="s2">&#34;posts/edit&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">destroy</span>
+</span></span><span class="line"><span class="cl">    <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">find_by</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="vi">@post</span><span class="o">.</span><span class="n">destroy</span>
+</span></span><span class="line"><span class="cl">    <span class="n">flash</span><span class="o">[</span><span class="ss">:notice</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&#34;Post successfully deleted&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">redirect_to</span><span class="p">(</span><span class="s2">&#34;/posts/index&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>There are two problems for creating action:</p>
+<ol>
+<li>No matching view for the create action.</li>
+<li>Can&rsquo;t save any posts.</li>
+</ol>
+<p>For solving this problem, we can <strong>redirect</strong> to a different URL instead of adding a view. For our <code>create</code> action, let us redirect the request to the Posts page.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">PostController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">create</span>
+</span></span><span class="line"><span class="cl">    <span class="n">redirect_to</span><span class="p">(</span><span class="s2">&#34;/posts/index&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>To solve second problem, we have go to two steps:</p>
+<ol>
+<li>Send post data to the create action</li>
+<li>Receive the sent data in create action and save it</li>
+</ol>
+<p><strong>To send data to the create action</strong>, We need to specify the <code>name</code> attribute of the <code>&lt;textarea&gt;</code> tag. This way, the data in the <code>&lt;textarea&gt;</code> tag will be sent to the Rails side as a <code>hash</code> with the <code>name</code> attributes as the key.</p>
+<p>Once you specify the name attributes of a form element, the action of the controller can receive the form data. Since the <code>params</code> variable is a hash with the <strong>name attibutes</strong> as the key, we can get content with <code>params[:content]</code>.</p>
+<p><strong>To receive the sent data in the create action</strong>, we can create a <code>@post</code> with the data received from the form by using <code>params[:content]</code> as the argument.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">PostController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">create</span>
+</span></span><span class="line"><span class="cl">    <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">content</span><span class="p">:</span> <span class="n">params</span><span class="o">[</span><span class="ss">:content</span><span class="o">]</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="vi">@post</span><span class="o">.</span><span class="n">save</span>
+</span></span><span class="line"><span class="cl">    <span class="n">redirect_to</span><span class="p">(</span><span class="s2">&#34;/posts/index&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We&rsquo;ve used params when receiving input data and also to get the <code>id</code> value from the URL. Remember there are two ways of using params:</p>
+<ol>
+<li>Get the value from the URL of the route</li>
+<li>Get the form input data with the <code>name</code> attribute</li>
+</ol>
+<h3 id="adding-views">Adding Views</h3>
+<p>In the <code>views/posts</code> folder, we need to create</p>
+<ul>
+<li><code>new.html.erb</code> is html page to display create-post form</li>
+<li><code>index.html.erb</code> is to view all posts</li>
+<li><code>show.html.erb</code> is to show detail post</li>
+<li><code>edit.html.erb</code> is to display post-edit form</li>
+</ul>
+<h4 id="new-post">New Post</h4>
+<p>You can send the data entered in the form using the <code>form_tag</code> method. The destination URL is specified like: <code>&lt;%= form_tag(destination URL) do %&gt;</code>. This allows <code>&lt;input type=&quot;submit&quot; ...&gt;</code>, also known as the submit button in the form, when clicked, for the data to be sent to the specified URL.</p>
+<p>Put these lines to <code>posts/new.html.erb</code>,</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;main posts-new&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-heading&#34;</span><span class="p">&gt;</span>Create a new post<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="err">&lt;</span>%= form_tag(&#34;/posts/create&#34;) do %&gt;
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-body&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="err">&lt;</span>% @post.errors.full_messages.each do |message| %&gt;
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-error&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">              <span class="err">&lt;</span>%= message %&gt;
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="err">&lt;</span>% end %&gt;
+</span></span><span class="line"><span class="cl">          
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">textarea</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;content&#34;</span><span class="p">&gt;</span><span class="err">&lt;</span>%= @post.content %&gt;<span class="p">&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;Post&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="err">&lt;</span>% end %&gt;
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="displaying-all-post">Displaying All Post</h4>
+<p>In <code>posts/index.html.erb</code>, we can use the <code>each</code> method to loop through the <code>@posts</code> array to print each post.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;main posts-index&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="err">&lt;</span>% @posts.each do |post| %&gt;
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;posts-index-item&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="err">&lt;</span>%= link_to(post.content, &#34;/posts/#{post.id}&#34;) %&gt;
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="err">&lt;</span>% end %&gt;
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="displaying-detail-post">Displaying Detail Post</h4>
+<p>Then in the <code>/posts/show.html.erb</code>, put these</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;main posts-show&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;posts-show-item&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="err">&lt;</span>%= @post.content %&gt;
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;post-time&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="err">&lt;</span>%= @post.created_at %&gt;
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;post-menus&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="err">&lt;</span>%= link_to(&#34;Edit&#34;, &#34;/posts/#{@post.id}/edit&#34;) %&gt;
+</span></span><span class="line"><span class="cl">        <span class="err">&lt;</span>%= link_to(&#34;Delete&#34;, &#34;/posts/#{@post.id}/destroy&#34;, {method: &#34;post&#34;}) %&gt;
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>In &rsquo;erb&rsquo; (or Embedded Ruby) file format like &lsquo;index.html.erb&rsquo;, you can embed Ruby code in HTML using <code>&lt;% %&gt;</code> brackets.
+Let&rsquo;s try to assign and display a variable called &lsquo;post1&rsquo;. Put this code in an &lsquo;html.erb&rsquo; file format.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="err">&lt;</span>% post1 = &#34;Learning Rails&#34; %&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">&lt;</span>%= post1 %&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We&rsquo;ve learned that we can <code>&lt;% %&gt;</code> and <code>&lt;%= %&gt;</code> to embed Ruby code. <code>&lt;% %&gt;</code> is used in cases like defining a variables as it <strong>won&rsquo;t be displayed</strong>. <code>&lt;%= %&gt;</code> on the other hand, is used for cases like printing the content of a variable as it <strong>will be displayed</strong>.</p>
+<h4 id="edit-form">Edit Form</h4>
+<p>We&rsquo;ll able to edit and delete posts from the <code>Post details</code> page as shown in the left image. We&rsquo;ll also create an <code>Edit post</code> page to edit posts as shown in the right image.</p>
+<p>Let&rsquo;s add an <code>Edit</code> and <code>Delete</code> links in <code>show.html.erb</code> as shown below</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">  <span class="err">&lt;</span>%= link_to(&#34;Edit&#34;, &#34;/posts/#{@post.id}/edit&#34;) %&gt;
+</span></span><span class="line"><span class="cl">  <span class="err">&lt;</span>%= link_to(&#34;Delete&#34;, &#34;/posts/#{@post.id}/destroy&#34;, {method: &#34;post&#34;}) %&gt;
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>You can send a <code>post</code> request with <code>link_to</code> method by adding <code>{method: &quot;post&quot;}</code> as the third argument.</p>
+<p>The data of the form needs to be sent to the <code>update</code> action in order to be saved to database. Just like with the New post page, you can specify the destination using the <code>form_tag</code> method. In the <code>posts/edit.html.erb</code>, put these lines</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;main posts-new&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-heading&#34;</span><span class="p">&gt;</span>Edit a post<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="err">&lt;</span>%= form_tag(&#34;/posts/#{@post.id}/update&#34;) do %&gt;
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-body&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">          <span class="c">&lt;!-- This code is to get the error messages and put them in variables with an each loop --&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="err">&lt;</span>% @post.errors.full_messages.each do |message| %&gt;
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-error&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">              <span class="err">&lt;</span>%= message %&gt;
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="err">&lt;</span>% end %&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">textarea</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;content&#34;</span><span class="p">&gt;</span><span class="err">&lt;</span>%= @post.content %&gt;<span class="p">&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;Save&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="err">&lt;</span>% end %&gt;
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>where <code>&lt;%= @post.content %&gt;</code> in line 15 is the initial value.</p>
+<h3 id="post-validation">Post Validation</h3>
+<p>Validation is set in the <code>models/post.rb</code> as shown in codes below.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Post</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+</span></span><span class="line"><span class="cl">  <span class="n">validates</span> <span class="ss">:column_name</span><span class="p">,</span> <span class="p">{</span><span class="n">details</span> <span class="n">of</span> <span class="n">the</span> <span class="n">validation</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>You can use the <code>validates</code> method, and specify the column name and the details of the validation as arguments. By using <code>{presence: true}</code> as shown below.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Post</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+</span></span><span class="line"><span class="cl">  <span class="n">validates</span> <span class="ss">:content</span><span class="p">,</span> <span class="p">{</span><span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Validation can be used to check not only the existence of a value but the number of characters as well. As shown in the image, We can set the maximum number of characters using</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Post</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+</span></span><span class="line"><span class="cl">  <span class="n">validates</span> <span class="ss">:content</span><span class="p">,</span> <span class="p">{</span><span class="ss">length</span><span class="p">:</span> <span class="p">{</span><span class="ss">maximum</span><span class="p">:</span> <span class="mi">140</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The list of validation rules, known as <code>validators</code>, is actually a hash. You can specify more than one by separating them with a comma <code>,</code> as shown below</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Post</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+</span></span><span class="line"><span class="cl">  <span class="n">validates</span> <span class="ss">:content</span><span class="p">,</span> <span class="p">{</span><span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">length</span><span class="p">:</span> <span class="p">{</span><span class="ss">maximum</span><span class="p">:</span> <span class="mi">140</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/tutorial/">Tutorial</a>
+        
+            <a href="/tags/twitor/">Twitor</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/twitor-2/">
+        
+        
+            <div class="article-image">
+                <img src="/p/twitor-2/ruby.d550eed725fab8d8bf8658b0bd0606cf_hu169ad9fa26116558547dfb60c1b64219_42863_250x150_fill_q75_box_smart1.jpeg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Twitor #2: Create User"
+                        data-key="twitor-2" 
+                        data-hash="md5-1VDu1yX6uNi/hliwvQYGzw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Twitor #2: Create User</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/twitor-3/">
+        
+        
+            <div class="article-image">
+                <img src="/p/twitor-3/ruby.d550eed725fab8d8bf8658b0bd0606cf_hu169ad9fa26116558547dfb60c1b64219_42863_250x150_fill_q75_box_smart1.jpeg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Twitor #3: Like Features"
+                        data-key="twitor-3" 
+                        data-hash="md5-1VDu1yX6uNi/hliwvQYGzw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Twitor #3: Like Features</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/twitor-4/">
+        
+        
+            <div class="article-image">
+                <img src="/p/twitor-4/ruby.d550eed725fab8d8bf8658b0bd0606cf_hu169ad9fa26116558547dfb60c1b64219_42863_250x150_fill_q75_box_smart1.jpeg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Twitor #4: Secure"
+                        data-key="twitor-4" 
+                        data-hash="md5-1VDu1yX6uNi/hliwvQYGzw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Twitor #4: Secure</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/twitor-5/">
+        
+        
+            <div class="article-image">
+                <img src="/p/twitor-5/ruby.d550eed725fab8d8bf8658b0bd0606cf_hu169ad9fa26116558547dfb60c1b64219_42863_250x150_fill_q75_box_smart1.jpeg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Twitor #5: Add Bond"
+                        data-key="twitor-5" 
+                        data-hash="md5-1VDu1yX6uNi/hliwvQYGzw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Twitor #5: Add Bond</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/rails-simple-blog-1/">
+        
+        
+            <div class="article-image">
+                <img src="/p/rails-simple-blog-1/ruby.d550eed725fab8d8bf8658b0bd0606cf_hu169ad9fa26116558547dfb60c1b64219_42863_250x150_fill_q75_box_smart1.jpeg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Simple Blog with Rails #1"
+                        data-key="rails-simple-blog-1" 
+                        data-hash="md5-1VDu1yX6uNi/hliwvQYGzw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Simple Blog with Rails #1</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 Coding Notes
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

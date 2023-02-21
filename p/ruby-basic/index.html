@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Learn basic of Ruby: variables, string, integer, self-assignment, comparison and condition operator, looping, method'>
+<title>Ruby Basic Operation</title>
+
+<link rel='canonical' href='https://ayw.codeberg.page/p/ruby-basic/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Ruby Basic Operation'>
+<meta property='og:description' content='Learn basic of Ruby: variables, string, integer, self-assignment, comparison and condition operator, looping, method'>
+<meta property='og:url' content='https://ayw.codeberg.page/p/ruby-basic/'>
+<meta property='og:site_name' content='Coding Notes'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Basic Syntax' /><meta property='article:published_time' content='2022-01-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-01-01T00:00:00&#43;00:00'/><meta property='og:image' content='https://ayw.codeberg.page/images/ruby.png' />
+<meta name="twitter:title" content="Ruby Basic Operation">
+<meta name="twitter:description" content="Learn basic of Ruby: variables, string, integer, self-assignment, comparison and condition operator, looping, method"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://ayw.codeberg.page/images/ruby.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hub43f63f8dc0670818fae77f9ea942db8_53425_300x0_resize_q75_box.jpeg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Coding Notes</a></h1>
+            <h2 class="site-description">Go/Ruby Developer</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/aysf'
+                        target="_blank"
+                        title="Github"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/ansuf'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://ayw.codeberg.page/" selected>English</option>
+                        
+                            <option value="https://ayw.codeberg.page/id/" >Indonesia</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#variables">Variables</a>
+      <ol>
+        <li><a href="#variable-scope">Variable Scope</a></li>
+      </ol>
+    </li>
+    <li><a href="#self-assignment">Self Assignment</a></li>
+    <li><a href="#string-concatenation">String Concatenation</a></li>
+    <li><a href="#string-interpolation">String Interpolation</a></li>
+    <li><a href="#arrays">Arrays</a>
+      <ol>
+        <li><a href="#example">Example</a></li>
+        <li><a href="#each-method">Each method</a></li>
+      </ol>
+    </li>
+    <li><a href="#hashes">Hashes</a>
+      <ol>
+        <li><a href="#example-1">Example</a></li>
+        <li><a href="#symbols-in-hashes">Symbols in hashes</a></li>
+        <li><a href="#nil">nil</a></li>
+      </ol>
+    </li>
+    <li><a href="#array-with-hash-element">Array with Hash element</a></li>
+    <li><a href="#condition-operators">Condition Operators</a>
+      <ol>
+        <li><a href="#comparison-operators">Comparison Operators</a></li>
+        <li><a href="#logical-operators">Logical Operators</a></li>
+        <li><a href="#if-statement">If statement</a></li>
+        <li><a href="#using-nil">Using nil</a></li>
+      </ol>
+    </li>
+    <li><a href="#method">Method</a>
+      <ol>
+        <li><a href="#method-using-default-argument">Method using default argument</a></li>
+        <li><a href="#method-using-symbols">Method using symbols</a></li>
+        <li><a href="#method-with-return">Method with <code>return</code></a></li>
+      </ol>
+    </li>
+    <li><a href="#getting-input">Getting Input</a></li>
+    <li><a href="#class">Class</a>
+      <ol>
+        <li><a href="#class-naming-convetion">Class Naming Convetion</a></li>
+        <li><a href="#instance-methods">Instance Methods</a></li>
+        <li><a href="#initialize-method">Initialize Method</a></li>
+        <li><a href="#separating-files">Separating Files</a></li>
+      </ol>
+    </li>
+    <li><a href="#class-inheritance">Class Inheritance</a>
+      <ol>
+        <li><a href="#adding-instance-variable-to-child">Adding instance variable to child</a></li>
+        <li><a href="#super">Super</a></li>
+        <li><a href="#adding-instance-methods">Adding Instance methods</a></li>
+        <li><a href="#overiding">Overiding</a></li>
+        <li><a href="#define-a-class-method">Define a class method</a></li>
+      </ol>
+    </li>
+    <li><a href="#sample-project">Sample Project</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/ruby-basic/">
+                
+                    <img src="/images/ruby.png" loading="lazy" alt="Featured image of post Ruby Basic Operation" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/ruby/" >
+                Ruby
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/ruby-basic/">Ruby Basic Operation</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Learn basic of Ruby: variables, string, integer, self-assignment, comparison and condition operator, looping, method
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 01, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    12 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>back to <a class="link" href="/p/ruby-tutorial" >Ruby tutorial index</a></p>
+<h2 id="variables">Variables</h2>
+<p>Variables are a way to access memory locations using an alias. Storing data to a variable is called <strong>assignment</strong>. Variables have multiple components: <strong>name</strong>, <strong>data</strong>, and <del>type</del>.</p>
+<p>To use a variable, we must define it first. Like <code>variable_name = value</code>. In Ruby, <code>=</code> does not mean that the values are <code>equal</code>. It means to <strong>assign the value on the right to the variable on the left</strong>.</p>
+<h3 id="variable-scope">Variable Scope</h3>
+<p>Let us investigate this code</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="n">post_count</span> <span class="o">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">report</span>
+</span></span><span class="line"><span class="cl">  <span class="n">post_count</span> <span class="o">=</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">puts</span> <span class="n">post_count</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">report</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">puts</span> <span class="n">post</span> <span class="n">count</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The code above will print <code>5</code> and then <code>10</code>. Why? because post_count in method levl and outside not affect each other. If we want to have global variable that visible everywhere throghout the program, just put the dolar sign like <code>$log_level</code>.</p>
+<h2 id="self-assignment">Self Assignment</h2>
+<p>We can use shorthand like</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="n">x</span> <span class="o">+=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">-=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">*=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">/=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">%=</span> <span class="mi">10</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="string-concatenation">String Concatenation</h2>
+<p>Combining strings is known as <strong>string concatenation</strong>. So if we put code like <code>puts &quot;Hello&quot; + &quot;Ruby&quot;</code>, it will produce output like <code>&quot;Hello Ruby&quot;</code></p>
+<h2 id="string-interpolation">String Interpolation</h2>
+<p>There&rsquo;s a way to include the value of a variable inside a string. We can replace a variable with the value we assigned and include it in the string by inserting <code>#{variable_name}</code>, as shown below</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="nb">name</span> <span class="o">=</span> <span class="s2">&#34;Mina&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">age</span> <span class="o">=</span> <span class="mi">4</span>
+</span></span><span class="line"><span class="cl"><span class="nb">puts</span> <span class="s2">&#34;Hello, my name is </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">, I am </span><span class="si">#{</span><span class="n">age</span><span class="si">}</span><span class="s2"> year old&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>There&rsquo;s one thing to be careful of with string interpolation. It can only be used in double quotes <code>&quot;</code>. If it&rsquo;s used with single quotes <code>'</code>, the variable won&rsquo;t be replaced with it value.</p>
+<h2 id="arrays">Arrays</h2>
+<p>We can use <code>arrays</code> to manage a group of data all at once. We can create an array as follows: <code>[value1, value2, ...]</code>. Each value in an array is known as an <code>element</code>. Using arrays, you can manage a collection of data as one group.</p>
+<h3 id="example">Example</h3>
+<p>Here are examples of array usage</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="c1"># assignment of string array</span>
+</span></span><span class="line"><span class="cl"><span class="n">names</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&#34;Zahra&#34;</span><span class="p">,</span> <span class="s2">&#34;El&#34;</span><span class="p">,</span> <span class="s2">&#34;Mina&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># assignment of integer array</span>
+</span></span><span class="line"><span class="cl"><span class="n">numbers</span> <span class="o">=</span> <span class="o">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># array assignment of mix data type</span>
+</span></span><span class="line"><span class="cl"><span class="n">things</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&#34;John&#34;</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="s2">&#34;married&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># print an array element</span>
+</span></span><span class="line"><span class="cl"><span class="nb">puts</span> <span class="s2">&#34;My name is </span><span class="si">#{</span><span class="n">names</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>For each element of an array, a number is given like <code>0</code>, <code>1</code>, <code>2</code>, <code>...</code>. These number are known as <strong>index number</strong>.</p>
+<h3 id="each-method">Each method</h3>
+<p>The <code>each</code> method allows you to access each element of an array in a temporary variable, and apply the same code to it. For Instance, let&rsquo;s try to print each <code>name</code> in the previous example</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="n">names</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">puts</span> <span class="s2">&#34;My name is </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="hashes">Hashes</h2>
+<p>Like arrays, <strong>hashes</strong> are used to manage multiple groups of data. The difference is that hashes use <strong>keys</strong> instead of <strong>index numbers</strong>. With hashes, a key is paired with a value to form one element.</p>
+<h3 id="example-1">Example</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="c1"># arrays</span>
+</span></span><span class="line"><span class="cl"><span class="n">arrs</span> <span class="o">=</span> <span class="o">[</span><span class="n">value1</span><span class="p">,</span> <span class="n">value2</span><span class="p">,</span> <span class="n">value3</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># hashes</span>
+</span></span><span class="line"><span class="cl"><span class="n">hashs</span> <span class="o">=</span> <span class="p">{</span><span class="n">key1</span> <span class="o">=&gt;</span> <span class="n">value1</span><span class="p">,</span> <span class="n">key2</span> <span class="o">=&gt;</span> <span class="n">value2</span><span class="p">,</span> <span class="n">key3</span> <span class="o">=&gt;</span> <span class="n">value3</span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We can get the value of an element using its key, by writing <code>hash_name[key]</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="n">user</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;name&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;Mina&#34;</span><span class="p">,</span> <span class="s2">&#34;age&#34;</span> <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">puts</span> <span class="n">user</span><span class="o">[</span><span class="s2">&#34;name&#34;</span><span class="o">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The value of an element in the hash can be updated using <code>hash_name[key]= new_value</code>. If the key doesn&rsquo;t exist yet, the element will be added to hash.</p>
+<h3 id="symbols-in-hashes">Symbols in hashes</h3>
+<p>The key of a hash can be written by prepending (adding in front) the key with a <strong>colon</strong> <code>:</code> instead of enclosing them with quote <code>'</code> or double qoutes <code>&quot;</code>. The way of writing <code>:name</code> is known as <strong>symbol</strong>. We can use the shorthand syntax of writing the hash key when using symbols. <code>:key =&gt;</code> can be abbreviated to <code>key:</code>. The sample of hashes syntax are recap below</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="c1"># strings as keys</span>
+</span></span><span class="line"><span class="cl"><span class="n">person1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;name&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;Mina&#34;</span><span class="p">,</span> <span class="s2">&#34;age&#34;</span> <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># symbols as keys</span>
+</span></span><span class="line"><span class="cl"><span class="n">person2</span> <span class="o">=</span> <span class="p">{</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">&#34;Zahra&#34;</span><span class="p">,</span> <span class="ss">:age</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># symbols as keys (shorthands)</span>
+</span></span><span class="line"><span class="cl"><span class="n">person3</span> <span class="o">=</span> <span class="p">{</span><span class="nb">name</span><span class="p">:</span> <span class="s2">&#34;El&#34;</span><span class="p">,</span> <span class="ss">age</span><span class="p">:</span> <span class="mi">6</span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="nil">nil</h3>
+<p>There is a special value in Ruby known as <strong>nil</strong> to express that a value doesn&rsquo;t exist. Since <strong>nil</strong> means &ldquo;nothing&rdquo;, <strong>puts nil</strong> will print nothing.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="n">user</span> <span class="o">=</span> <span class="p">{</span><span class="nb">name</span><span class="p">:</span> <span class="s2">&#34;Mike&#34;</span><span class="p">,</span> <span class="ss">age</span><span class="p">:</span> <span class="mi">32</span><span class="p">}</span> <span class="c1"># asssignment</span>
+</span></span><span class="line"><span class="cl"><span class="nb">puts</span> <span class="n">user</span><span class="o">[</span><span class="ss">:height</span><span class="o">]</span> <span class="c1"># will return nil</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We learn how to use <code>nil</code> in condition operator later.</p>
+<h2 id="array-with-hash-element">Array with Hash element</h2>
+<p>We can use hashes as well as strings and numbers for array elements. Keep in mind that we often add a newline between each of the hash elements for better readability, as shown below</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="n">students</span> <span class="o">=</span> <span class="o">[</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="nb">name</span><span class="p">:</span> <span class="s2">&#34;Mina&#34;</span><span class="p">,</span> <span class="ss">age</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="nb">name</span><span class="p">:</span> <span class="s2">&#34;Zahra&#34;</span><span class="p">,</span> <span class="ss">age</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We can access element using index/key and print each element using <code>each</code> method.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="n">students</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">student</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">puts</span> <span class="s2">&#34;hello, my name is </span><span class="si">#{</span><span class="n">student</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">, I&#39;m </span><span class="si">#{</span><span class="n">student</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The code will print</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="s2">&#34;Hello, my name is Mina, I&#39;m 4 years old&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;Hello, my name is Zahra, I&#39;m 5 years old&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="condition-operators">Condition Operators</h2>
+<h3 id="comparison-operators">Comparison Operators</h3>
+<p>Operators like <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>==</code>, <code>!=</code> are known as comparison operators.</p>
+<h3 id="logical-operators">Logical Operators</h3>
+<p>We can use logical operators to express <strong>AND</strong> or <strong>OR</strong>. <code>&amp;&amp;</code> is used for <strong>AND</strong>, and will return <code>true</code> only when both condition are <code>true</code>. The mathematical expression of <code>10 &lt; x 30</code> will be expressed as <code>x &gt; 10 &amp;&amp; x &lt; 20</code> will be expressed as <code>x &gt; 10 &amp;&amp; x &lt; 20</code> in Ruby.</p>
+<h3 id="if-statement">If statement</h3>
+<p>The comparison and logical operators usually used in <code>if statement</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">if</span> <span class="n">condition1</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># some code</span>
+</span></span><span class="line"><span class="cl"><span class="k">elsif</span> <span class="n">condition2</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># some code</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span> <span class="n">condition3</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># some code</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="using-nil">Using nil</h3>
+<p>When we use values that are <code>nil</code>, it will be treated like <code>false</code>, the code won&rsquo;t be executed, and vice versa.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="n">biju1</span> <span class="o">=</span> <span class="p">{</span><span class="nb">name</span><span class="p">:</span> <span class="s2">&#34;Kurama&#34;</span><span class="p">,</span> <span class="ss">age</span><span class="p">:</span> <span class="mi">234</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">biju1</span><span class="o">[</span><span class="ss">:age</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">puts</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="n">biju1</span><span class="o">[</span><span class="ss">:name</span><span class="o">]</span><span class="si">}</span><span class="s2"> is </span><span class="si">#{</span><span class="n">biju1</span><span class="o">[</span><span class="ss">:age</span><span class="o">]</span> <span class="n">year</span> <span class="n">old</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">puts</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="n">biju1</span><span class="o">[</span><span class="ss">:name</span><span class="o">]</span><span class="si">}</span><span class="s2">&#39;s age is unknown}&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="method">Method</h2>
+<p>A method lets us combine multiple lines of code into a single unit. For example, we can define the <code>introduce</code> method to do two thinks</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">introduce</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">puts</span> <span class="s2">&#34;Hello&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">puts</span> <span class="s2">&#34;I am Mina&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We can pass values to a method when we call it. These values are known as <strong>arguments</strong>, and can be used inside methods.</p>
+<p>To pass an argument to a method, you have to define it with a variable to receive it. This variable in particular is called a <strong>parameter</strong>.</p>
+<p>The relation between <strong>argument</strong> and <strong>paramaters</strong> is depict code below</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">method_name</span><span class="p">(</span><span class="n">parameter</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># some code</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">method_name</span><span class="p">(</span><span class="n">argument</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>THe example using parameter and argument is shown below</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">puts</span> <span class="s2">&#34;hello, my name is </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">puts</span> <span class="s2">&#34;I am </span><span class="si">#{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>by passing argument to the method, e.g. <code>greeting(&quot;Mina&quot;, 3)</code>, we&rsquo;ll get output</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="s2">&#34;hello, my name is Mina&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;I am 3 years old&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="method-using-default-argument">Method using default argument</h3>
+<p>We can use default value of argument in parameter method like</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">greeting2</span><span class="p">(</span><span class="nb">name</span> <span class="o">=</span> <span class="s2">&#34;foo&#34;</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">99</span><span class="p">,</span> <span class="n">is_married</span> <span class="o">=</span> <span class="kp">false</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">puts</span> <span class="s2">&#34;hello, my name is </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">puts</span> <span class="s2">&#34;I am </span><span class="si">#{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>If all parameters have default value like code above, then we can call method directly without passing any arguments like <code>greeting2()</code> or we can omit the parentheses <code>greeting2</code>. and the method will process default value.</p>
+<p>Using parameter key(s) in <code>greeting2</code> method is an <strong>optional</strong>. We can put this <code>greeting2(name = &quot;Mina Zahra&quot;)</code> or like this <code>greeting2(&quot;Mina Zahra&quot;)</code>. And we should put the argument in <strong>correct order</strong> event we put parameter key. Run this method like <code>greeting2(age = 33, name = &quot;John&quot;)</code> will lead to misleading result like</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="s2">&#34;hello, my name is 33&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;I am John years old&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="method-using-symbols">Method using symbols</h3>
+<p>Also we can use empty symbol like</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">greeting3</span><span class="p">(</span><span class="nb">name</span><span class="p">:,</span> <span class="ss">age</span><span class="p">:,</span> <span class="ss">is_married</span><span class="p">:</span> <span class="kp">false</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">puts</span> <span class="s2">&#34;hello, my name is </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">puts</span> <span class="s2">&#34;I am </span><span class="si">#{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>In the method above, the usage of parameter key when we pass the argument is mandatory but you should not to put the pair of key and argument in correct orders. You can write like this <code>greeting3(age: 77, name: &quot;Jane&quot;)</code> and it will print the correct result.</p>
+<h3 id="method-with-return">Method with <code>return</code></h3>
+<p>To send a value to the origin of the method call, we use the <code>return</code> statement. By writing <code>return value</code>, the value can be returned and be used outside of the method.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="c1"># example return value</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="n">sum</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">puts</span> <span class="n">sum</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>As a convention, we add a question mark <code>?</code> at the end of the method name if it returns a boolean value</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="c1"># example return bool</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">negative?</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>By adding control flow, you can use <code>return</code> multiple times.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">judge</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="mi">80</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s2">&#34;Good Job&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="s2">&#34;You can do better&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="getting-input">Getting Input</h2>
+<p>To receive input from the console, we use the <code>gets.chomp</code> method. <code>gets.chomp</code> will stop the execution, then wait for the input.</p>
+<p>Let&rsquo;s make simple console app. Put all these lines into file called <code>hello.rb</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="nb">puts</span> <span class="s2">&#34;Enter your name:&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">name</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span></span><span class="line"><span class="cl"><span class="nb">puts</span> <span class="s2">&#34;Hello </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>run the file <code>ruby hello.rb</code>, enter your name and TADA your first console app in Ruby created !</p>
+<p>Because the value received from <code>gets.chomp</code> will be string, even if <code>98</code> is entered, it will be treated as string <code>&quot;98&quot;</code>. To convert it to integer, we use <code>to_i</code> method.</p>
+<p>Let&rsquo;s improve our previous app</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="nb">puts</span> <span class="s2">&#34;Enter your name:&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">name</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span></span><span class="line"><span class="cl"><span class="nb">puts</span> <span class="s2">&#34;What is your birthyear:&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">birthyear</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span><span class="o">.</span><span class="n">to_i</span>
+</span></span><span class="line"><span class="cl"><span class="nb">puts</span> <span class="s2">&#34;Hello </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">puts</span> <span class="s2">&#34;your age is </span><span class="si">#{</span><span class="mi">2022</span><span class="o">-</span><span class="n">birthyear</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="class">Class</h2>
+<p>For example we want to make book rental app. In programming, by treating each book as an <strong>object</strong>, we can easily manage multiple books. To create an object, you first need to prepare its blueprint. In programming terms, this blueprint is commonly known as the <strong>class</strong>, and each object is known as an <strong>instance</strong>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Book</span>
+</span></span><span class="line"><span class="cl">  <span class="kp">attr_accessor</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">:author</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="class-naming-convetion">Class Naming Convetion</h3>
+<ul>
+<li>Class names start with a capital letter or using PascalCase</li>
+<li>Capitalize abbreviations: XMLParser, JSONRequest</li>
+</ul>
+<h3 id="instance-methods">Instance Methods</h3>
+<p>The methods defined inside a class are called <strong>instance method</strong>, as they are to be called from an instance. For instance below we created a instance method called <code>description</code> to put all together book information in a single sentence.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Book</span>
+</span></span><span class="line"><span class="cl">  <span class="kp">attr_accessor</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">:author</span>
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">description</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">puts</span> <span class="s2">&#34;Book titled &#39;</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2">&#39; is written by </span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">author</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">book1</span> <span class="o">=</span> <span class="no">Book</span><span class="o">.</span><span class="n">new</span>
+</span></span><span class="line"><span class="cl"><span class="n">book1</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&#34;Sang Pemimpi&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">book1</span><span class="o">.</span><span class="n">author</span> <span class="o">=</span> <span class="s2">&#34;Andre Hinata&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">book1</span><span class="o">.</span><span class="n">description</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="initialize-method">Initialize Method</h3>
+<p>The <code>initialize</code> method can be defined just like other instance methods. Our previous code will look like:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Book</span>
+</span></span><span class="line"><span class="cl">  <span class="kp">attr_accessor</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">:author</span>
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="ss">title</span><span class="p">:,</span> <span class="ss">author</span><span class="p">:)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">title</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">self</span><span class="o">.</span><span class="n">author</span> <span class="o">=</span> <span class="n">author</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">description</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">puts</span> <span class="s2">&#34;Book titled &#39;</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2">&#39; is written by </span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">author</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>self</code> in code above is referring to <strong>instance variable</strong>.</p>
+<h3 id="separating-files">Separating Files</h3>
+<p>Let us move the <code>Book</code> class to a different file called <code>book.rb</code> to keep each file simple and manageable. The structure of files will look like</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">book_app
+</span></span><span class="line"><span class="cl">|- book.rb
+</span></span><span class="line"><span class="cl">└- index.rb
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>In the <code>book.rb</code> put only Book class</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Book</span>
+</span></span><span class="line"><span class="cl">  <span class="kp">attr_accessor</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">:author</span>
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="ss">title</span><span class="p">:,</span> <span class="ss">author</span><span class="p">:)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">title</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">self</span><span class="o">.</span><span class="n">author</span> <span class="o">=</span> <span class="n">author</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">description</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">puts</span> <span class="s2">&#34;Book titled &#39;</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2">&#39; is written by </span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">author</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>And in the <code>index.rb</code>, where the program is executed, put these lines</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="n">book1</span> <span class="o">=</span> <span class="no">Book</span><span class="o">.</span><span class="n">new</span>
+</span></span><span class="line"><span class="cl"><span class="n">book1</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&#34;Sang Pemimpi&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">book1</span><span class="o">.</span><span class="n">author</span> <span class="o">=</span> <span class="s2">&#34;Andre Hinata&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">book1</span><span class="o">.</span><span class="n">description</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="class-inheritance">Class Inheritance</h2>
+<p>Let assume that we run an online restaurant that sell foods, Then we should create <code>Menu</code> as an object.</p>
+<p>The product class can be written as</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Menu</span>
+</span></span><span class="line"><span class="cl">  <span class="kp">attr_accessor</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:price</span>
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">:,</span> <span class="ss">price</span><span class="p">:)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="nb">name</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">self</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">price</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">info</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> $</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">price</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Creating a class based on another class is known as <strong>inheritance</strong>. <strong>Child class</strong> is referring to the new class, while <strong>parent class</strong> is referring to the class used as a base. You can use inheritance as follow: <code>class ChildClass &lt; ParentClass</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Food</span> <span class="o">&lt;</span> <span class="no">Menu</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The <code>child class</code> has access to all the instance variables and methods of the <code>parent class</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="n">menu1</span> <span class="o">=</span> <span class="no">Food</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="nb">name</span><span class="p">:</span> <span class="s2">&#34;Plecing&#34;</span><span class="p">,</span> <span class="ss">price</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">puts</span> <span class="n">menu1</span><span class="o">.</span><span class="n">name</span>
+</span></span><span class="line"><span class="cl"><span class="nb">puts</span> <span class="n">menu1</span><span class="o">.</span><span class="n">info</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="adding-instance-variable-to-child">Adding instance variable to child</h3>
+<p>To add an instance variable to the <strong>child class</strong>, we can again use <code>attr_accessor</code>. In the example below, the <code>Food</code> class has the <code>calorie</code> instance variable in addition to the <code>name</code> and <code>price</code> variables defined in the <code>Menu</code> class.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Food</span> <span class="o">&lt;</span> <span class="no">Menu</span>
+</span></span><span class="line"><span class="cl">  <span class="kp">attr_accessor</span> <span class="ss">:calorie</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="super">Super</h3>
+<p>To avoid duplications during initializing the <code>name</code> and <code>price</code> in the child class <code>Food</code>, We use <code>super</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Food</span> <span class="o">&lt;</span> <span class="no">Menu</span>
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">:,</span> <span class="ss">price</span><span class="p">:,</span> <span class="ss">calorie</span><span class="p">:)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="nb">name</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">self</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">price</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">self</span><span class="o">.</span><span class="n">calorie</span> <span class="o">=</span> <span class="n">calorie</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>After using <code>super</code>, the code will be</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Food</span> <span class="o">&lt;</span> <span class="no">Menu</span>
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">:,</span> <span class="ss">price</span><span class="p">:,</span> <span class="ss">calorie</span><span class="p">:)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">super</span><span class="p">(</span><span class="nb">name</span><span class="p">:</span> <span class="nb">name</span><span class="p">,</span> <span class="ss">price</span><span class="p">:</span> <span class="n">price</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">self</span><span class="o">.</span><span class="n">calorie</span> <span class="o">=</span> <span class="n">calorie</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="adding-instance-methods">Adding Instance methods</h3>
+<p>We also can add instance methods to the child class</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Food</span> <span class="o">&lt;</span> <span class="no">Menu</span>
+</span></span><span class="line"><span class="cl">  <span class="kp">attr_accessor</span> <span class="ss">:calorie</span>
+</span></span><span class="line"><span class="cl">  <span class="o">...</span>
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">calorie_info</span>
+</span></span><span class="line"><span class="cl">     <span class="k">return</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is </span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">calorie</span><span class="si">}</span><span class="s2">kcal&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="overiding">Overiding</h3>
+<p>Since we want to display <code>calorie</code> in the <code>info</code> method. We will be overriding the <code>info</code> method in the <code>Food</code> class.</p>
+<p><img src="/p/ruby-basic/overriding-method.png"
+	width="2268"
+	height="780"
+	srcset="/p/ruby-basic/overriding-method_huccb2544e0e5fc8fbd4b355f23e67c4e6_255980_480x0_resize_box_3.png 480w, /p/ruby-basic/overriding-method_huccb2544e0e5fc8fbd4b355f23e67c4e6_255980_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="overriding method"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="290"
+		data-flex-basis="697px"
+	
+></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Food</span> <span class="o">&lt;</span> <span class="no">Menu</span>
+</span></span><span class="line"><span class="cl">  <span class="kp">attr_accessor</span> <span class="ss">:calorie</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">:,</span> <span class="ss">price</span><span class="p">:,</span> <span class="ss">calorie</span><span class="p">:)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">super</span><span class="p">(</span><span class="nb">name</span><span class="p">:</span> <span class="nb">name</span><span class="p">,</span> <span class="ss">price</span><span class="p">:</span> <span class="n">price</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">self</span><span class="o">.</span><span class="n">calorie</span> <span class="o">=</span> <span class="n">calorie</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">info</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> $</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">price</span><span class="si">}</span><span class="s2"> (</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">calorie</span><span class="si">}</span><span class="s2">kcal)&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">calorie_info</span>
+</span></span><span class="line"><span class="cl">     <span class="k">return</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is </span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">calorie</span><span class="si">}</span><span class="s2">kcal&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="define-a-class-method">Define a class method</h3>
+<p>We can define a class method like <code>def ClassName.method_name</code>. Note that unlike instance method, we have to put the <strong>class name before the method name</strong>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Menu</span>
+</span></span><span class="line"><span class="cl">  <span class="o">...</span>
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nc">Menu</span><span class="o">.</span><span class="nf">discount_day?</span>
+</span></span><span class="line"><span class="cl">    <span class="n">today</span> <span class="o">=</span> <span class="no">Date</span><span class="o">.</span><span class="n">today</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">today</span><span class="o">.</span><span class="n">sunday?</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  <span class="o">...</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="sample-project">Sample Project</h2>
+<hr>
+<p>back to <a class="link" href="/p/ruby-tutorial" >Ruby tutorial index</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/basic-syntax/">Basic Syntax</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/rails-cheatsheet/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Ruby_On_Rails_Logo.svg" loading="lazy" data-key="rails-cheatsheet" data-hash="https://upload.wikimedia.org/wikipedia/commons/6/62/Ruby_On_Rails_Logo.svg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Rails Cheatsheet</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/ruby-installation/">
+        
+        
+            <div class="article-image">
+                <img src="/p/ruby-installation/ruby.d550eed725fab8d8bf8658b0bd0606cf_hu169ad9fa26116558547dfb60c1b64219_42863_250x150_fill_q75_box_smart1.jpeg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Ruby Installation"
+                        data-key="ruby-installation" 
+                        data-hash="md5-1VDu1yX6uNi/hliwvQYGzw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Ruby Installation</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/ruby-tutorial/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/images/ruby.png" loading="lazy" data-key="ruby-tutorial" data-hash="/images/ruby.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Ruby Tutorial</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/twitor-1/">
+        
+        
+            <div class="article-image">
+                <img src="/p/twitor-1/ruby.d550eed725fab8d8bf8658b0bd0606cf_hu169ad9fa26116558547dfb60c1b64219_42863_250x150_fill_q75_box_smart1.jpeg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Twitor #1: Create Post"
+                        data-key="twitor-1" 
+                        data-hash="md5-1VDu1yX6uNi/hliwvQYGzw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Twitor #1: Create Post</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/twitor-2/">
+        
+        
+            <div class="article-image">
+                <img src="/p/twitor-2/ruby.d550eed725fab8d8bf8658b0bd0606cf_hu169ad9fa26116558547dfb60c1b64219_42863_250x150_fill_q75_box_smart1.jpeg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Twitor #2: Create User"
+                        data-key="twitor-2" 
+                        data-hash="md5-1VDu1yX6uNi/hliwvQYGzw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Twitor #2: Create User</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 Coding Notes
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>PostgreSQL on Coding Notes</title>
+        <link>https://ayw.codeberg.page/categories/postgresql/</link>
+        <description>Recent content in PostgreSQL on Coding Notes</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Fri, 01 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ayw.codeberg.page/categories/postgresql/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>PostgreSQL Cheatsheet</title>
+        <link>https://ayw.codeberg.page/p/postgresql-cheatsheet/</link>
+        <pubDate>Fri, 01 Jul 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://ayw.codeberg.page/p/postgresql-cheatsheet/</guid>
+        <description>&lt;img src="https://blog.payara.fish/hubfs/postgresql-logo.png" alt="Featured image of post PostgreSQL Cheatsheet" /&gt;&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;p&gt;There are several ways how to install Postgresql in Windows/Mac/Linux&lt;/p&gt;
+&lt;h3 id=&#34;using-packages-and-installers&#34;&gt;Using Packages and Installers&lt;/h3&gt;
+&lt;p&gt;You can find out this installation or package from official Postgresql website &lt;a class=&#34;link&#34; href=&#34;https://www.postgresql.org/download/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;using-docker-or-container&#34;&gt;Using Docker or Container&lt;/h3&gt;
+&lt;p&gt;Postgresql have official Docker image hosted in &lt;a class=&#34;link&#34; href=&#34;https://hub.docker.com/_/postgres&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Docker Hub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;postgresql-native-data-types&#34;&gt;PostgreSQL Native Data Types&lt;/h2&gt;
+&lt;p&gt;from the most common:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Number
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;integer&lt;/em&gt; with range -/+2 bilion,&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;smallint&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;bigint&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;numeric&lt;/em&gt; or &lt;em&gt;decimal&lt;/em&gt; (eg. 123.45 would require a &lt;code&gt;numeric(5,2)&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;real&lt;/em&gt; and &lt;em&gt;double precision&lt;/em&gt; is for floating values or data science application&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Character
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;char(n)&lt;/em&gt; the characters should fit &lt;em&gt;n&lt;/em&gt; number&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;varchar(n)&lt;/em&gt; with length max &lt;em&gt;n&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;text&lt;/em&gt; is for blog post or article&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Date/Time
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;date&lt;/em&gt; stores dates between 4713 BC and 5874897 AD&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;time&lt;/em&gt; will store time of day accurate to 1 microsecond&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;timestamp&lt;/em&gt; to record both time and date in one column&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;timestamp with time zone&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Monetary&lt;/li&gt;
+&lt;li&gt;Binary&lt;/li&gt;
+&lt;li&gt;Boolean&lt;/li&gt;
+&lt;li&gt;Geometric
+etc&amp;hellip;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;psql-commands&#34;&gt;PSQL Commands&lt;/h2&gt;
+&lt;p&gt;psql is a terminal-based front-end to PostgreSQL.&lt;/p&gt;
+&lt;h3 id=&#34;most-used-commands&#34;&gt;Most used commands&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;command&lt;/th&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;psql -d database -U user -W&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;connects to database under a specific user&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;\l&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;list available databases&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;\dt&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;list available tables&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;\d table_name&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;describe a table&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;\dn&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;list all schemes of the currently connected db&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;\df&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;list available functions in the current db&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;\dv&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;list available view&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;\du&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;list all users and their assign role&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;\g&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;execute the last command again&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;\?&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;know all available psql commands&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;\h&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;get help&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;\H&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;switch the output to the HTML format&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;\q&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;exit psql shell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;\c db_name&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;switch database&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;restore-dump-file&#34;&gt;Restore dump file&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;psql dbname &amp;lt; dumpfile
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;sql-syntax&#34;&gt;SQL Syntax&lt;/h2&gt;
+&lt;h3 id=&#34;create-database&#34;&gt;Create Database&lt;/h3&gt;
+&lt;p&gt;First, check in into database&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;psql -d root
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;If you don&amp;rsquo;t have &lt;code&gt;root&lt;/code&gt; database, you can use another database, &lt;code&gt;psql -d another-db&lt;/code&gt;. Then you can create database with syntax&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;CREATE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;DATABASE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;new_db&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Alternatively, you can create database directly from terminal, without connect to any database, with command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;psql -U root &amp;#34;CREATE DATABASE newest_db&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;But ensure you have already user and database called &amp;lsquo;root&amp;rsquo;. That&amp;rsquo;s why I mentioned it in this article, &lt;a class=&#34;link&#34; href=&#34;https://ayw.codeberg.page/p/docker-cheatsheet/#postgresql-instance&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Docker Cheatsheet&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;create-role-with-option&#34;&gt;Create role with option&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;CREATE ROLE &amp;lt;role_name&amp;gt; [option]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;list of option: &lt;a class=&#34;link&#34; href=&#34;https://www.postgresql.org/docs/current/sql-createrole.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.postgresql.org/docs/current/sql-createrole.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;sample options:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;SUPERUSER&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;LOGIN&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For instance, you would like to create role called postgre&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;CREATE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ROLE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;postgre&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SUPERUSER&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;LOGIN&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;drop-role&#34;&gt;Drop role&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;DROP ROLE &amp;lt;role_name&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;References:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/aysf/coding-notes&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Coding Notes by aysf&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

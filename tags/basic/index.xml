@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Basic on Coding Notes</title>
+        <link>https://ayw.codeberg.page/tags/basic/</link>
+        <description>Recent content in Basic on Coding Notes</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Wed, 17 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ayw.codeberg.page/tags/basic/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Go Basic Syntax Operation</title>
+        <link>https://ayw.codeberg.page/p/go-basic/</link>
+        <pubDate>Wed, 17 Aug 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://ayw.codeberg.page/p/go-basic/</guid>
+        <description>&lt;img src="https://ayw.codeberg.page/images/go.png" alt="Featured image of post Go Basic Syntax Operation" /&gt;&lt;p&gt;back to &lt;a class=&#34;link&#34; href=&#34;https://ayw.codeberg.page/p/go-tutorial&#34; &gt;Go tutorial index&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This article will cover some basic theory and operation of Go programming language:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Project Structure&lt;/li&gt;
+&lt;li&gt;Working with variable and constant&lt;/li&gt;
+&lt;li&gt;Working with Functions&lt;/li&gt;
+&lt;li&gt;Working with Conditionals&lt;/li&gt;
+&lt;li&gt;Working with Loops&lt;/li&gt;
+&lt;li&gt;Array and Slices&lt;/li&gt;
+&lt;li&gt;Working with Maps&lt;/li&gt;
+&lt;li&gt;Working with Struct&lt;/li&gt;
+&lt;li&gt;Concurency in Go&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;concurrency-model&#34;&gt;Concurrency Model&lt;/h2&gt;
+&lt;p&gt;Go&amp;rsquo;s concurrency model&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Actor&lt;/li&gt;
+&lt;li&gt;Communicating Sequential Processes (CSP)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;sample-go-routine&#34;&gt;Sample Go Routine&lt;/h3&gt;
+&lt;h3 id=&#34;channels&#34;&gt;Channels&lt;/h3&gt;
+&lt;p&gt;There are two types of channels: Unbuffered (syncronous behaviour) and buffered. The unbuffered can&amp;rsquo;t hold data. So any goroutine putting data onto one blocks until there&amp;rsquo;s a receiver on the other end. Well, on the other hand, buffered channels, they can hold data, so a Goroutine can drop data onto it and crack straight on with whatever it was doing without having to care if there&amp;rsquo;s a receiver on the other end.&lt;/p&gt;
+&lt;p&gt;To create an unbuffered channel, we can use make with the chan keyword, e.g. &lt;code&gt;myChann := make(chan int)&lt;/code&gt;. And then, obviously, Go wants to know the type of data the channel is going to hold. But to make it buffered, all we do is add buffers. So this one here will have 5, &lt;code&gt;myChann := make(chan int, 5)&lt;/code&gt;, and because it&amp;rsquo;s for int, it means it can hold up to 5 ints.&lt;/p&gt;
+&lt;p&gt;The effect of a buffered channel is that goroutines using it don&amp;rsquo;t need to block. In fact, actually, as long as the channel is not full, other goroutines can come along after and can also put data on it. So proper asynchronous behavior. Now, obviously, if buffered channel is full, then any goroutines wanting to use it are going to block until it frees up. And then, likewise, if a receiver is trying to grab data off of a channel and the data&amp;rsquo;s not there yet, well that blocks until it is.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

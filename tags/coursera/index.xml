@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Coursera on Coding Notes</title>
+        <link>https://ayw.codeberg.page/tags/coursera/</link>
+        <description>Recent content in Coursera on Coding Notes</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Fri, 06 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ayw.codeberg.page/tags/coursera/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>4G Network: Visible Devices and Nodes (SIM, UE, eNodeB)</title>
+        <link>https://ayw.codeberg.page/p/4g-1-architecture-1/</link>
+        <pubDate>Fri, 06 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://ayw.codeberg.page/p/4g-1-architecture-1/</guid>
+        <description>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Manzbau_Betonmischer_Mobilfunk-Antennen.jpg" alt="Featured image of post 4G Network: Visible Devices and Nodes (SIM, UE, eNodeB)" /&gt;&lt;p&gt;What are the visible elements of a mobile network such a 4G network? Are there other elements that I don&amp;rsquo;t see?
+These are the questions we will answer in this article&lt;/p&gt;
+&lt;p&gt;We know the first element, well, because we carry it with us - it&amp;rsquo;s the terminal: the cell phone or smartphone.
+This terminal is called a &lt;strong&gt;UE&lt;/strong&gt; for User Equipment in the &lt;strong&gt;LTE&lt;/strong&gt; standard. Within the framework of this writing, a
+terminal can be referred to either as a UE, a terminal or a cell phone.&lt;/p&gt;
+&lt;p&gt;To work, it must be equipped with a &lt;strong&gt;SIM&lt;/strong&gt; card inserted into it. The SIM, or Subscriber Identity Module, contains the subscriber
+identity unique throughout the world. It is also contains data about the subscription. In France, the SIM card is property of
+the operator. This card is called a USIM or Universal Subscriber Identity Module in 3G or 4G.&lt;/p&gt;
+&lt;p&gt;However, in this writing, we use the acronym SIM because it is simpler and often used indifferently for 2G, 3G and 4G. The SIM card
+is found in equipment such as a smartphone but can also be found in a 4G key or a router, that I can connect to my laptop.&lt;/p&gt;
+&lt;p&gt;In this article, I am not going to differentiate between types of terminals. All terminals will be treated identically. Obviously, the network is not limited to that. If we walk in the street, we see antennas on the rooves of buildings or towers.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/0/02/Matrixphone.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;picture&#34;
+	
+	
+&gt;&lt;/p&gt;</description>
+        </item>
+        <item>
+        <title>Wireless Communication #3: Principles of Wireless Resource Management</title>
+        <link>https://ayw.codeberg.page/p/wireless-communication-3/</link>
+        <pubDate>Fri, 06 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://ayw.codeberg.page/p/wireless-communication-3/</guid>
+        <description>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Manzbau_Betonmischer_Mobilfunk-Antennen.jpg" alt="Featured image of post Wireless Communication #3: Principles of Wireless Resource Management" /&gt;&lt;p&gt;What are the visible elements of a mobile network such a 4G network? Are there other elements that I don&amp;rsquo;t see?
+These are the questions we will answer in this article&lt;/p&gt;
+&lt;h2 id=&#34;densification-and-widebandwidth&#34;&gt;Densification and Widebandwidth&lt;/h2&gt;
+&lt;p&gt;Are two approaches to commercialize 5G systems.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ultra Dense Network (UDN)&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

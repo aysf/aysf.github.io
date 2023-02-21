@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Tutorial on Catatan Ngoding</title>
+        <link>https://ayw.codeberg.page/id/tags/tutorial/</link>
+        <description>Recent content in Tutorial on Catatan Ngoding</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Sun, 02 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ayw.codeberg.page/id/tags/tutorial/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Membuat Website Menggunakan Ruby Standard Library</title>
+        <link>https://ayw.codeberg.page/id/p/ruby-website/</link>
+        <pubDate>Sun, 02 Jan 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://ayw.codeberg.page/id/p/ruby-website/</guid>
+        <description>&lt;img src="https://ayw.codeberg.page/id/p/ruby-website/ruby.jpeg" alt="Featured image of post Membuat Website Menggunakan Ruby Standard Library" /&gt;&lt;p&gt;Pada kesempatan kali ini saya mencoba membuat website dengan menggunakan bahasa pemograman Ruby tanpa framework apapun.
+Tulis baris perintah berikut dalam sebuah file ruby, misal &lt;code&gt;web.rb&lt;/code&gt;&lt;/p&gt;
+&lt;script type=&#34;application/javascript&#34; src=&#34;https://gist.github.com/aysf/bda1331548f37907d9a205e1596fafdc.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Kemudian jalankan server dengan perintah &lt;code&gt;ruby web.rb&lt;/code&gt; atau gunakan &lt;code&gt;nohup ruby web.rb &amp;amp;&lt;/code&gt; jika ingin menjalankan server di &lt;em&gt;background&lt;/em&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;referensi:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=lxczDssLYKA&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Building a Ruby web app using the Ruby Standard Library by Maple Ong&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://linuxhint.com/how_to_use_nohup_linux/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;How to use Nohup in Linux&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

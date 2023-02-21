@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Pages on Catatan Ngoding</title>
+        <link>https://ayw.codeberg.page/id/page/</link>
+        <description>Recent content in Pages on Catatan Ngoding</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language><atom:link href="https://ayw.codeberg.page/id/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Tentang Saya</title>
+        <link>https://ayw.codeberg.page/id/tentang-saya/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://ayw.codeberg.page/id/tentang-saya/</guid>
+        <description>&lt;p&gt;Nama saya Ananto Yusuf W, seorang programmer, suami, dan ayah dari seorang anak perampuan kecil bernama Mina. Saya menamatkan studi magister Teknik Sipil dari Universitas Warsaw of Life Science (SGGW), Polandia, dan sarjana teknik mesin di Universitas Brawijaya, Malang, Indonesia. Saya memiliki minat yang besar pada dunia komputer, karena itu saya memilih peminatan komputasi teknik (computational mechanics) seperti metode numerik dan elemen hingga saat kuliah.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

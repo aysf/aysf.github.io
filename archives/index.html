@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=''>
+<title>Archives</title>
+
+<link rel='canonical' href='https://ayw.codeberg.page/archives/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Archives'>
+<meta property='og:description' content=''>
+<meta property='og:url' content='https://ayw.codeberg.page/archives/'>
+<meta property='og:site_name' content='Coding Notes'>
+<meta property='og:type' content='article'><meta property='article:section' content='Page' /><meta property='article:published_time' content='2019-05-28T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2019-05-28T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Archives">
+<meta name="twitter:description" content="">
+    </head>
+    <body class="template-archives">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hub43f63f8dc0670818fae77f9ea942db8_53425_300x0_resize_q75_box.jpeg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Coding Notes</a></h1>
+            <h2 class="site-description">Go/Ruby Developer</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/aysf'
+                        target="_blank"
+                        title="Github"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/ansuf'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li  class='current' >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://ayw.codeberg.page/" selected>English</option>
+                        
+                            <option value="https://ayw.codeberg.page/id/" >Indonesia</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <header>
+        <h2 class="section-title">Categories</h2>
+        <div class="subsection-list">
+            <div class="article-list--tile">
+                
+                    
+<article class="">
+    <a href="/categories/golang/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Golang</h2>
+        </div>
+    </a>
+</article>
+
+                
+                    
+<article class="">
+    <a href="/categories/docker/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Docker</h2>
+        </div>
+    </a>
+</article>
+
+                
+                    
+<article class="">
+    <a href="/categories/redis/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Redis</h2>
+        </div>
+    </a>
+</article>
+
+                
+                    
+<article class="">
+    <a href="/categories/postgresql/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">PostgreSQL</h2>
+        </div>
+    </a>
+</article>
+
+                
+                    
+<article class="">
+    <a href="/categories/rails/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Rails</h2>
+        </div>
+    </a>
+</article>
+
+                
+                    
+<article class="">
+    <a href="/categories/ruby/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Ruby</h2>
+        </div>
+    </a>
+</article>
+
+                
+                    
+<article class="">
+    <a href="/categories/sass/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Sass</h2>
+        </div>
+    </a>
+</article>
+
+                
+                    
+<article class="">
+    <a href="/categories/telecommunication/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Telecommunication</h2>
+        </div>
+    </a>
+</article>
+
+                
+                    
+<article class="has-image">
+    <a href="/categories/portfolio/">
+        
+        
+            <div class="article-image">
+                <img src="/categories/portfolio/_hu1e8633508967f410944d98f48f5f7e4b_617261_807e5c785078a75f45fd983f0a8f3378.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Portfolio"
+                        data-key="portfolio" 
+                        data-hash="md5-i9Tk/iG61llqM2hyX4&#43;xSQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Portfolio</h2>
+        </div>
+    </a>
+</article>
+
+                
+                    
+<article class="has-image">
+    <a href="/categories/test/">
+        
+        
+            <div class="article-image">
+                <img src="/categories/test/_hu8102ac0a5989befdf52fa5096a373f78_52927_ba0b8e744b36f1e48b9c54b5d2847004.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Test"
+                        data-key="test" 
+                        data-hash="md5-vsif6ZlY2JQT7cD5Noi91g==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Test</h2>
+        </div>
+    </a>
+</article>
+
+                
+            </div>
+        </div>
+        
+    </header>
+
+    
+    
+    
+
+    
+    
+    <div class="archives-group" id="2022">
+        <h2 class="archives-date section-title"><a href="/archives/#2022">2022</a></h2>
+        <div class="article-list--compact">
+            
+                <article>
+    <a href="/p/go-project-csv/">
+        <div class="article-details">
+            <h2 class="article-title">Go Mini Project: Reading and Filtering csv data</h2>
+            <footer class="article-time">
+                <time datetime='2022-08-18T00:00:00Z'>Aug 18, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                
+                    <img src="/images/gopher-reading.svg" loading="lazy" alt="Featured image of post Go Mini Project: Reading and Filtering csv data" />
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/go-basic/">
+        <div class="article-details">
+            <h2 class="article-title">Go Basic Syntax Operation</h2>
+            <footer class="article-time">
+                <time datetime='2022-08-17T00:00:00Z'>Aug 17, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                
+                    <img src="/images/go.png" loading="lazy" alt="Featured image of post Go Basic Syntax Operation" />
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/go-oop/">
+        <div class="article-details">
+            <h2 class="article-title">Object Oriented in Go</h2>
+            <footer class="article-time">
+                <time datetime='2022-08-16T00:00:00Z'>Aug 16, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                
+                    <img src="/images/go.png" loading="lazy" alt="Featured image of post Object Oriented in Go" />
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/docker-cheatsheet/">
+        <div class="article-details">
+            <h2 class="article-title">Docker Cheatsheet</h2>
+            <footer class="article-time">
+                <time datetime='2022-07-06T00:00:00Z'>Jul 06, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg" loading="lazy" alt="Featured image of post Docker Cheatsheet" />
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/mq-snippet-go/">
+        <div class="article-details">
+            <h2 class="article-title">Message Queue with Golang</h2>
+            <footer class="article-time">
+                <time datetime='2022-07-03T00:00:00Z'>Jul 03, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                <img src="/p/mq-snippet-go/thumb-mq_hu354b3efd1a4b1c172789528fa2f55495_13607_120x120_fill_q75_box_smart1.jpeg" 
+                        width="120"
+                        height="120" 
+                        alt="Message Queue with Golang"
+                        loading="lazy">
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/go-snippet-sftp/">
+        <div class="article-details">
+            <h2 class="article-title">Golang Snippet for SFTP Client</h2>
+            <footer class="article-time">
+                <time datetime='2022-07-03T00:00:00Z'>Jul 03, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                
+                    <img src="/p/go-snippet-sftp/sftp.svg" loading="lazy" alt="Featured image of post Golang Snippet for SFTP Client" />
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/redis-cheatsheet/">
+        <div class="article-details">
+            <h2 class="article-title">Redis Cheatsheet</h2>
+            <footer class="article-time">
+                <time datetime='2022-07-02T00:00:00Z'>Jul 02, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                
+                    <img src="https://upload.wikimedia.org/wikipedia/en/6/6b/Redis_Logo.svg" loading="lazy" alt="Featured image of post Redis Cheatsheet" />
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/postgresql-cheatsheet/">
+        <div class="article-details">
+            <h2 class="article-title">PostgreSQL Cheatsheet</h2>
+            <footer class="article-time">
+                <time datetime='2022-07-01T00:00:00Z'>Jul 01, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                
+                    <img src="https://blog.payara.fish/hubfs/postgresql-logo.png" loading="lazy" alt="Featured image of post PostgreSQL Cheatsheet" />
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/go-std-lib/">
+        <div class="article-details">
+            <h2 class="article-title">Go Std Library</h2>
+            <footer class="article-time">
+                <time datetime='2022-05-07T00:00:00Z'>May 07, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Ruby_On_Rails_Logo.svg" loading="lazy" alt="Featured image of post Go Std Library" />
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/wireless-communication-3/">
+        <div class="article-details">
+            <h2 class="article-title">Wireless Communication #3: Principles of Wireless Resource Management</h2>
+            <footer class="article-time">
+                <time datetime='2022-05-06T00:00:00Z'>May 06, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Manzbau_Betonmischer_Mobilfunk-Antennen.jpg" loading="lazy" alt="Featured image of post Wireless Communication #3: Principles of Wireless Resource Management" />
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/ruby-installation/">
+        <div class="article-details">
+            <h2 class="article-title">Ruby Installation</h2>
+            <footer class="article-time">
+                <time datetime='2022-05-06T00:00:00Z'>May 06, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                <img src="/p/ruby-installation/ruby_hu169ad9fa26116558547dfb60c1b64219_42863_120x120_fill_q75_box_smart1.jpeg" 
+                        width="120"
+                        height="120" 
+                        alt="Ruby Installation"
+                        loading="lazy">
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/rails-cheatsheet/">
+        <div class="article-details">
+            <h2 class="article-title">Rails Cheatsheet</h2>
+            <footer class="article-time">
+                <time datetime='2022-05-06T00:00:00Z'>May 06, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Ruby_On_Rails_Logo.svg" loading="lazy" alt="Featured image of post Rails Cheatsheet" />
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/sass/">
+        <div class="article-details">
+            <h2 class="article-title">Learn SASS</h2>
+            <footer class="article-time">
+                <time datetime='2022-05-06T00:00:00Z'>May 06, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                <img src="/p/sass/sass_hu210300d2d10c388092fadd2e87fa3343_86845_120x120_fill_box_smart1_3.png" 
+                        width="120"
+                        height="120" 
+                        alt="Learn SASS"
+                        loading="lazy">
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/4g-1-architecture-1/">
+        <div class="article-details">
+            <h2 class="article-title">4G Network: Visible Devices and Nodes (SIM, UE, eNodeB)</h2>
+            <footer class="article-time">
+                <time datetime='2022-05-06T00:00:00Z'>May 06, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Manzbau_Betonmischer_Mobilfunk-Antennen.jpg" loading="lazy" alt="Featured image of post 4G Network: Visible Devices and Nodes (SIM, UE, eNodeB)" />
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/twitor-5/">
+        <div class="article-details">
+            <h2 class="article-title">Twitor #5: Add Bond</h2>
+            <footer class="article-time">
+                <time datetime='2022-02-07T00:00:00Z'>Feb 07, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                <img src="/p/twitor-5/ruby_hu169ad9fa26116558547dfb60c1b64219_42863_120x120_fill_q75_box_smart1.jpeg" 
+                        width="120"
+                        height="120" 
+                        alt="Twitor #5: Add Bond"
+                        loading="lazy">
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/twitor-4/">
+        <div class="article-details">
+            <h2 class="article-title">Twitor #4: Secure</h2>
+            <footer class="article-time">
+                <time datetime='2022-02-07T00:00:00Z'>Feb 07, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                <img src="/p/twitor-4/ruby_hu169ad9fa26116558547dfb60c1b64219_42863_120x120_fill_q75_box_smart1.jpeg" 
+                        width="120"
+                        height="120" 
+                        alt="Twitor #4: Secure"
+                        loading="lazy">
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/twitor-3/">
+        <div class="article-details">
+            <h2 class="article-title">Twitor #3: Like Features</h2>
+            <footer class="article-time">
+                <time datetime='2022-02-07T00:00:00Z'>Feb 07, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                <img src="/p/twitor-3/ruby_hu169ad9fa26116558547dfb60c1b64219_42863_120x120_fill_q75_box_smart1.jpeg" 
+                        width="120"
+                        height="120" 
+                        alt="Twitor #3: Like Features"
+                        loading="lazy">
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/twitor-2/">
+        <div class="article-details">
+            <h2 class="article-title">Twitor #2: Create User</h2>
+            <footer class="article-time">
+                <time datetime='2022-02-07T00:00:00Z'>Feb 07, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                <img src="/p/twitor-2/ruby_hu169ad9fa26116558547dfb60c1b64219_42863_120x120_fill_q75_box_smart1.jpeg" 
+                        width="120"
+                        height="120" 
+                        alt="Twitor #2: Create User"
+                        loading="lazy">
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/twitor-1/">
+        <div class="article-details">
+            <h2 class="article-title">Twitor #1: Create Post</h2>
+            <footer class="article-time">
+                <time datetime='2022-02-07T00:00:00Z'>Feb 07, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                <img src="/p/twitor-1/ruby_hu169ad9fa26116558547dfb60c1b64219_42863_120x120_fill_q75_box_smart1.jpeg" 
+                        width="120"
+                        height="120" 
+                        alt="Twitor #1: Create Post"
+                        loading="lazy">
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/ruby-tutorial/">
+        <div class="article-details">
+            <h2 class="article-title">Ruby Tutorial</h2>
+            <footer class="article-time">
+                <time datetime='2022-02-07T00:00:00Z'>Feb 07, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                
+                    <img src="/images/ruby.png" loading="lazy" alt="Featured image of post Ruby Tutorial" />
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/rails-simple-blog-1/">
+        <div class="article-details">
+            <h2 class="article-title">Simple Blog with Rails #1</h2>
+            <footer class="article-time">
+                <time datetime='2022-02-06T00:00:00Z'>Feb 06, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                <img src="/p/rails-simple-blog-1/ruby_hu169ad9fa26116558547dfb60c1b64219_42863_120x120_fill_q75_box_smart1.jpeg" 
+                        width="120"
+                        height="120" 
+                        alt="Simple Blog with Rails #1"
+                        loading="lazy">
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/ruby-project-menu/">
+        <div class="article-details">
+            <h2 class="article-title">Ruby Mini Project: Simple Menu Console App</h2>
+            <footer class="article-time">
+                <time datetime='2022-01-02T00:00:00Z'>Jan 02, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                
+                    <img src="/images/ruby.png" loading="lazy" alt="Featured image of post Ruby Mini Project: Simple Menu Console App" />
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/ruby-project-csv/">
+        <div class="article-details">
+            <h2 class="article-title">Ruby Mini Project: Reading and Filtering csv data</h2>
+            <footer class="article-time">
+                <time datetime='2022-01-02T00:00:00Z'>Jan 02, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                
+                    <img src="/images/ruby.png" loading="lazy" alt="Featured image of post Ruby Mini Project: Reading and Filtering csv data" />
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/ruby-oop/">
+        <div class="article-details">
+            <h2 class="article-title">Object Oriented Ruby</h2>
+            <footer class="article-time">
+                <time datetime='2022-01-02T00:00:00Z'>Jan 02, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                
+                    <img src="/images/ruby.png" loading="lazy" alt="Featured image of post Object Oriented Ruby" />
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/ruby-website/">
+        <div class="article-details">
+            <h2 class="article-title">Making a Ruby website using standard library</h2>
+            <footer class="article-time">
+                <time datetime='2022-01-02T00:00:00Z'>Jan 02, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                <img src="/p/ruby-website/ruby_hu169ad9fa26116558547dfb60c1b64219_42863_120x120_fill_q75_box_smart1.jpeg" 
+                        width="120"
+                        height="120" 
+                        alt="Making a Ruby website using standard library"
+                        loading="lazy">
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/ruby-basic/">
+        <div class="article-details">
+            <h2 class="article-title">Ruby Basic Operation</h2>
+            <footer class="article-time">
+                <time datetime='2022-01-01T00:00:00Z'>Jan 01, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                
+                    <img src="/images/ruby.png" loading="lazy" alt="Featured image of post Ruby Basic Operation" />
+                
+            </div>
+        
+    </a>
+</article>
+            
+                <article>
+    <a href="/p/go-tutorial/">
+        <div class="article-details">
+            <h2 class="article-title">Golang Tutorial</h2>
+            <footer class="article-time">
+                <time datetime='2022-01-01T00:00:00Z'>Jan 01, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                
+                    <img src="/images/go.png" loading="lazy" alt="Featured image of post Golang Tutorial" />
+                
+            </div>
+        
+    </a>
+</article>
+            
+        </div>
+    </div>
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 Coding Notes
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

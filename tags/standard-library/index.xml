@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Standard Library on Coding Notes</title>
+        <link>https://ayw.codeberg.page/tags/standard-library/</link>
+        <description>Recent content in Standard Library on Coding Notes</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Sat, 07 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ayw.codeberg.page/tags/standard-library/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Go Std Library</title>
+        <link>https://ayw.codeberg.page/p/go-std-lib/</link>
+        <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://ayw.codeberg.page/p/go-std-lib/</guid>
+        <description>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Ruby_On_Rails_Logo.svg" alt="Featured image of post Go Std Library" /&gt;&lt;p&gt;All standard library of Golang can be accessed here &lt;code&gt;pkg.go.dev/std&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;os&#34;&gt;os&lt;/h2&gt;
+&lt;p&gt;Package &lt;code&gt;os&lt;/code&gt; provides a platform-independent interface to operating system functinality.&lt;/p&gt;
+&lt;h3 id=&#34;osexecutable&#34;&gt;os.Executable()&lt;/h3&gt;
+&lt;p&gt;Returns the path name for the executable that started the current process. &lt;br&gt;
+Put this lines into file tryme.go&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nx&#34;&gt;exec&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Executable&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nx&#34;&gt;fmt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;exec&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;And run &lt;code&gt;go build .&lt;/code&gt; in the file dir. Then exec the output file &lt;code&gt;./tryme&lt;/code&gt; and you will see the terminal show your current file path like &lt;code&gt;path/to/tryme&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;io&#34;&gt;io&lt;/h2&gt;
+&lt;p&gt;Package &lt;code&gt;io&lt;/code&gt; provides basic interfaces to I/O primitives&lt;/p&gt;
+&lt;h2 id=&#34;net&#34;&gt;net&lt;/h2&gt;
+&lt;p&gt;Package &lt;code&gt;net&lt;/code&gt; provides a portable interface for network I/O, including TCP/IP, UDP, domain name, resolution, and Unix domain sockets.&lt;/p&gt;
+&lt;h2 id=&#34;strings&#34;&gt;strings&lt;/h2&gt;
+&lt;p&gt;Package &lt;code&gt;strings&lt;/code&gt; implements simple function to manipulate UTF-8 encoded strings&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;References:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/aysf/coding-notes/tree/master/language/ruby&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Coding Notes by aysf&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

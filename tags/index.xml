@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Tags on Coding Notes</title>
+        <link>https://ayw.codeberg.page/tags/</link>
+        <description>Recent content in Tags on Coding Notes</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Thu, 18 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ayw.codeberg.page/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Mini Project</title>
+        <link>https://ayw.codeberg.page/tags/mini-project/</link>
+        <pubDate>Thu, 18 Aug 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://ayw.codeberg.page/tags/mini-project/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Basic</title>
+        <link>https://ayw.codeberg.page/tags/basic/</link>
+        <pubDate>Wed, 17 Aug 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://ayw.codeberg.page/tags/basic/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Tutorial</title>
+        <link>https://ayw.codeberg.page/tags/tutorial/</link>
+        <pubDate>Wed, 17 Aug 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://ayw.codeberg.page/tags/tutorial/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>OOP</title>
+        <link>https://ayw.codeberg.page/tags/oop/</link>
+        <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://ayw.codeberg.page/tags/oop/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>CheatSheet</title>
+        <link>https://ayw.codeberg.page/tags/cheatsheet/</link>
+        <pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://ayw.codeberg.page/tags/cheatsheet/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Lima</title>
+        <link>https://ayw.codeberg.page/tags/lima/</link>
+        <pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://ayw.codeberg.page/tags/lima/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>PostgreSQL</title>
+        <link>https://ayw.codeberg.page/tags/postgresql/</link>
+        <pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://ayw.codeberg.page/tags/postgresql/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Redis</title>
+        <link>https://ayw.codeberg.page/tags/redis/</link>
+        <pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://ayw.codeberg.page/tags/redis/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Message Queue</title>
+        <link>https://ayw.codeberg.page/tags/message-queue/</link>
+        <pubDate>Sun, 03 Jul 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://ayw.codeberg.page/tags/message-queue/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>SFTP</title>
+        <link>https://ayw.codeberg.page/tags/sftp/</link>
+        <pubDate>Sun, 03 Jul 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://ayw.codeberg.page/tags/sftp/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Standard Library</title>
+        <link>https://ayw.codeberg.page/tags/standard-library/</link>
+        <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://ayw.codeberg.page/tags/standard-library/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Coursera</title>
+        <link>https://ayw.codeberg.page/tags/coursera/</link>
+        <pubDate>Fri, 06 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://ayw.codeberg.page/tags/coursera/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>front-end</title>
+        <link>https://ayw.codeberg.page/tags/front-end/</link>
+        <pubDate>Fri, 06 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://ayw.codeberg.page/tags/front-end/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Installation</title>
+        <link>https://ayw.codeberg.page/tags/installation/</link>
+        <pubDate>Fri, 06 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://ayw.codeberg.page/tags/installation/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Twitor</title>
+        <link>https://ayw.codeberg.page/tags/twitor/</link>
+        <pubDate>Mon, 07 Feb 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://ayw.codeberg.page/tags/twitor/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Basic Syntax</title>
+        <link>https://ayw.codeberg.page/tags/basic-syntax/</link>
+        <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://ayw.codeberg.page/tags/basic-syntax/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Go-Tutorial</title>
+        <link>https://ayw.codeberg.page/tags/go-tutorial/</link>
+        <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://ayw.codeberg.page/tags/go-tutorial/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>

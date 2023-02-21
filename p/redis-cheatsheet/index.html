@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Redis tips and tricks'>
+<title>Redis Cheatsheet</title>
+
+<link rel='canonical' href='https://ayw.codeberg.page/p/redis-cheatsheet/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Redis Cheatsheet'>
+<meta property='og:description' content='Redis tips and tricks'>
+<meta property='og:url' content='https://ayw.codeberg.page/p/redis-cheatsheet/'>
+<meta property='og:site_name' content='Coding Notes'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='CheatSheet' /><meta property='article:published_time' content='2022-07-02T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-07-02T00:00:00&#43;00:00'/><meta property='og:image' content='https://upload.wikimedia.org/wikipedia/en/6/6b/Redis_Logo.svg' />
+<meta name="twitter:title" content="Redis Cheatsheet">
+<meta name="twitter:description" content="Redis tips and tricks"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://upload.wikimedia.org/wikipedia/en/6/6b/Redis_Logo.svg' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hub43f63f8dc0670818fae77f9ea942db8_53425_300x0_resize_q75_box.jpeg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Coding Notes</a></h1>
+            <h2 class="site-description">Go/Ruby Developer</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/aysf'
+                        target="_blank"
+                        title="Github"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/ansuf'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://ayw.codeberg.page/" selected>English</option>
+                        
+                            <option value="https://ayw.codeberg.page/id/" >Indonesia</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#motivation">Motivation</a></li>
+    <li><a href="#installation">Installation</a>
+      <ol>
+        <li><a href="#basic-container">Basic Container</a></li>
+        <li><a href="#with-volume">With Volume</a></li>
+      </ol>
+    </li>
+    <li><a href="#config-example">Config Example</a>
+      <ol>
+        <li><a href="#with-command">With Command</a></li>
+        <li><a href="#with-security">With Security</a></li>
+        <li><a href="#with-authentication">With Authentication</a></li>
+      </ol>
+    </li>
+    <li><a href="#redis-gui">Redis GUI</a></li>
+    <li><a href="#redis-data-type">Redis Data Type</a>
+      <ol>
+        <li><a href="#basic">Basic</a>
+          <ol>
+            <li><a href="#strings">Strings</a></li>
+            <li><a href="#lists">Lists</a></li>
+            <li><a href="#hashes">Hashes</a></li>
+          </ol>
+        </li>
+        <li><a href="#advance">Advance</a>
+          <ol>
+            <li><a href="#sets">Sets</a></li>
+            <li><a href="#sorted-sets">Sorted Sets</a></li>
+          </ol>
+        </li>
+        <li><a href="#time-series">Time Series</a></li>
+      </ol>
+    </li>
+    <li><a href="#commands">Commands</a>
+      <ol>
+        <li><a href="#pubsub">Pub/Sub</a></li>
+        <li><a href="#transaction">Transaction</a></li>
+        <li><a href="#scripting">Scripting</a></li>
+        <li><a href="#miscellaneous-commands">Miscellaneous Commands</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/redis-cheatsheet/">
+                
+                    <img src="https://upload.wikimedia.org/wikipedia/en/6/6b/Redis_Logo.svg" loading="lazy" alt="Featured image of post Redis Cheatsheet" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/redis/" >
+                Redis
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/redis-cheatsheet/">Redis Cheatsheet</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Redis tips and tricks
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jul 02, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    7 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="motivation">Motivation</h2>
+<p>Recently, I maintain services that use Redis frequently for caching. It is very interesting since the services handle millions of messages a day. Before using Redis on the application, it is good to know what Redis is and how to use it.</p>
+<h2 id="installation">Installation</h2>
+<p>Basically, I have written how to install Redis using docker in <a class="link" href="https://ayw.codeberg.page/p/docker-cheatsheet/#redis-instance"  target="_blank" rel="noopener"
+    >this article</a>. Now, I&rsquo;ll explain more detail how to install the Redis with its configuration from official docker image (<a class="link" href="https://hub.docker.com/_/redis%29"  target="_blank" rel="noopener"
+    >https://hub.docker.com/_/redis)</a>.</p>
+<h3 id="basic-container">Basic Container</h3>
+<p>Redis can be installed in various ways. But docker is my preferred one.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker run --name redis-container-name -p 6379:6379 -d redis
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This command will do the following:</p>
+<ol>
+<li>Pull the latest image from the docker hub</li>
+<li>Create and run the container and name it: my-redis</li>
+<li>Route port 6379 on my laptop to port 6379 inside the container. 6379 is Redis default port and can be changed</li>
+</ol>
+<p>source: <a class="link" href="https://medium.com/idomongodb/installing-redis-server-using-docker-container-453c3cfffbdf"  target="_blank" rel="noopener"
+    >Medium</a></p>
+<p>To enter terminal on Redis container, use</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker <span class="nb">exec</span> -it redis-container-name /bin/bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>And use  <code>redis-cli -h localhost</code> to use command line interface. Run <code>redis-cli --help</code> to see what kind of command that you can use.</p>
+<h3 id="with-volume">With Volume</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker run --name redis_container -v /path/to/local/data:/usr/local/etc/redis -p 6379:6379 -d redis
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This command will do the same as previous but it mount local folder in <code>/path/to/local/data</code> to container folder <code>/usr/local/etc/redis</code>.
+Volume can be used to mount Redis configuration file. The configuration file by default can be accessed in this github link (<a class="link" href="https://github.com/redis/redis/blob/6.0/redis.conf%29"  target="_blank" rel="noopener"
+    >https://github.com/redis/redis/blob/6.0/redis.conf)</a>. From the link, you can switch any version of Redis that you want to use.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker run -v /myredis/conf:/usr/local/etc/redis --name redis-container redis redis-server /usr/local/etc/redis/redis.conf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="config-example">Config Example</h2>
+<p>In this section, I put some examples taken from <a class="link" href="https://www.youtube.com/watch?v=YIBDd-nG3hc&amp;list=PL-CtdCApEFH-7hBhz1Q-4rKIQntJoBNX3"  target="_blank" rel="noopener"
+    >PZN</a> channel on YouTube. To follow these sections you need to clone my github repository containing docker-compose of Redis example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git clone https://github.com/aysf/example.git <span class="nv">$HOME</span>/docker/example  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I put the example on my preferred folder <code>~/docker/example</code> but you can put anywhere you like.</p>
+<p>Note: everytime you run up a redis container with config, please make sure that config installed properly by command <code>docker logs redis-container-name</code>. If it&rsquo;s installed correctly, there will be a Redis logo on your terminal screen.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">1:C <span class="m">16</span> Jul <span class="m">2022</span> 03:50:12.515 <span class="c1"># oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo</span>
+</span></span><span class="line"><span class="cl">1:C <span class="m">16</span> Jul <span class="m">2022</span> 03:50:12.516 <span class="c1"># Redis version=6.2.7, bits=64, commit=00000000, modified=0, pid=1, just started</span>
+</span></span><span class="line"><span class="cl">1:C <span class="m">16</span> Jul <span class="m">2022</span> 03:50:12.516 <span class="c1"># Configuration loaded</span>
+</span></span><span class="line"><span class="cl">1:M <span class="m">16</span> Jul <span class="m">2022</span> 03:50:12.517 * monotonic clock: POSIX clock_gettime
+</span></span><span class="line"><span class="cl">1:M <span class="m">16</span> Jul <span class="m">2022</span> 03:50:12.518 <span class="c1"># A key &#39;__redis__compare_helper&#39; was added to Lua globals which is not on the globals allow list nor listed on the deny list.</span>
+</span></span><span class="line"><span class="cl">                _._                                                  
+</span></span><span class="line"><span class="cl">           _.-<span class="sb">``</span>__ <span class="s1">&#39;&#39;</span>-._                                             
+</span></span><span class="line"><span class="cl">      _.-<span class="sb">``</span>    <span class="sb">`</span>.  <span class="sb">`</span>_.  <span class="s1">&#39;&#39;</span>-._           Redis 6.2.7 <span class="o">(</span>00000000/0<span class="o">)</span> <span class="m">64</span> bit
+</span></span><span class="line"><span class="cl">  .-<span class="sb">``</span> .-<span class="sb">```</span>.  <span class="sb">```</span><span class="se">\/</span>    _.,_ <span class="s1">&#39;&#39;</span>-._                                  
+</span></span><span class="line"><span class="cl"> <span class="o">(</span>    <span class="s1">&#39;      ,       .-`  | `,    )     Running in standalone mode
+</span></span></span><span class="line"><span class="cl"><span class="s1"> |`-._`-...-` __...-.``-._|&#39;</span><span class="sb">`</span> _.-<span class="s1">&#39;|     Port: 6379
+</span></span></span><span class="line"><span class="cl"><span class="s1"> |    `-._   `._    /     _.-&#39;</span>    <span class="p">|</span>     PID: <span class="m">1</span>
+</span></span><span class="line"><span class="cl">  <span class="sb">`</span>-._    <span class="sb">`</span>-._  <span class="sb">`</span>-./  _.-<span class="s1">&#39;    _.-&#39;</span>                                   
+</span></span><span class="line"><span class="cl"> <span class="p">|</span><span class="sb">`</span>-._<span class="sb">`</span>-._    <span class="sb">`</span>-.__.-<span class="s1">&#39;    _.-&#39;</span>_.-<span class="s1">&#39;|                                  
+</span></span></span><span class="line"><span class="cl"><span class="s1"> |    `-._`-._        _.-&#39;</span>_.-<span class="s1">&#39;    |           https://redis.io       
+</span></span></span><span class="line"><span class="cl"><span class="s1">  `-._    `-._`-.__.-&#39;</span>_.-<span class="s1">&#39;    _.-&#39;</span>                                   
+</span></span><span class="line"><span class="cl"> <span class="p">|</span><span class="sb">`</span>-._<span class="sb">`</span>-._    <span class="sb">`</span>-.__.-<span class="s1">&#39;    _.-&#39;</span>_.-<span class="s1">&#39;|                                  
+</span></span></span><span class="line"><span class="cl"><span class="s1"> |    `-._`-._        _.-&#39;</span>_.-<span class="s1">&#39;    |                                  
+</span></span></span><span class="line"><span class="cl"><span class="s1">  `-._    `-._`-.__.-&#39;</span>_.-<span class="s1">&#39;    _.-&#39;</span>                                   
+</span></span><span class="line"><span class="cl">      <span class="sb">`</span>-._    <span class="sb">`</span>-.__.-<span class="s1">&#39;    _.-&#39;</span>                                       
+</span></span><span class="line"><span class="cl">          <span class="sb">`</span>-._        _.-<span class="s1">&#39;                                           
+</span></span></span><span class="line"><span class="cl"><span class="s1">              `-.__.-&#39;</span>                                               
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">1:M <span class="m">16</span> Jul <span class="m">2022</span> 03:50:12.518 <span class="c1"># Server initialized</span>
+</span></span><span class="line"><span class="cl">1:M <span class="m">16</span> Jul <span class="m">2022</span> 03:50:12.519 * Ready to accept connections
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="with-command">With Command</h3>
+<p>We will use Redis feature called <code>pipeline</code> to run command from the terminal Linux/Unix. To start, run the cloned docker compose example.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker-compose -f <span class="nv">$HOME</span>/docker/example/redis/redis-with-command/docker-compose.yaml up -d  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The <code>docker-compose.yaml</code> looks like</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.5&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">redis</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">redis-with-command</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">redis:6</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">redis-server /usr/local/etc/redis/redis.conf</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">6379</span><span class="p">:</span><span class="m">6379</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./config/redis.conf:/usr/local/etc/redis/redis.conf</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./command:/usr/local/etc/command</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>This <code>docker-compose.yaml</code> create container with two volumes, for config file and command file. <br>
+Enter to the container terminal <code>docker exec -it redis-with-command /bin/bash</code> and run</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cat /usr/local/etc/command/sets.txt <span class="p">|</span> redis-cli -h localhost --pipe
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="with-security">With Security</h3>
+<p>We will enable security, therefore client we&rsquo;ll require to provide username and password to access the database.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.5&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">redis</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">redis-with-security</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">redis:6</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">redis-server /usr/local/etc/redis/redis.conf</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">6379</span><span class="p">:</span><span class="m">6379</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./config/redis.conf:/usr/local/etc/redis/redis.conf</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">redis-client</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">redis-client</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">redis:6</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>This docker-compose create two container in order to simulate client that would access to server with security. Let&rsquo;s run the yaml file</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker-compose -f <span class="nv">$HOME</span>/docker/example/redis/redis-with-security/docker-compose.yaml up -d  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now, Enter to Redis server and try to ping from <code>redis-cli</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">% docker <span class="nb">exec</span> -ti redis-with-security /bin/bash
+</span></span><span class="line"><span class="cl">root@90d37981271e:/data# redis-cli
+</span></span><span class="line"><span class="cl">127.0.0.1:6379&gt; ping
+</span></span><span class="line"><span class="cl">PONG
+</span></span><span class="line"><span class="cl">127.0.0.1:6379&gt; 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>See that you can <code>ping</code> redis from it&rsquo;s own machine.</p>
+<p>Next, use the client container to login..</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">% docker <span class="nb">exec</span> -it redis-client /bin/bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>and enter <code>redis-cli</code> server from client using command <code>redis-cli -h redis-with-security</code>. Then, you&rsquo;ll get a rejection !</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">Could not connect to Redis at redis-with-security:6379: Connection refused
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>To solve this problem, commented out this line (line number 5) on the config file</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl"><span class="c1"># IF YOU ARE SURE YOU WANT YOUR INSTANCE TO LISTEN TO ALL THE INTERFACES</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># JUST COMMENT THE FOLLOWING LINE.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># bind 127.0.0.1</span>
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Then reset these redis containers by <code>docker-compose down</code> and <code>docker-compose up -d</code>. Again, enter to the terminal of client container and run <code>redis-cli -h redis-with-security</code>. You shall be succed enter the <code>redis-cli</code> but you still get an error once you try to <code>ping</code> from the cli.</p>
+<p><img src="/p/redis-cheatsheet/error-redis-auth.png"
+	width="2290"
+	height="486"
+	srcset="/p/redis-cheatsheet/error-redis-auth_huf80bb6afda1f59a04cd585f15adecd75_525395_480x0_resize_box_3.png 480w, /p/redis-cheatsheet/error-redis-auth_huf80bb6afda1f59a04cd585f15adecd75_525395_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="Error Redis Authentication"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="471"
+		data-flex-basis="1130px"
+	
+></p>
+<p>As you see on the error message, you need to set <code>protected-mode no</code> so you can do <code>ping</code> command from cli.</p>
+<h3 id="with-authentication">With Authentication</h3>
+<p>Disabling <code>protected-mode</code> is not recomended when you build real apps. We should use authentication instead. Put this setting on <code>redis.conf</code> file.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl"><span class="c1"># Basically ACL rules are processed left-to-right.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># For more information about ACL configuration please refer to</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># the Redis web site at https://redis.io/topics/acl</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">user default on +@connection
+</span></span><span class="line"><span class="cl">user foo on +@all ~* &gt;yourcustompassword
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Then run <code>docker-compose -f $HOME/Docker/example/redis/redis-with-acl/docker-compose.yaml up -d</code>. The default user setting above should be added to because, at first time on cli mode, the &lsquo;default&rsquo; user need to have authorization for connection.</p>
+<p>Try again enter cli mode, put username and password authentication&hellip;  and do <code>ping</code>!</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">root@aaf906b99c21:/data# redis-cli -h redis-with-acl
+</span></span><span class="line"><span class="cl">redis-with-acl:6379&gt; auth foo yourcustompassword
+</span></span><span class="line"><span class="cl">OK
+</span></span><span class="line"><span class="cl">redis-with-acl:6379&gt; ping
+</span></span><span class="line"><span class="cl">PONG
+</span></span><span class="line"><span class="cl">redis-with-acl:6379&gt; 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>And tada&hellip; we can &lsquo;ping&rsquo; without disabliing &lsquo;protected-mode&rsquo;. You can ensure it by using command <code>config get &lt;pattern&gt;</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">redis-with-acl:6379&gt; config get <span class="s1">&#39;protected-mode&#39;</span>
+</span></span><span class="line"><span class="cl">1<span class="o">)</span> <span class="s2">&#34;protected-mode&#34;</span>
+</span></span><span class="line"><span class="cl">2<span class="o">)</span> <span class="s2">&#34;yes&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="redis-gui">Redis GUI</h2>
+<p>These are some free Redis GUIs that you can try (stats updated 15 July 2022):</p>
+<ol>
+<li><a class="link" href="https://github.com/qishibo/AnotherRedisDesktopManager"  target="_blank" rel="noopener"
+    >AnotherRedisDesktopManager</a>: Star 21.6k</li>
+<li><a class="link" href="https://github.com/uglide/RedisDesktopManager"  target="_blank" rel="noopener"
+    >RedisDesktopManager</a>: Star 20.5k</li>
+<li><a class="link" href="https://github.com/joeferner/redis-commander"  target="_blank" rel="noopener"
+    >redis-commander</a>: Star 3k</li>
+<li><a class="link" href="https://github.com/quick123official/quick_redis_blog"  target="_blank" rel="noopener"
+    >QuickRedis</a>: Star 1.3k</li>
+<li><a class="link" href="https://github.com/patrikx3/redis-ui"  target="_blank" rel="noopener"
+    >P3X Redis UI</a>: Star 522</li>
+<li><a class="link" href="https://github.com/ekvedaras/redis-gui"  target="_blank" rel="noopener"
+    >redis-gui</a>: Star 338</li>
+</ol>
+<h2 id="redis-data-type">Redis Data Type</h2>
+<h3 id="basic">Basic</h3>
+<p>There are three types of Redis data type</p>
+<ul>
+<li>Strings</li>
+<li>Lists</li>
+<li>Hash</li>
+</ul>
+<h4 id="strings">Strings</h4>
+<p>Strings are the most basic kind of Redis value. Redis strings are binary safe, this means that a Redis string can contain any kind of data, for instance a JPEG image or a serialized Ruby object. A string value can be at max 512 Megabytes in length (<a class="link" href="https://redis.io/docs/manual/data-types/#strings%29"  target="_blank" rel="noopener"
+    >https://redis.io/docs/manual/data-types/#strings)</a>.</p>
+<p>The strings command can be found here, <a class="link" href="https://redis.io/commands/?group=string"  target="_blank" rel="noopener"
+    >https://redis.io/commands/?group=string</a>. These are some method on strings:</p>
+<ul>
+<li>The commond method for caching are <code>GET</code>, <code>MGET</code>, <code>SET</code>, <code>MSET</code>. It is possible to cache text or binary data in Redis, which could be anything from HTML pages and API responses to images and videos.</li>
+<li>for cache with automation expiration: <code>SETEX</code>, <code>EXPIRE</code>, <code>EXPIREAT</code>. This is very useful when database queries take a long time to run and can be cached for a given period time. Consequently, this avoids running those queries too frequently.</li>
+<li>for counting: <code>INCR</code> and <code>INCRBY</code>. Good examples of counters are page views, video views and like.</li>
+</ul>
+<h4 id="lists">Lists</h4>
+<p>Redis Lists are simply lists of strings, sorted by insertion order. It is possible to add elements to a Redis List pushing new elements on the head (on the left) or on the tail (on the right) of the list (<a class="link" href="https://redis.io/docs/manual/data-types/#lists%29"  target="_blank" rel="noopener"
+    >https://redis.io/docs/manual/data-types/#lists)</a>.</p>
+<h4 id="hashes">Hashes</h4>
+<p>Redis Hashes are maps between string fields and string values, so they are the perfect data type to represent objects (e.g. A user with a number of fields like name, surname, age, and so forth)</p>
+<h3 id="advance">Advance</h3>
+<ul>
+<li>Sets</li>
+<li>Sorted Sets</li>
+<li>Bitmaps</li>
+<li>HyperLogLogs</li>
+</ul>
+<h4 id="sets">Sets</h4>
+<p>Redis sets an unordered collection of Strings. It is possible to add, remove, and test for existence of members in O(1)</p>
+<h4 id="sorted-sets">Sorted Sets</h4>
+<h3 id="time-series">Time Series</h3>
+<h2 id="commands">Commands</h2>
+<h3 id="pubsub">Pub/Sub</h3>
+<h3 id="transaction">Transaction</h3>
+<h3 id="scripting">Scripting</h3>
+<h3 id="miscellaneous-commands">Miscellaneous Commands</h3>
+<hr>
+<p>References:</p>
+<ul>
+<li><a class="link" href="https://github.com/aysf/coding-notes"  target="_blank" rel="noopener"
+    >Coding Notes by aysf</a></li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/cheatsheet/">CheatSheet</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 Coding Notes
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
