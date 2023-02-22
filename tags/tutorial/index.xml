@@ -48,11 +48,11 @@
         <description>&lt;img src="https://ayw.codeberg.page/images/ruby.png" alt="Featured image of post Ruby Tutorial" /&gt;&lt;h2 id=&#34;ruby-courses&#34;&gt;Ruby Courses&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://ayw.codeberg.page/p/ruby-installation&#34; &gt;1. Ruby Installation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://ayw.codeberg.page/p/ruby-basic&#34; &gt;2. Ruby Operation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://ayw.codeberg.page/p/ruby-basic&#34; &gt;2. Ruby Basic&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://ayw.codeberg.page/p/ruby-oop&#34; &gt;3. Object Oriented in Ruby&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;&#34; &gt;4. Ruby Metaprogramming&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;&#34; &gt;5. Blocks, Proc, and Lambda&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;ruby-study-cases&#34;&gt;Ruby Study Cases&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://ayw.codeberg.page/tags/twito/&#34; &gt;1. Twitor, a Twit on Rails&lt;/a&gt;&lt;/li&gt;

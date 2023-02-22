@@ -2,16 +2,16 @@
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Learn basic of Ruby: variables, string, integer, self-assignment, comparison and condition operator, looping, method'>
-<title>Ruby Basic Operation</title>
+<title>Ruby Basic</title>
 
 <link rel='canonical' href='https://ayw.codeberg.page/p/ruby-basic/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Ruby Basic Operation'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Ruby Basic'>
 <meta property='og:description' content='Learn basic of Ruby: variables, string, integer, self-assignment, comparison and condition operator, looping, method'>
 <meta property='og:url' content='https://ayw.codeberg.page/p/ruby-basic/'>
 <meta property='og:site_name' content='Coding Notes'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Basic Syntax' /><meta property='article:published_time' content='2022-01-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-01-01T00:00:00&#43;00:00'/><meta property='og:image' content='https://ayw.codeberg.page/images/ruby.png' />
-<meta name="twitter:title" content="Ruby Basic Operation">
+<meta name="twitter:title" content="Ruby Basic">
 <meta name="twitter:description" content="Learn basic of Ruby: variables, string, integer, self-assignment, comparison and condition operator, looping, method"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://ayw.codeberg.page/images/ruby.png' />
     </head>
@@ -286,23 +286,46 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
+    <li><a href="#strong-object">Strong Object!</a></li>
     <li><a href="#variables">Variables</a>
       <ol>
         <li><a href="#variable-scope">Variable Scope</a></li>
       </ol>
     </li>
-    <li><a href="#self-assignment">Self Assignment</a></li>
-    <li><a href="#string-concatenation">String Concatenation</a></li>
-    <li><a href="#string-interpolation">String Interpolation</a></li>
+    <li><a href="#integer">Integer</a>
+      <ol>
+        <li><a href="#self-assignment">Self Assignment</a></li>
+        <li><a href="#integer-method">Integer method</a></li>
+      </ol>
+    </li>
+    <li><a href="#float">Float</a>
+      <ol>
+        <li><a href="#float-object">Float Object</a></li>
+      </ol>
+    </li>
+    <li><a href="#string">String</a>
+      <ol>
+        <li><a href="#string-concatenation">String Concatenation</a>
+          <ol>
+            <li><a href="#using-plus--sign">Using plus <code>+</code> sign</a></li>
+            <li><a href="#using-append">Using append</a></li>
+          </ol>
+        </li>
+        <li><a href="#string-multiplication">String Multiplication</a></li>
+        <li><a href="#string-interpolation">String Interpolation</a></li>
+      </ol>
+    </li>
     <li><a href="#arrays">Arrays</a>
       <ol>
-        <li><a href="#example">Example</a></li>
+        <li><a href="#get-array-element">Get Array Element</a></li>
+        <li><a href="#array-append">Array Append</a></li>
         <li><a href="#each-method">Each method</a></li>
       </ol>
     </li>
+    <li><a href="#symbol">Symbol</a></li>
     <li><a href="#hashes">Hashes</a>
       <ol>
-        <li><a href="#example-1">Example</a></li>
+        <li><a href="#example">Example</a></li>
         <li><a href="#symbols-in-hashes">Symbols in hashes</a></li>
         <li><a href="#nil">nil</a></li>
       </ol>
@@ -358,7 +381,7 @@
         <div class="article-image">
             <a href="/p/ruby-basic/">
                 
-                    <img src="/images/ruby.png" loading="lazy" alt="Featured image of post Ruby Basic Operation" />
+                    <img src="/images/ruby.png" loading="lazy" alt="Featured image of post Ruby Basic" />
                 
             </a>
         </div>
@@ -377,7 +400,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/ruby-basic/">Ruby Basic Operation</a>
+            <a href="/p/ruby-basic/">Ruby Basic</a>
         </h2>
     
         
@@ -418,7 +441,7 @@
 
 
                 <time class="article-time--reading">
-                    12 minute read
+                    15 minute read
                 </time>
             </div>
         
@@ -434,6 +457,21 @@
     
     
     <p>back to <a class="link" href="/p/ruby-tutorial" >Ruby tutorial index</a></p>
+<h2 id="strong-object">Strong Object!</h2>
+<p>To learn Ruby, we must first learn about the different object type available and how they work.</p>
+<p>Ruby is an extremely object oriented language with characteristic:</p>
+<ul>
+<li>No &ldquo;primitives&rdquo;</li>
+<li>Most everything is an object</li>
+</ul>
+<p>What is object?</p>
+<ul>
+<li>Similar to physical objects in real world like &lsquo;book&rsquo; or &lsquo;car&rsquo; object</li>
+<li>Object can represent abstract things like &lsquo;membership&rsquo; or &lsquo;grade&rsquo;</li>
+<li>Object have attributes (book object can be green, car object could be white with four doors)</li>
+<li>Object are instances of a class. While a class is a general type, object is a specific instance of that type.Because book have something in common, they have a cover, pages etc.</li>
+<li>Object have behaviors. In the real world, if we have a car object then it has behaviors. they can turn on and off, lock the door, turn on the radio etc.</li>
+</ul>
 <h2 id="variables">Variables</h2>
 <p>Variables are a way to access memory locations using an alias. Storing data to a variable is called <strong>assignment</strong>. Variables have multiple components: <strong>name</strong>, <strong>data</strong>, and <del>type</del>.</p>
 <p>To use a variable, we must define it first. Like <code>variable_name = value</code>. In Ruby, <code>=</code> does not mean that the values are <code>equal</code>. It means to <strong>assign the value on the right to the variable on the left</strong>.</p>
@@ -466,8 +504,26 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>The code above will print <code>5</code> and then <code>10</code>. Why? because post_count in method levl and outside not affect each other. If we want to have global variable that visible everywhere throghout the program, just put the dolar sign like <code>$log_level</code>.</p>
-<h2 id="self-assignment">Self Assignment</h2>
-<p>We can use shorthand like</p>
+<h2 id="integer">Integer</h2>
+<p>Try it in <code>irb</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="mi">4</span><span class="o">+</span><span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="mi">4</span><span class="o">-</span><span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="mi">4</span><span class="o">*</span><span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="mi">5</span><span class="o">/</span><span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="mi">4</span><span class="o">**</span><span class="mi">2</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="self-assignment">Self Assignment</h3>
+<p>In number, we can use shorthand like</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -484,9 +540,163 @@
 </span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">%=</span> <span class="mi">10</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="string-concatenation">String Concatenation</h2>
-<p>Combining strings is known as <strong>string concatenation</strong>. So if we put code like <code>puts &quot;Hello&quot; + &quot;Ruby&quot;</code>, it will produce output like <code>&quot;Hello Ruby&quot;</code></p>
-<h2 id="string-interpolation">String Interpolation</h2>
+</div><h3 id="integer-method">Integer method</h3>
+<p>Try it in <code>irb</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="mi">123</span><span class="o">.</span><span class="n">class</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The line above to know the class of object. it will return <code>Integer</code>, for Ruby &lt; 2.4, returns <code>Fixnum</code>.<br>
+Other integer methods can be seen here: <a class="link" href="https://ruby-doc.org/3.2.1/Integer.html"  target="_blank" rel="noopener"
+    >https://ruby-doc.org/3.2.1/Integer.html</a></p>
+<h2 id="float">Float</h2>
+<p>The second number type is float. In fact, in internal of Ruby, the both inherit from the common parent called Numeric.
+So they shared behaviour from the Numeric class but they has own behaviour as well.</p>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 112 105"
+      >
+      <g transform='translate(8,16)'>
+<path d='M 32,48 L 48,48' fill='none' stroke='currentColor'></path>
+<path d='M 48,48 L 64,48' fill='none' stroke='currentColor'></path>
+<path d='M 32,48 L 32,64' fill='none' stroke='currentColor'></path>
+<path d='M 48,16 L 48,48' fill='none' stroke='currentColor'></path>
+<path d='M 64,48 L 64,64' fill='none' stroke='currentColor'></path>
+<text text-anchor='middle' x='0' y='84' fill='currentColor' style='font-size:1em'>I</text>
+<text text-anchor='middle' x='8' y='84' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='16' y='84' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='24' y='84' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>N</text>
+<text text-anchor='middle' x='32' y='84' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='40' y='4' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='40' y='84' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='48' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='48' y='84' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='64' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='64' y='84' fill='currentColor' style='font-size:1em'>F</text>
+<text text-anchor='middle' x='72' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='72' y='84' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='80' y='4' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='80' y='84' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='88' y='84' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='96' y='84' fill='currentColor' style='font-size:1em'>t</text>
+</g>
+
+    </svg>
+  
+</div>
+<p>Try it in <code>irb</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="mi">10</span><span class="o">.</span><span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span><span class="o">.</span><span class="n">class</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="o">.</span><span class="n">class</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>add integer with float</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="n">x</span><span class="o">+</span><span class="n">y</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>if we peform math operation any integer with float, the result will change into float because the precision matter.</p>
+<h3 id="float-object">Float Object</h3>
+<p>try it in <code>irb</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="mi">123</span><span class="o">.</span><span class="mi">233</span><span class="o">.</span><span class="n">round</span>
+</span></span><span class="line"><span class="cl"><span class="mi">134</span><span class="o">.</span><span class="mi">3443</span><span class="o">.</span><span class="n">to_i</span>
+</span></span><span class="line"><span class="cl"><span class="mi">133</span><span class="o">.</span><span class="mi">343</span><span class="o">.</span><span class="n">floor</span>
+</span></span><span class="line"><span class="cl"><span class="mi">123</span><span class="o">.</span><span class="mi">313</span><span class="o">.</span><span class="n">ceil</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Other float method can be seen here <a class="link" href="https://ruby-doc.org/3.2.1/Float.html"  target="_blank" rel="noopener"
+    >https://ruby-doc.org/3.2.1/Float.html</a></p>
+<h2 id="string">String</h2>
+<p>is simply a sequence of characters</p>
+<ul>
+<li>it can contain numbers, letters, symbols</li>
+<li>also space, tabs, line returns</li>
+</ul>
+<p>The way we recognize the string it is deliminated with double quotes or single quotes.</p>
+<h3 id="string-concatenation">String Concatenation</h3>
+<h4 id="using-plus--sign">Using plus <code>+</code> sign</h4>
+<p>Combining strings is known as <strong>string concatenation</strong>. So if we put code like <code>puts &quot;Hello&quot; + &quot; Ruby&quot;</code>, it will produce output like <code>&quot;Hello Ruby&quot;</code>.</p>
+<h4 id="using-append">Using append</h4>
+<p>Try it with <code>irb</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="n">greeting</span> <span class="o">=</span> <span class="s2">&#34;Hello&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">greeting</span> <span class="o">&lt;&lt;</span> <span class="s1">&#39; &#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">greeting</span> <span class="o">&lt;&lt;</span> <span class="s1">&#39;Ruby&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="string-multiplication">String Multiplication</h3>
+<p>try this in <code>irb</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="s2">&#34;Yada&#34;</span> <span class="o">*</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># &#34;Yada Yada Yada&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mi">1</span> <span class="o">*</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;1&#34;</span> <span class="o">*</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># &#34;111&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mi">1</span><span class="o">.</span><span class="n">to_s</span> <span class="o">*</span> <span class="s2">&#34;3&#34;</span><span class="o">.</span><span class="n">to_i</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># &#34;111&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>See string methods here: <a class="link" href="https://ruby-doc.org/3.2.1/String.html"  target="_blank" rel="noopener"
+    >https://ruby-doc.org/3.2.1/String.html</a></p>
+<h3 id="string-interpolation">String Interpolation</h3>
 <p>There&rsquo;s a way to include the value of a variable inside a string. We can replace a variable with the value we assigned and include it in the string by inserting <code>#{variable_name}</code>, as shown below</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -503,8 +713,7 @@
 </div><p>There&rsquo;s one thing to be careful of with string interpolation. It can only be used in double quotes <code>&quot;</code>. If it&rsquo;s used with single quotes <code>'</code>, the variable won&rsquo;t be replaced with it value.</p>
 <h2 id="arrays">Arrays</h2>
 <p>We can use <code>arrays</code> to manage a group of data all at once. We can create an array as follows: <code>[value1, value2, ...]</code>. Each value in an array is known as an <code>element</code>. Using arrays, you can manage a collection of data as one group.</p>
-<h3 id="example">Example</h3>
-<p>Here are examples of array usage</p>
+<p>try it in <code>irb</code>:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -527,6 +736,58 @@
 </span></span><span class="line"><span class="cl"><span class="nb">puts</span> <span class="s2">&#34;My name is </span><span class="si">#{</span><span class="n">names</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="si">}</span><span class="s2">&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h3 id="get-array-element">Get Array Element</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="n">arr</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&#34;g&#34;</span><span class="p">,</span> <span class="s2">&#34;o&#34;</span><span class="p">,</span> <span class="s2">&#34;r&#34;</span><span class="p">,</span> <span class="s2">&#34;u&#34;</span><span class="p">,</span> <span class="s2">&#34;b&#34;</span><span class="p">,</span> <span class="s2">&#34;y&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">arr</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="c1"># &#34;r&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">arr</span><span class="o">[-</span><span class="mi">1</span><span class="o">]</span> <span class="c1"># &#34;y&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">arr</span><span class="o">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="o">]</span> <span class="c1"># [&#34;r&#34;,&#34;u&#34;,&#34;b&#34;,&#34;y&#34;]</span>
+</span></span><span class="line"><span class="cl"><span class="n">arr</span><span class="o">[-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="o">]</span> <span class="c1"># [&#34;b&#34;, &#34;y&#34;]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">arr</span><span class="o">[</span><span class="mi">2</span><span class="o">..</span><span class="mi">3</span><span class="o">]</span> <span class="c1"># [&#34;r&#34;, &#34;u&#34;]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="array-append">Array Append</h3>
+<ul>
+<li>using <code>&lt;&lt;</code> sign</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="n">my_arr</span> <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">my_arr</span> <span class="o">&lt;&lt;</span> <span class="s1">&#39;c&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>using index</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="n">my_arr</span><span class="o">[-</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;c&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
 </div><p>For each element of an array, a number is given like <code>0</code>, <code>1</code>, <code>2</code>, <code>...</code>. These number are known as <strong>index number</strong>.</p>
 <h3 id="each-method">Each method</h3>
 <p>The <code>each</code> method allows you to access each element of an array in a temporary variable, and apply the same code to it. For Instance, let&rsquo;s try to print each <code>name</code> in the previous example</p>
@@ -542,9 +803,43 @@
 </span></span><span class="line"><span class="cl"><span class="k">end</span>
 </span></span></code></pre></td></tr></table>
 </div>
+</div><p>other methods can be seen here: <a class="link" href="https://ruby-doc.org/3.2.1/Array.html"  target="_blank" rel="noopener"
+    >https://ruby-doc.org/3.2.1/Array.html</a></p>
+<h2 id="symbol">Symbol</h2>
+<p>what is symbol in Ruby?</p>
+<ul>
+<li>Like strings but cannot be edited</li>
+<li>Begin with a colon</li>
+<li>Not delimited by quotes</li>
+<li>lowercase, underscore, no_spaces</li>
+</ul>
+<p>Two main reasons why we use symbol</p>
+<ul>
+<li>symbols are uneditable</li>
+<li>symbols allow Ruby to better memory management</li>
+</ul>
+<p>test it:</p>
+<p>put this line code several time in <code>irb</code> and you&rsquo;ll notice that you get different numbers because it stored in memory in different places.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="s2">&#34;test&#34;</span><span class="o">.</span><span class="n">object_id</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>let try this line code and you&rsquo;ll get the same number. With symbol, Ruby expect this to label on data and expect them to stick around. It reserve the same item in memory, there is only symbol called <code>:test</code> in use and it doesn&rsquo;t garbage collection as often and allow application to be memory effecient.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rb" data-lang="rb"><span class="line"><span class="cl"><span class="ss">:test</span><span class="o">.</span><span class="n">object_id</span>
+</span></span></code></pre></td></tr></table>
+</div>
 </div><h2 id="hashes">Hashes</h2>
 <p>Like arrays, <strong>hashes</strong> are used to manage multiple groups of data. The difference is that hashes use <strong>keys</strong> instead of <strong>index numbers</strong>. With hashes, a key is paired with a value to form one element.</p>
-<h3 id="example-1">Example</h3>
+<h3 id="example">Example</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
